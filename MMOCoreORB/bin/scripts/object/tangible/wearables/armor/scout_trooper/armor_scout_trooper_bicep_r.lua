@@ -43,6 +43,10 @@
 
 object_tangible_wearables_armor_scout_trooper_armor_scout_trooper_bicep_r = object_tangible_wearables_armor_scout_trooper_shared_armor_scout_trooper_bicep_r:new {
 	templateType = ARMOROBJECT,
+	
+	objectMenuComponent = {"cpp", "ArmorObjectMenuComponent"},
+	
+	
 
 	--faction = "Imperial",
 
@@ -100,14 +104,14 @@ object_tangible_wearables_armor_scout_trooper_armor_scout_trooper_bicep_r = obje
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
-	kinetic = 15,
-	energy = 15,
-	electricity = 15,
-	stun = 15,
-	blast = 15,
-	heat = 15,
-	cold = 15,
-	acid = 15,
+	kinetic = 80,
+	energy = 80,
+	electricity = 80,
+	stun = 80,
+	blast = 80,
+	heat = 80,
+	cold = 80,
+	acid = 80,
 	lightSaber = 0
 }
 
