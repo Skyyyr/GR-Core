@@ -44,7 +44,7 @@
 object_tangible_wearables_armor_clone_trooper_armor_clone_trooper_imperial_s01_leggings = object_tangible_wearables_armor_clone_trooper_shared_armor_clone_trooper_imperial_s01_leggings:new {
 	templateType = ARMOROBJECT,
 
-	--objectMenuComponent = {"cpp", "ArmorObjectMenuComponent"},
+	objectMenuComponent = {"cpp", "ArmorObjectMenuComponent"},
 
 	faction = "Imperial",
 
@@ -110,14 +110,14 @@ object_tangible_wearables_armor_clone_trooper_armor_clone_trooper_imperial_s01_l
 	-- LIGHT, MEDIUM, HEAVY
 	rating = HEAVY,
 
-	kinetic = 15,
-	energy = 15,
-	electricity = 15,
-	stun = 15,
-	blast = 15,
-	heat = 15,
-	cold = 15,
-	acid = 15,
+	kinetic = 80,
+	energy = 80,
+	electricity = 80,
+	stun = 80,
+	blast = 80,
+	heat = 80,
+	cold = 80,
+	acid = 80,
 	lightSaber = 0
 }
 
