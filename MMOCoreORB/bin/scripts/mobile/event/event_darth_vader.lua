@@ -1,5 +1,5 @@
-Darth_Vader_event = Creature:new {
-	objectName = "@mob/",
+Event_Darth_Vader = Creature:new {
+	objectName = "",
 	customName = "Darth_Vader",
 	socialGroup = "imperial",
 	pvpFaction = "imperial",
@@ -35,4 +35,4 @@ Darth_Vader_event = Creature:new {
 	attacks = merge(lightsabermaster,forcepowermaster)
 }
 
-CreatureTemplates:addCreatureTemplate(Darth_Vader_event,"Darth_Vader_event")
+CreatureTemplates:addCreatureTemplate(event_darth_vader,"event_darth_vader")
