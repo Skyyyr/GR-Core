@@ -33,7 +33,7 @@ Vader = Creature:new {
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
 	attacks = {
-	    {"lightsabermaster",","forcepowermaster"}
+	    {"lightsabermaster","forcepowermaster"}
 	}
 }
 
