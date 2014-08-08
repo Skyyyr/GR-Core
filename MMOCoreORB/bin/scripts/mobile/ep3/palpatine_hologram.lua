@@ -1,5 +1,5 @@
 palpatine_hologram = Creature:new {
-	objectName = "@mob/creature_names:ep3_palpatine_hologram",
+	objectName = "",
 	customName = "Palpatine Hologram",
 	socialGroup = "",
 	pvpFaction = "",
