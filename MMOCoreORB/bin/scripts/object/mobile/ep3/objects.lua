@@ -44,10 +44,13 @@
 
 object_mobile_ep3_shared_general_grievous = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/ep3/shared_general_grievous.iff"
+	clientTemplateFileName = "object/mobile/ep3/shared_palpatine_hologram.iff"
+	
 
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_ep3_shared_general_grievous, "object/mobile/ep3/shared_general_grievous.iff")
+ObjectTemplates:addClientTemplate(object_mobile_ep3_shared_palpatine_hologram, "object/mobile/ep3/shared_palpatine_hologram.iff")
 
 --***********************************************************************************************************************************************************************
 
