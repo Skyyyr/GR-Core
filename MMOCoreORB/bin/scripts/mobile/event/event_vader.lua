@@ -1,6 +1,6 @@
 Vader = Creature:new {
 	objectName = "",
-	customName = "Darth_Vader",
+	customName = "Darth Vader",
 	socialGroup = "imperial",
 	pvpFaction = "imperial",
 	faction = "imperial",
@@ -32,7 +32,9 @@ Vader = Creature:new {
 	lootGroups = {},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = {
+	    {"lightsabermaster",","forcepowermaster"}
+	}
 }
 
 CreatureTemplates:addCreatureTemplate(vader, "vader")
