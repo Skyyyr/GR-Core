@@ -1,9 +1,9 @@
-Vader = Creature:new {
+event_darth_vader = Creature:new {
 	objectName = "",
-	customName = "Darth Vader",
-	socialGroup = "imperial",
-	pvpFaction = "imperial",
-	faction = "imperial",
+	customName = "Vader",
+	socialGroup = "",
+	pvpFaction = "",
+	faction = "",
 	level = 300,
 	chanceHit = 300,
 	damageMin = 1645,
@@ -22,7 +22,7 @@ Vader = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 3,
-	pvpBitmask = ATTACKABLE + KILLER,
+	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = 128,
 	diet = HERBIVORE,
@@ -32,9 +32,7 @@ Vader = Creature:new {
 	lootGroups = {},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
-	attacks = {
-	    {"lightsabermaster","forcepowermaster"}
-	}
+	attacks = merge(lightsabermaster,forcepowermaster)
 }
 
-CreatureTemplates:addCreatureTemplate(vader, "vader")
+CreatureTemplates:addCreatureTemplate(event_darth_vader, "event_darth_vader")
