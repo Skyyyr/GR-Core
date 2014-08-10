@@ -44,7 +44,7 @@
 object_tangible_wearables_armor_clone_trooper_armor_clone_trooper_neutral_s01_bicep_r = object_tangible_wearables_armor_clone_trooper_shared_armor_clone_trooper_neutral_s01_bicep_r:new {
 	templateType = ARMOROBJECT,
 
-	objectMenuComponent = {"cpp", "ArmorObjectMenuComponent"},
+	--objectMenuComponent = {"cpp", "ArmorObjectMenuComponent"},
 
 	--faction = "Imperial",
 
@@ -110,14 +110,14 @@ object_tangible_wearables_armor_clone_trooper_armor_clone_trooper_neutral_s01_bi
 	-- LIGHT, MEDIUM, HEAVY
 	rating = HEAVY,
 
-	kinetic = 80,
-	energy = 80,
-	electricity = 80,
-	stun = 80,
-	blast = 80,
-	heat = 80,
-	cold = 80,
-	acid = 80,
+	kinetic = 15,
+	energy = 15,
+	electricity = 15,
+	stun = 15,
+	blast = 15,
+	heat = 15,
+	cold = 15,
+	acid = 15,
 	lightSaber = 0
 }
 
