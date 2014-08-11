@@ -1,18 +1,18 @@
-event_darth_vader = Creature:new {
+palpatine_hologram = Creature:new {
 	objectName = "",
-	customName = "Vader",
+	customName = "Palpatine Hologram",
 	socialGroup = "",
 	pvpFaction = "",
 	faction = "",
 	level = 300,
-	chanceHit = 300,
-	damageMin = 1645,
-	damageMax = 3000,
-	baseXp = 25000,
-	baseHAM = 385000,
-	baseHAMmax = 550000,
-	armor = 3,
-	resists = {0,0,0,0,0,0,0,-1},
+	chanceHit = 0.28,
+	damageMin = 90,
+	damageMax = 110,
+	baseXp = 514,
+	baseHAM = 30000,
+	baseHAMmax = 33000,
+	armor = 0,
+	resists = {10,5,10,10,10,10,10,-1,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -21,18 +21,18 @@ event_darth_vader = Creature:new {
 	boneAmount = 0,
 	milk = 0,
 	tamingChance = 0,
-	ferocity = 3,
+	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = 128,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/darth_vader.iff"},
-	scale = 3,
+	templates = {"object/mobile/ep3/palpatine_hologram.iff"},
+		
 	lootGroups = {},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
 	attacks = merge(lightsabermaster,forcepowermaster)
 }
 
-CreatureTemplates:addCreatureTemplate(event_darth_vader, "event_darth_vader")
+CreatureTemplates:addCreatureTemplate(palpatine_hologram, "palpatine_hologram")

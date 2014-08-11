@@ -41,10 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_mobile_ep3_palpatine_hologram = object_mobile_ep3_shared_palpatine_hologram:new {
 
---Children folder includes
+}
 
--- Server Objects
-
-includeFile("mobile/ep3/general_grievous.lua")
-includeFile("mobile/ep3/palpatine_hologram.lua")
+ObjectTemplates:addTemplate(object_mobile_ep3_palpatine_hologram, "object/mobile/ep3/palpatine_hologram.iff")
