@@ -946,15 +946,13 @@ permissionMapRebel = {
 				cells = { 3465380, 3465381, 3465382, 3465383, 3465384, 3465385, 3465386, 3465387, 3465388, 3465389 },
 				conditions = 
 				{
-					{ permissionType = "missionState", mission = "theme_park_rebel", missionState = 128 },
-					{ permissionType = "faction" }
+					 { permissionType = "faction" }
 				}
 			},
 			{
 				cells = { 3465390, 3465391, 3465392, 3465393, 3465394 },
 				conditions = 
-				{
-					{ permissionType = "missionState", mission = "theme_park_rebel", missionState = 256 },
+				{					
 					{ permissionType = "faction" }
 				}
 			}
