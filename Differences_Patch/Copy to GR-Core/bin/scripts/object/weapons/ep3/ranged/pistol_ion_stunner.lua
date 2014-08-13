@@ -69,10 +69,10 @@ object_weapon_ranged_pistol_ep3_pistol_ion_stunner = object_weapon_ranged_pistol
 	attackType = RANGEDATTACK,
 
 	-- ENERGY, KINETIC, ELECTRICITY, STUN, BLAST, HEAT, COLD, ACID, FORCE, LIGHTSABER
-	damageType = ENERGY,
+	damageType = STUN,
 
 	-- NONE, LIGHT, MEDIUM, HEAVY
-	armorPiercing = NONE,
+	armorPiercing = LIGHT,
 
 	-- combat_rangedspecialize_bactarifle, combat_rangedspecialize_rifle, combat_rangedspecialize_pistol, combat_rangedspecialize_heavy, combat_rangedspecialize_carbine
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
@@ -114,8 +114,8 @@ object_weapon_ranged_pistol_ep3_pistol_ion_stunner = object_weapon_ranged_pistol
 	maxRange = 200,
 	maxRangeAccuracy = 100,
 
-	minDamage = 150,
-	maxDamage = 200,
+	minDamage = 450,
+	maxDamage = 700,
 
 	attackSpeed = 1,
 
