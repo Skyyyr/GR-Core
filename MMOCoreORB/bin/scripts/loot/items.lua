@@ -366,6 +366,7 @@ includeFile("items/loot_kit/sculpture_structure_6.lua")
 includeFile("items/loot_kit/sculpture_structure_7.lua")
 
 --loot_schematic sub-folder
+includeFile("items/loot_schematic/av21.lua")
 includeFile("items/loot_schematic/cantina_chair_schematic.lua")
 includeFile("items/loot_schematic/carved_bowl_schematic.lua")
 includeFile("items/loot_schematic/closed_basket_schematic.lua")

@@ -29,7 +29,14 @@ general_grievous = Creature:new {
 
 	templates = {"object/mobile/ep3/general_grievous.iff"},
 		
-	lootGroups = {},
+	lootGroups = {
+		{
+			groups = {
+				{group = "blacksun_rare", chance = 5000000}
+			},
+			lootChance = 2900000
+		}
+	},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
 	attacks = merge(lightsabermaster,forcepowermaster)
