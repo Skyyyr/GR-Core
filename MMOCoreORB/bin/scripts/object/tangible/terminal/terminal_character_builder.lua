@@ -1834,7 +1834,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 			{
 				"Vehicle Deeds",
 				{
-					"BARC Speeder", "object/tangible/deed/vehicle_deed/barc_speeder_deed.iff",
+					--"BARC Speeder", "object/tangible/deed/vehicle_deed/barc_speeder_deed.iff",
 					"Swoop", "object/tangible/deed/vehicle_deed/speederbike_swoop_deed.iff",
 					"Jetpack", "object/tangible/deed/vehicle_deed/jetpack_deed.iff",
 					"Speederbike", "object/tangible/deed/vehicle_deed/speederbike_deed.iff",
@@ -1934,8 +1934,9 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 							"Small Generic House Deed (Style 2)", "object/tangible/deed/player_house_deed/generic_house_small_style_02_deed.iff",
 							"Small Generic House Deed Floorplan 2 (Style 2)", "object/tangible/deed/player_house_deed/generic_house_small_style_02_floor_02_deed.iff",
 							"AT-AT House", "object/tangible/deed/player_house_deed/atat_house_deed.iff",
-							"Musty House", "object/tangible/deed/player_house_deed/musty_house_deed.iff",
-							"Jedi House", "object/tangible/deed/player_house_deed/jedi_house_deed.iff"
+							"Mustafar Bunker", "object/tangible/deed/player_house_deed/musty_house_deed.iff",
+							"Jedi Meditation House", "object/tangible/deed/player_house_deed/jedi_house_deed.iff",
+							"Bespin House", "object/tangible/deed/player_house_deed/bespin_house_deed.iff"
 						},
 						"City Deeds",
 						{
@@ -2186,18 +2187,18 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					"Veteran Reward (Imperial TIE Oppressor)", "object/tangible/veteran_reward/one_year_anniversary/painting_08.iff",
 					"Veteran Reward (Emperor's Eyes TIE Sentinel)", "object/tangible/veteran_reward/one_year_anniversary/painting_09.iff"
 				},
-				"Veteran Rewards (INCOMPLETE)",
-				{
-					"YT-1300 Couch Corner", "object/tangible/veteran_reward/frn_couch_falcon_corner_s01.iff",
-					"YT-1300 Couch Section", "object/tangible/veteran_reward/frn_couch_falcon_section_s01.iff",
-					"Darth Vader Toy", "object/tangible/veteran_reward/frn_vet_darth_vader_toy.iff",
-					"Jabba the Hutt Toy", "object/tangible/veteran_reward/frn_vet_jabba_toy.iff",
-					"Protocol Droid Toy", "object/tangible/veteran_reward/frn_vet_protocol_droid_toy.iff",
-					"R2 Droid Toy", "object/tangible/veteran_reward/frn_vet_r2_toy.iff",
-					"Stormtrooper Toy", "object/tangible/veteran_reward/frn_vet_stormtrooper_toy.iff",
-					"TIE Fighter Toy", "object/tangible/veteran_reward/frn_vet_tie_fighter_toy.iff",
-					"X-Wing Toy", "object/tangible/veteran_reward/frn_vet_x_wing_toy.iff"				
-				},
+				--"Veteran Rewards (INCOMPLETE)",
+				--{
+					--"YT-1300 Couch Corner", "object/tangible/veteran_reward/frn_couch_falcon_corner_s01.iff",
+					--"YT-1300 Couch Section", "object/tangible/veteran_reward/frn_couch_falcon_section_s01.iff",
+					--"Darth Vader Toy", "object/tangible/veteran_reward/frn_vet_darth_vader_toy.iff",
+					--"Jabba the Hutt Toy", "object/tangible/veteran_reward/frn_vet_jabba_toy.iff",
+					--"Protocol Droid Toy", "object/tangible/veteran_reward/frn_vet_protocol_droid_toy.iff",
+					--"R2 Droid Toy", "object/tangible/veteran_reward/frn_vet_r2_toy.iff",
+					--"Stormtrooper Toy", "object/tangible/veteran_reward/frn_vet_stormtrooper_toy.iff",
+					--"TIE Fighter Toy", "object/tangible/veteran_reward/frn_vet_tie_fighter_toy.iff",
+					--"X-Wing Toy", "object/tangible/veteran_reward/frn_vet_x_wing_toy.iff"				
+				--},
 				"Lighting",
 				{
 					"Candle (Style 1)", "object/tangible/furniture/all/frn_all_lamp_candlestick_free_s01_lit.iff",
