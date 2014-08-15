@@ -1,8 +1,8 @@
 /*
  * PlayerInfoCommand.h
  *
- *  Created on: 31/03/2012
- *      Author: victor
+ *  Created on: 15/08/2014
+ *      Author: OBI {SWGGR}
  */
 
 #ifndef PLAYERINFOCOMMAND_H_

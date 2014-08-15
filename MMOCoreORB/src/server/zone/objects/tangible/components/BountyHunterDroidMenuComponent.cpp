@@ -1,8 +1,8 @@
 /*
  * BountyHunterDroidMenuComponent.cpp
  *
- *  Created on: 01/19/2012
- *      Author: loshult
+ *  Created on: 15/08/2014
+ *      Author: OBI {SWGGR}
  */
 
 #include "BountyHunterDroidMenuComponent.h"
