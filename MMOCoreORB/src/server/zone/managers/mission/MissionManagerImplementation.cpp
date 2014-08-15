@@ -1,8 +1,8 @@
 /*
  * MissionManagerImplementation.cpp
  *
- *  Created on: 15/08/2014
- *      Author: OBI {SWGGR}
+ *  Created on: 21/06/2010
+ *      Author: victor
  */
 
 #include "server/zone/managers/mission/MissionManager.h"
@@ -20,7 +20,7 @@
 #include "server/zone/objects/mission/BountyMissionObjective.h"
 #include "server/zone/objects/creature/AiAgent.h"
 #include "server/zone/objects/region/Region.h"
-#include "server/zone/objects/area/LairSpawnArea.h"
+#include "server/zone/objects/area/SpawnArea.h"
 #include "server/zone/managers/resource/ResourceManager.h"
 #include "server/zone/managers/templates/TemplateManager.h"
 #include "server/zone/managers/planet/PlanetManager.h"
@@ -35,6 +35,7 @@
 #include "server/zone/objects/area/MissionReconActiveArea.h"
 #include "server/zone/Zone.h"
 #include "server/db/ServerDatabase.h"
+#include "server/zone/managers/stringid/StringIdManager.h"
 
 void MissionManagerImplementation::loadLuaSettings() {
 	try {
@@ -216,7 +217,8 @@ void MissionManagerImplementation::handleMissionAccept(MissionTerminal* missionT
 void MissionManagerImplementation::createDestroyMissionObjectives(MissionObject* mission, MissionTerminal* missionTerminal, CreatureObject* player) {
 	ManagedReference<DestroyMissionObjective*> objective = new DestroyMissionObjective(mission);
 	objective->setLairTemplateToSpawn(mission->getTargetOptionalTemplate());
-	objective->setDifficulty(mission->getDifficultyLevel());
+	objective->setDifficultyLevel(mission->getDifficultyLevel());
+	objective->setDifficulty(mission->getDifficulty());
 
 	ObjectManager::instance()->persistObject(objective, 1, "missionobjectives");
 
@@ -557,8 +559,15 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	}
 
 	int playerLevel = server->getPlayerManager()->calculatePlayerLevel(player);
-	int difficulty = System::random(randomLairSpawn->getMaxDifficulty() - randomLairSpawn->getMinDifficulty()) + randomLairSpawn->getMinDifficulty();
-	int diffDisplay = difficulty + playerLevel + 7;
+	int maxDiff = randomLairSpawn->getMaxDifficulty();
+	int minDiff = randomLairSpawn->getMinDifficulty();
+	int difficultyLevel = System::random(maxDiff - minDiff) + minDiff;
+	int difficulty = (difficultyLevel - minDiff) / ((maxDiff > (minDiff + 5) ? maxDiff - minDiff : 5) / 5);
+
+	if (difficulty == 5)
+		difficulty = 4;
+
+	int diffDisplay = difficultyLevel + playerLevel + 7;
 	if (player->isGrouped())
 		diffDisplay += player->getGroup()->getGroupLevel();
 	else
@@ -627,8 +636,8 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	mission->setMissionTargetName("@lair_n:" + lairTemplateObject->getName());
 	mission->setTargetTemplate(templateObject);
 	mission->setTargetOptionalTemplate(lairTemplate);
-	mission->setRewardCredits(System::random(difficulty * 100) + (difficulty * (player->isGrouped() ? 275 : 200)));
-	mission->setMissionDifficulty(difficulty, diffDisplay);
+	mission->setRewardCredits(System::random(difficultyLevel * 100) + (difficultyLevel * (player->isGrouped() ? 275 : 200)));
+	mission->setMissionDifficulty(difficultyLevel, diffDisplay, difficulty);
 	mission->setSize(randomLairSpawn->getSize());
 	mission->setFaction(faction);
 
@@ -641,9 +650,9 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	String messageDifficulty;
 	String missionType;
 
-	if (difficulty <= 20)
+	if (difficulty < 2)
 		messageDifficulty = "_easy";
-	else if (difficulty <= 40)
+	else if (difficulty == 2)
 		messageDifficulty = "_medium";
 	else
 		messageDifficulty = "_hard";
@@ -793,10 +802,6 @@ void MissionManagerImplementation::randomizeGenericBountyMission(CreatureObject*
 		}
 	}
 
-	int randTexts = System::random(randomTexts - 1) + 1;
-
-	mission->setMissionNumber(randTexts);
-
 	mission->setStartPlanet(playerZone->getZoneName());
 	mission->setStartPosition(player->getPositionX(), player->getPositionY(), playerZone->getZoneName());
 
@@ -806,8 +811,6 @@ void MissionManagerImplementation::randomizeGenericBountyMission(CreatureObject*
 	mission->setFaction(faction);
 
 	if (npcTarget) {
-		mission->setCreatorName(nm->makeCreatureName());
-
 		mission->setMissionTargetName(nm->makeCreatureName());
 
 		String planet = playerZone->getZoneName();
@@ -847,39 +850,89 @@ void MissionManagerImplementation::randomizeGenericBountyMission(CreatureObject*
 
 		mission->setTargetObjectId(0);
 
+		// Set the Title, Creator, and Description of the mission.
+
+		int randTexts = 0;
+
+		String stfFile = "mission/mission_bounty_neutral_";
+
+		UnicodeString numberOfEntries = StringIdManager::instance()->getStringId(String("@" + stfFile + diffString + ":" + "number_of_entries").hashCode());
+
+		if (!numberOfEntries.isEmpty()) {
+			randTexts =  System::random(Integer::valueOf(numberOfEntries.toString()) - 1) + 1;
+		} else {
+			randTexts = System::random(randomTexts - 1) + 1;
+		}
+
+		mission->setMissionNumber(randTexts);
 		mission->setMissionDifficulty(3 * creoTemplate->getLevel() + 7);
-		mission->setMissionTitle("mission/mission_bounty_neutral_" + diffString, "m" + String::valueOf(randTexts) + "t");
-		mission->setMissionDescription("mission/mission_bounty_neutral_" + diffString, "m" + String::valueOf(randTexts) + "d");
+
+		UnicodeString possibleCreatorName = StringIdManager::instance()->getStringId(String("@" + stfFile + diffString + ":" + "m" + String::valueOf(randTexts) + "o").hashCode());
+		String creatorName = "";
+
+
+		if (!possibleCreatorName.isEmpty()) {
+			creatorName = possibleCreatorName.toString();
+		} else {
+			creatorName = nm->makeCreatureName();
+		}
+
+		mission->setCreatorName(creatorName);
+		mission->setMissionTitle(stfFile + diffString, "m" + String::valueOf(randTexts) + "t");
+		mission->setMissionDescription(stfFile + diffString, "m" + String::valueOf(randTexts) + "d");
 	} else {
 		BountyTargetListElement* target = getRandomPlayerBounty(player);
 
 		if (target != NULL) {
 			mission->setTargetObjectId(target->getTargetId());
-
-			ZoneServer* zoneServer = player->getZoneServer();
-			if (zoneServer != NULL) {
-				ManagedReference<CreatureObject*> creature = zoneServer->getObject(target->getTargetId()).castTo<CreatureObject*>();
-
-				if (creature != NULL) {
-					String name = creature->getFirstName() + " " + creature->getLastName();
-					name = name.trim();
-					mission->setMissionTargetName(name);
-				}
-			}
-
-			randTexts = (target->getTargetId() % randomTexts) + 1;
-
-			mission->setCreatorName("GALACTIC EMPIRE");
-
 			mission->setEndPosition(0, 0, "", true);
-
 			mission->setTargetOptionalTemplate("");
 
-			mission->setMissionDifficulty(100);
+			ManagedReference<CreatureObject*> creature = server->getObject(target->getTargetId()).castTo<CreatureObject*>();
+			int level = 0;
+			String name = "";
+
+			if (creature != NULL) {
+				name = creature->getFirstName() + " " + creature->getLastName();
+				name = name.trim();
+
+				int difficulty = creature->getSkillMod("private_jedi_difficulty");
+				level = MIN(difficulty / 10, 250);
+			}
+
+			mission->setMissionTargetName(name);
+			mission->setMissionDifficulty(level);
 			mission->setRewardCredits(target->getReward());
 
-			mission->setMissionTitle("mission/mission_bounty_jedi", "m" + String::valueOf(randTexts) + "t");
-			mission->setMissionDescription("mission/mission_bounty_jedi", "m" + String::valueOf(randTexts) + "d");
+			// Set the Title, Creator, and Description of the mission.
+
+			int randTexts = 0;
+
+			String stfFile = "mission/mission_bounty_jedi";
+
+			UnicodeString numberOfEntries = StringIdManager::instance()->getStringId(String("@" + stfFile  + ":" + "number_of_entries").hashCode());
+
+			if (!numberOfEntries.isEmpty()) {
+				randTexts = System::random(Integer::valueOf(numberOfEntries.toString()) - 1) + 1;
+			} else {
+				randTexts = (target->getTargetId() % randomTexts) + 1;
+			}
+
+			mission->setMissionNumber(randTexts);
+
+			UnicodeString possibleCreatorName = StringIdManager::instance()->getStringId(String("@" + stfFile + "m" + String::valueOf(randTexts) + "o").hashCode());
+			String creatorName = "";
+
+
+			if (!possibleCreatorName.isEmpty()) {
+				creatorName = possibleCreatorName.toString();
+			} else {
+				creatorName = nm->makeCreatureName();
+			}
+
+			mission->setCreatorName(creatorName);
+			mission->setMissionTitle(stfFile, "m" + String::valueOf(randTexts) + "t");
+			mission->setMissionDescription(stfFile, "m" + String::valueOf(randTexts) + "d");
 		}
 	}
 
@@ -1471,7 +1524,7 @@ LairSpawn* MissionManagerImplementation::getRandomLairSpawn(CreatureObject* play
 	if (zone == NULL)
 		return NULL;
 
-	Vector<Reference<LairSpawn*> >* availableLairList;
+	Vector<Reference<LairSpawn*> >* availableLairList = NULL;
 
 	if (type == MissionObject::DESTROY) {
 		String missionGroup;
@@ -1498,13 +1551,13 @@ LairSpawn* MissionManagerImplementation::getRandomLairSpawn(CreatureObject* play
 			}
 		}
 
-		DestroyMissionSpawnGroup* destroyMissionGroup = CreatureTemplateManager::instance()->getDestroyMissionGroup(missionGroup.hashCode());
+		SpawnGroup* destroyMissionGroup = CreatureTemplateManager::instance()->getDestroyMissionGroup(missionGroup.hashCode());
 
 		if (destroyMissionGroup == NULL) {
 			return NULL;
 		}
 
-		availableLairList = destroyMissionGroup->getDestroyMissionList();
+		availableLairList = destroyMissionGroup->getSpawnList();
 
 	} else if (type == MissionObject::HUNTING) {
 		CreatureManager* creatureManager = zone->getCreatureManager();
@@ -1520,18 +1573,17 @@ LairSpawn* MissionManagerImplementation::getRandomLairSpawn(CreatureObject* play
 
 		spawnArea = worldAreas->get(rand);
 
-		if (spawnArea == NULL || !spawnArea->isLairSpawnArea()) {
+		if (spawnArea == NULL) {
 			return NULL;
 		}
 
-		LairSpawnArea* lairSpawnArea = cast<LairSpawnArea*>(spawnArea.get());
-		LairSpawnGroup* lairSpawnGroup = lairSpawnArea->getSpawnGroup();
+		SpawnGroup* spawnGroup = spawnArea->getSpawnGroup();
 
-		if (lairSpawnGroup == NULL) {
+		if (spawnGroup == NULL) {
 			return NULL;
 		}
 
-		availableLairList = lairSpawnGroup->getLairList();
+		availableLairList = spawnGroup->getSpawnList();
 	}
 
 	if (availableLairList == NULL || availableLairList->size() == 0) {
