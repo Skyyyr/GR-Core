@@ -47,8 +47,6 @@
 -- Server Objects
 includeFile("intangible/vehicle/barc_speeder_pcd.lua")
 includeFile("intangible/vehicle/jetpack_pcd.lua")
-includeFile("intangible/vehicle/landspeeder_desert_skiff_pcd.lua")
-includeFile("intangible/vehicle/landspeeder_ab1_pcd.lua")
 includeFile("intangible/vehicle/landspeeder_av21_pcd.lua")
 includeFile("intangible/vehicle/landspeeder_x31_pcd.lua")
 includeFile("intangible/vehicle/landspeeder_x34_pcd.lua")

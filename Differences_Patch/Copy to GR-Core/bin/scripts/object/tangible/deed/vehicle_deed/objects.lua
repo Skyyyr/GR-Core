@@ -40,419 +40,600 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
-
--- Landspeeder desert skiff pcd
-object_intangible_vehicle_shared_landspeeder_desert_skiff_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_desert_skiff_pcd.iff"
+object_tangible_deed_vehicle_deed_shared_barc_speeder_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_barc_speeder_deed.iff"
 
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_desert_skiff_pcd, "object/intangible/vehicle/shared_landspeeder_desert_skiff_pcd.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_barc_speeder_deed, "object/tangible/deed/vehicle_deed/shared_barc_speeder_deed.iff")
 
--- Landspeeder ab1 pcd
-object_intangible_vehicle_shared_landspeeder_ab1_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_ab1_pcd.iff"
 
-}
-
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_ab1_pcd, "object/intangible/vehicle/shared_landspeeder_desert_skiff_pcd.iff")
-
--- BARC Speeder pcd
-object_intangible_vehicle_shared_barc_speeder_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_pcd.iff"
-
-}
-
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_barc_speeder_pcd, "object/intangible/vehicle/shared_barc_speeder_pcd.iff")
-
-object_intangible_vehicle_shared_jetpack_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_jetpack_pcd.iff"
+object_tangible_deed_vehicle_deed_shared_jetpack_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_jetpack_deed.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
-	appearanceFilename = "appearance/jetpack_mandalorian_s01.apt",
+	appearanceFilename = "appearance/eqp_tool_datapad.apt",
 	arrangementDescriptorFilename = "",
 
+	certificationsRequired = {},
 	clearFloraRadius = 0,
 	clientDataFile = "",
-	clientGameObjectType = 2056,
+	clientGameObjectType = 8388613,
 	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
 	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
+	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 0,
-	containerVolumeLimit = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
 
-	detailedDescription = "@monster_detail:jetpack",
+	detailedDescription = "@pet_deed:jetpack",
 
-	gameObjectType = 2056,
+	gameObjectType = 8388613,
 
 	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
+	lookAtText = "",
 
 	noBuildRadius = 0,
 
-	objectName = "@monster_name:jetpack",
+	objectName = "@pet_deed:jetpack",
 	onlyVisibleInTools = 0,
 
+	paletteColorCustomizationVariables = {},
 	portalLayoutFilename = "",
 
-	scale = 0,
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
 	scaleThresholdBeforeExtentTest = 0.5,
 	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/mount_pcd.iff",
-	snapToTerrain = 0,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
 	surfaceType = 0,
 
+	targetable = 1,
 	totalCellNumber = 0,
 
-	clientObjectCRC = 2096609656,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/intangible/vehicle/shared_vehicle_pcd_base.iff"}
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 2560190060,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff"}
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_jetpack_pcd, "object/intangible/vehicle/shared_jetpack_pcd.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_jetpack_deed, "object/tangible/deed/vehicle_deed/shared_jetpack_deed.iff")
 
-object_intangible_vehicle_shared_landspeeder_av21_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_av21_pcd.iff"
+object_tangible_deed_vehicle_deed_shared_landspeeder_av21_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_landspeeder_av21_deed.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
-	appearanceFilename = "appearance/landspeeder_av21.apt",
+	appearanceFilename = "appearance/eqp_tool_datapad.apt",
 	arrangementDescriptorFilename = "",
 
+	certificationsRequired = {},
 	clearFloraRadius = 0,
 	clientDataFile = "",
-	clientGameObjectType = 2056,
+	clientGameObjectType = 8388613,
 	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
 	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
+	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 0,
-	containerVolumeLimit = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
 
-	detailedDescription = "@monster_detail:landspeeder_av21",
+	detailedDescription = "@pet_deed:landspeeder_av21",
 
-	gameObjectType = 2056,
+	gameObjectType = 8388613,
 
 	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
+	lookAtText = "",
 
 	noBuildRadius = 0,
 
-	objectName = "@monster_name:landspeeder_av21",
+	objectName = "@pet_deed:landspeeder_av21",
 	onlyVisibleInTools = 0,
 
+	paletteColorCustomizationVariables = {},
 	portalLayoutFilename = "",
 
-	scale = 0,
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
 	scaleThresholdBeforeExtentTest = 0.5,
 	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/mount_pcd.iff",
-	snapToTerrain = 0,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
 	surfaceType = 0,
 
+	targetable = 1,
 	totalCellNumber = 0,
 
-	clientObjectCRC = 3762629621,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/intangible/vehicle/shared_vehicle_pcd_base.iff"}
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 3746524983,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff"}
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_av21_pcd, "object/intangible/vehicle/shared_landspeeder_av21_pcd.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_landspeeder_av21_deed, "object/tangible/deed/vehicle_deed/shared_landspeeder_av21_deed.iff")
 
-object_intangible_vehicle_shared_landspeeder_x31_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_x31_pcd.iff"
+object_tangible_deed_vehicle_deed_shared_landspeeder_x31_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_landspeeder_x31_deed.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
-	appearanceFilename = "appearance/landspeeder_luke.apt",
+	appearanceFilename = "appearance/eqp_tool_datapad.apt",
 	arrangementDescriptorFilename = "",
 
+	certificationsRequired = {},
 	clearFloraRadius = 0,
 	clientDataFile = "",
-	clientGameObjectType = 2056,
+	clientGameObjectType = 8388613,
 	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
 	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
+	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 0,
-	containerVolumeLimit = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
 
-	detailedDescription = "@monster_detail:landspeeder_x31",
+	detailedDescription = "@pet_deed:landspeeder_x31",
 
-	gameObjectType = 2056,
+	gameObjectType = 8388613,
 
 	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
+	lookAtText = "",
 
 	noBuildRadius = 0,
 
-	objectName = "@monster_name:landspeeder_x31",
+	objectName = "@pet_deed:landspeeder_x31",
 	onlyVisibleInTools = 0,
 
+	paletteColorCustomizationVariables = {},
 	portalLayoutFilename = "",
 
-	scale = 0,
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
 	scaleThresholdBeforeExtentTest = 0.5,
 	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/mount_pcd.iff",
-	snapToTerrain = 0,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
 	surfaceType = 0,
 
+	targetable = 1,
 	totalCellNumber = 0,
 
-	clientObjectCRC = 3148893162,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/intangible/vehicle/shared_vehicle_pcd_base.iff"}
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 3199159464,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff"}
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_x31_pcd, "object/intangible/vehicle/shared_landspeeder_x31_pcd.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_landspeeder_x31_deed, "object/tangible/deed/vehicle_deed/shared_landspeeder_x31_deed.iff")
 
-object_intangible_vehicle_shared_landspeeder_x34_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_x34_pcd.iff"
+object_tangible_deed_vehicle_deed_shared_landspeeder_x34_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_landspeeder_x34_deed.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
-	appearanceFilename = "appearance/landspeeder_luke.apt",
+	appearanceFilename = "appearance/eqp_tool_datapad.apt",
 	arrangementDescriptorFilename = "",
 
+	certificationsRequired = {},
 	clearFloraRadius = 0,
 	clientDataFile = "",
-	clientGameObjectType = 2056,
+	clientGameObjectType = 8388613,
 	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
 	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
+	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 0,
-	containerVolumeLimit = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
 
-	detailedDescription = "@monster_detail:landspeeder_x34",
+	detailedDescription = "@pet_deed:landspeeder_x34",
 
-	gameObjectType = 2056,
+	gameObjectType = 8388613,
 
 	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
+	lookAtText = "",
 
 	noBuildRadius = 0,
 
-	objectName = "@monster_name:landspeeder_x34",
+	objectName = "@pet_deed:landspeeder_x34",
 	onlyVisibleInTools = 0,
 
+	paletteColorCustomizationVariables = {},
 	portalLayoutFilename = "",
 
-	scale = 0,
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
 	scaleThresholdBeforeExtentTest = 0.5,
 	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/mount_pcd.iff",
-	snapToTerrain = 0,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
 	surfaceType = 0,
 
+	targetable = 1,
 	totalCellNumber = 0,
 
-	clientObjectCRC = 2364632781,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/intangible/vehicle/shared_vehicle_pcd_base.iff"}
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 905926205,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff"}
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_x34_pcd, "object/intangible/vehicle/shared_landspeeder_x34_pcd.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_landspeeder_x34_deed, "object/tangible/deed/vehicle_deed/shared_landspeeder_x34_deed.iff")
 
-object_intangible_vehicle_shared_speederbike_flash_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_speederbike_flash_pcd.iff"
+object_tangible_deed_vehicle_deed_shared_speederbike_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_speederbike_deed.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
-	appearanceFilename = "appearance/flash_speeder.apt",
+	appearanceFilename = "appearance/eqp_tool_datapad.apt",
 	arrangementDescriptorFilename = "",
 
+	certificationsRequired = {},
 	clearFloraRadius = 0,
 	clientDataFile = "",
-	clientGameObjectType = 2056,
+	clientGameObjectType = 8388613,
 	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
 	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
+	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 0,
-	containerVolumeLimit = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
 
-	detailedDescription = "@monster_detail:speederbike_flash",
+	detailedDescription = "@pet_deed:speederbike",
 
-	gameObjectType = 2056,
+	gameObjectType = 8388613,
 
 	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
+	lookAtText = "",
 
 	noBuildRadius = 0,
 
-	objectName = "@monster_name:speederbike_flash",
+	objectName = "@pet_deed:speederbike",
 	onlyVisibleInTools = 0,
 
+	paletteColorCustomizationVariables = {},
 	portalLayoutFilename = "",
 
-	scale = 0,
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
 	scaleThresholdBeforeExtentTest = 0.5,
 	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/mount_pcd.iff",
-	snapToTerrain = 0,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
 	surfaceType = 0,
 
+	targetable = 1,
 	totalCellNumber = 0,
 
-	clientObjectCRC = 1448247515,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/intangible/vehicle/shared_vehicle_pcd_base.iff"}
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 4075476273,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff"}
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_speederbike_flash_pcd, "object/intangible/vehicle/shared_speederbike_flash_pcd.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_speederbike_deed, "object/tangible/deed/vehicle_deed/shared_speederbike_deed.iff")
 
-object_intangible_vehicle_shared_speederbike_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_speederbike_pcd.iff"
+object_tangible_deed_vehicle_deed_shared_speederbike_flash_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_speederbike_flash_deed.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
-	appearanceFilename = "appearance/speeder_bike.apt",
+	appearanceFilename = "appearance/eqp_tool_datapad.apt",
 	arrangementDescriptorFilename = "",
 
+	certificationsRequired = {},
 	clearFloraRadius = 0,
 	clientDataFile = "",
-	clientGameObjectType = 2056,
+	clientGameObjectType = 8388613,
 	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
 	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
+	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 0,
-	containerVolumeLimit = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
 
-	detailedDescription = "@monster_detail:speederbike",
+	detailedDescription = "@pet_deed:speederbike_flash",
 
-	gameObjectType = 2056,
+	gameObjectType = 8388613,
 
 	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
+	lookAtText = "",
 
 	noBuildRadius = 0,
 
-	objectName = "@monster_name:speederbike",
+	objectName = "@pet_deed:speederbike_flash",
 	onlyVisibleInTools = 0,
 
+	paletteColorCustomizationVariables = {},
 	portalLayoutFilename = "",
 
-	scale = 0,
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
 	scaleThresholdBeforeExtentTest = 0.5,
 	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/mount_pcd.iff",
-	snapToTerrain = 0,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
 	surfaceType = 0,
 
+	targetable = 1,
 	totalCellNumber = 0,
 
-	clientObjectCRC = 3659586517,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/intangible/vehicle/shared_vehicle_pcd_base.iff"}
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 1892530279,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff"}
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_speederbike_pcd, "object/intangible/vehicle/shared_speederbike_pcd.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_speederbike_flash_deed, "object/tangible/deed/vehicle_deed/shared_speederbike_flash_deed.iff")
 
-object_intangible_vehicle_shared_speederbike_swoop_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_speederbike_swoop_pcd.iff"
+object_tangible_deed_vehicle_deed_shared_speederbike_swoop_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_speederbike_swoop_deed.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
-	appearanceFilename = "appearance/swoop_bike.apt",
+	appearanceFilename = "appearance/eqp_tool_datapad.apt",
 	arrangementDescriptorFilename = "",
 
+	certificationsRequired = {},
 	clearFloraRadius = 0,
 	clientDataFile = "",
-	clientGameObjectType = 2056,
+	clientGameObjectType = 8388613,
 	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
 	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
+	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 0,
-	containerVolumeLimit = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
 
-	detailedDescription = "@monster_detail:speederbike_swoop",
+	detailedDescription = "@pet_deed:speederbike_swoop",
 
-	gameObjectType = 2056,
+	gameObjectType = 8388613,
 
 	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
+	lookAtText = "",
 
 	noBuildRadius = 0,
 
-	objectName = "@monster_name:speederbike_swoop",
+	objectName = "@pet_deed:speederbike_swoop",
 	onlyVisibleInTools = 0,
 
+	paletteColorCustomizationVariables = {},
 	portalLayoutFilename = "",
 
-	scale = 0,
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
 	scaleThresholdBeforeExtentTest = 0.5,
 	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/mount_pcd.iff",
-	snapToTerrain = 0,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
 	surfaceType = 0,
 
+	targetable = 1,
 	totalCellNumber = 0,
 
-	clientObjectCRC = 2233671002,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/intangible/vehicle/shared_vehicle_pcd_base.iff"}
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 495473751,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff"}
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_speederbike_swoop_pcd, "object/intangible/vehicle/shared_speederbike_swoop_pcd.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_speederbike_swoop_deed, "object/tangible/deed/vehicle_deed/shared_speederbike_swoop_deed.iff")
 
-object_intangible_vehicle_shared_vehicle_pcd_base = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_vehicle_pcd_base.iff"
+object_tangible_deed_vehicle_deed_shared_vehicle_deed_base = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff"
+	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
+--[[
+	appearanceFilename = "appearance/pv_landspeeder_luke.sat",
+	arrangementDescriptorFilename = "",
+
+	certificationsRequired = {},
+	clearFloraRadius = 0,
+	clientDataFile = "",
+	clientGameObjectType = 8388613,
+	collisionActionBlockFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
+	collisionMaterialBlockFlags = 0,
+	collisionMaterialFlags = 1,
+	collisionMaterialPassFlags = 0,
+	containerType = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
+
+	detailedDescription = "@pet_deed:vehicle_deed_base",
+
+	gameObjectType = 8388613,
+
+	locationReservationRadius = 0,
+	lookAtText = "",
+
+	noBuildRadius = 0,
+
+	objectName = "@pet_deed:vehicle_deed_base",
+	onlyVisibleInTools = 0,
+
+	paletteColorCustomizationVariables = {},
+	portalLayoutFilename = "",
+
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
+	scaleThresholdBeforeExtentTest = 0.5,
+	sendToClient = 1,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
+	surfaceType = 0,
+
+	targetable = 1,
+	totalCellNumber = 0,
+
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 504910832,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff"}
+]]
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_vehicle_deed_base, "object/tangible/deed/vehicle_deed/shared_vehicle_deed_base.iff")
+
+object_tangible_deed_vehicle_deed_shared_vehicular_prototype_bike_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_vehicular_prototype_bike_deed.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
 	appearanceFilename = "appearance/pv_speeder_bike.sat",
 	arrangementDescriptorFilename = "",
 
+	certificationsRequired = {},
 	clearFloraRadius = 0,
 	clientDataFile = "",
-	clientGameObjectType = 2056,
+	clientGameObjectType = 8211,
 	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
 	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
+	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 0,
-	containerVolumeLimit = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
 
-	detailedDescription = "",
+	detailedDescription = "@pet_deed:vehicular_prototype_bike",
 
-	gameObjectType = 2056,
+	gameObjectType = 8211,
 
 	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
+	lookAtText = "",
 
 	noBuildRadius = 0,
 
-	objectName = "",
+	objectName = "@pet_deed:vehicular_prototype_bike",
 	onlyVisibleInTools = 0,
 
+	paletteColorCustomizationVariables = {},
 	portalLayoutFilename = "",
 
-	scale = 0,
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
 	scaleThresholdBeforeExtentTest = 0.5,
 	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/mount_pcd.iff",
-	snapToTerrain = 0,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
 	surfaceType = 0,
 
+	targetable = 1,
 	totalCellNumber = 0,
 
-	clientObjectCRC = 2853503513,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff"}
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 1262265566,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff"}
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_vehicle_pcd_base, "object/intangible/vehicle/shared_vehicle_pcd_base.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_vehicular_prototype_bike_deed, "object/tangible/deed/vehicle_deed/shared_vehicular_prototype_bike_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_vehicular_prototype_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_vehicular_prototype_deed.iff"
+	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
+--[[
+	appearanceFilename = "appearance/monstrosity.sat",
+	arrangementDescriptorFilename = "",
+
+	certificationsRequired = {},
+	clearFloraRadius = 0,
+	clientDataFile = "",
+	clientGameObjectType = 8211,
+	collisionActionBlockFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
+	collisionMaterialBlockFlags = 0,
+	collisionMaterialFlags = 1,
+	collisionMaterialPassFlags = 0,
+	containerType = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
+
+	detailedDescription = "@pet_deed:vehicular_prototype",
+
+	gameObjectType = 8211,
+
+	locationReservationRadius = 0,
+	lookAtText = "",
+
+	noBuildRadius = 0,
+
+	objectName = "@pet_deed:vehicular_prototype",
+	onlyVisibleInTools = 0,
+
+	paletteColorCustomizationVariables = {},
+	portalLayoutFilename = "",
+
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
+	scaleThresholdBeforeExtentTest = 0.5,
+	sendToClient = 1,
+	slotDescriptorFilename = "",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
+	surfaceType = 0,
+
+	targetable = 1,
+	totalCellNumber = 0,
+
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 3990622047,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff"}
+]]
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_vehicular_prototype_deed, "object/tangible/deed/vehicle_deed/shared_vehicular_prototype_deed.iff")

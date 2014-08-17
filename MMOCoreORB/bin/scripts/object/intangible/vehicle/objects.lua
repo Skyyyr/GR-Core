@@ -40,23 +40,6 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
-
--- Landspeeder desert skiff pcd
-object_intangible_vehicle_shared_landspeeder_desert_skiff_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_desert_skiff_pcd.iff"
-
-}
-
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_desert_skiff_pcd, "object/intangible/vehicle/shared_landspeeder_desert_skiff_pcd.iff")
-
--- Landspeeder ab1 pcd
-object_intangible_vehicle_shared_landspeeder_ab1_pcd = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_ab1_pcd.iff"
-
-}
-
-ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_ab1_pcd, "object/intangible/vehicle/shared_landspeeder_desert_skiff_pcd.iff")
-
 -- BARC Speeder pcd
 object_intangible_vehicle_shared_barc_speeder_pcd = SharedIntangibleObjectTemplate:new {
 	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_pcd.iff"

@@ -48,22 +48,6 @@ object_mobile_vehicle_shared_barc_speeder = SharedCreatureObjectTemplate:new {
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_barc_speeder, "object/mobile/vehicle/shared_barc_speeder.iff")
 
 
-object_mobile_vehicle_shared_barc_speeder = SharedCreatureObjectTemplate:new {
-	clientTemplateFileName = "object/mobile/vehicle/shared_landspeeder_desert_skiff.iff"
-
-}
-
-ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_landspeeder_desert_skiff, "object/mobile/vehicle/shared_landspeeder_dessert_skiff.iff")
-
-
-object_mobile_vehicle_shared_barc_speeder = SharedCreatureObjectTemplate:new {
-	clientTemplateFileName = "object/mobile/vehicle/shared_landerspeeder_ab1.iff"
-
-}
-
-ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_landspeeder_ab1, "object/mobile/vehicle/shared_landspeeder_ab1.iff")
-
-
 object_mobile_vehicle_shared_jetpack = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/mobile/vehicle/shared_jetpack.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
