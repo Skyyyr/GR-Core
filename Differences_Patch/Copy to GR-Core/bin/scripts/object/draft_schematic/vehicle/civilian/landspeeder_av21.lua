@@ -41,22 +41,40 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_building_player_sm_hut_house = object_building_player_shared_sm_hut_house:new {
-	lotSize = 2,
-	baseMaintenanceRate = 10,
-	allowedZones = {"naboo", "taanab", "corellia", "tatooine", "rori", "lok", "talus"},
-	publicStructure = 0,
-	skillMods = {
-		{"private_medical_rating", 300},
-		{"private_buff_mind", 300},
-		{"private_med_battle_fatigue", 15}
-	},
-	childObjects = {
+object_draft_schematic_vehicle_civilian_landspeeder_av21 = object_draft_schematic_vehicle_civilian_shared_landspeeder_av21:new {
 
-	},
-	constructionMarker = "object/building/player/construction/construction_player_house_corellia_large_style_01.iff",
-	length = 5,
-	width = 7
+   templateType = DRAFTSCHEMATIC,
+
+   customObjectName = "AV-21 Landspeeder",
+
+   craftingToolTab = 16, -- (See DraftSchemticImplementation.h)
+   complexity = 25, 
+   size = 1, 
+
+   xpType = "crafting_general", 
+   xp = 1800, 
+
+   assemblySkill = "general_assembly", 
+   experimentingSkill = "general_experimentation", 
+   customizationSkill = "clothing_customization", 
+
+   customizationOptions = {},
+   customizationStringNames = {},
+   customizationDefaults = {},
+
+   ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
+   ingredientTitleNames = {"vehicle_body", "structural_frame"},
+   ingredientSlotType = {0, 0},
+   resourceTypes = {"metal_nonferrous", "metal_ferrous"},
+   resourceQuantities = {9125, 7125},
+   contribution = {100, 100},
+
+
+   targetTemplate = "object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff",
+
+   additionalTemplates = {
+              "object/tangible/deed/vehicle_deed/shared_landspeeder_av21_deed.iff",
+             }
+
 }
-
-ObjectTemplates:addTemplate(object_building_player_sm_hut_house, "object/building/player/sm_hut_house.iff")
+ObjectTemplates:addTemplate(object_draft_schematic_vehicle_civilian_landspeeder_av21, "object/draft_schematic/vehicle/civilian/landspeeder_av21.iff")

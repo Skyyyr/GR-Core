@@ -44,7 +44,7 @@
 object_building_player_generic_medium_window_s01 = object_building_player_shared_generic_medium_window_s01:new {
 	lotSize = 2,
 	baseMaintenanceRate = 10,
-	allowedZones = {"naboo", "taanab"},
+	allowedZones = {"naboo", "taanab", "corellia", "tatooine", "rori", "lok", "talus"},
 	publicStructure = 0,
 	skillMods = {
 		{"private_medical_rating", 300},

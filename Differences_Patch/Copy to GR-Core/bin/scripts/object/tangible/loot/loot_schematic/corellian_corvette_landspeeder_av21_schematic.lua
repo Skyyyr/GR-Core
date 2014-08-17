@@ -41,22 +41,13 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_building_player_sm_hut_house = object_building_player_shared_sm_hut_house:new {
-	lotSize = 2,
-	baseMaintenanceRate = 10,
-	allowedZones = {"naboo", "taanab", "corellia", "tatooine", "rori", "lok", "talus"},
-	publicStructure = 0,
-	skillMods = {
-		{"private_medical_rating", 300},
-		{"private_buff_mind", 300},
-		{"private_med_battle_fatigue", 15}
-	},
-	childObjects = {
-
-	},
-	constructionMarker = "object/building/player/construction/construction_player_house_corellia_large_style_01.iff",
-	length = 5,
-	width = 7
+object_tangible_loot_loot_schematic_corellian_corvette_landspeeder_av21_schematic = object_tangible_loot_loot_schematic_shared_corellian_corvette_landspeeder_av21_schematic:new {
+	templateType = LOOTSCHEMATIC,
+	objectMenuComponent = {"cpp", "LootSchematicMenuComponent"},
+	attributeListComponent = "LootSchematicAttributeListComponent",
+	requiredSkill = "combat_smuggler_master",
+	targetDraftSchematic = "object/draft_schematic/vehicle/civilian/landspeeder_av21.iff",
+	targetUseCount = 15
 }
 
-ObjectTemplates:addTemplate(object_building_player_sm_hut_house, "object/building/player/sm_hut_house.iff")
+ObjectTemplates:addTemplate(object_tangible_loot_loot_schematic_corellian_corvette_landspeeder_av21_schematic, "object/tangible/loot/loot_schematic/corellian_corvette_landspeeder_av21_schematic.iff")
