@@ -1841,7 +1841,9 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					--"Flash Speeder", "object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff",
 					--"Landspeeder AV-21", "object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff",
 					"Landspeeder X-31", "object/tangible/deed/vehicle_deed/landspeeder_x31_deed.iff",
-					"Landspeeder X-34", "object/tangible/deed/vehicle_deed/landspeeder_x34_deed.iff"
+					"Landspeeder X-34", "object/tangible/deed/vehicle_deed/landspeeder_x34_deed.iff",
+					"Landspeeder AB-1", "object/tangible/deed/vehicle_deed/landspeeder_ab1_deed.iff",
+					"Desert Skiff", "object/tangible/deed/vehicle_deed/landspeeder_desert_skiff_deed.iff"
 				},
 				"Structure Deeds",
 				{
