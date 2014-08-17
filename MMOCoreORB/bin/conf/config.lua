@@ -191,7 +191,8 @@ TreFiles = {
 	"gr_publish_01_01.tre",
 	"gr_publish_01_02.tre",
 	"gr_publish_01_03.tre",
-	"gr_publish_02_01.tre"
+	"gr_publish_02_01.tre",
+	"gr_publish_02_02.tre"
 }
 
 --Status Server Config
