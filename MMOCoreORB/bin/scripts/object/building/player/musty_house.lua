@@ -44,7 +44,7 @@
 object_building_player_musty_house = object_building_player_shared_musty_house:new {
 	lotSize = 4,
 	baseMaintenanceRate = 30,
-	allowedZones = {"naboo", "taanab", "corellia", "tatooine", "rori", "lok", "talus"},
+	allowedZones = {"naboo", "taanab", "corellia", "tatooine", "rori", "lok", "talus", "dathomir"},
 	publicStructure = 0,
 	skillMods = {
 		{"private_medical_rating", 300},
