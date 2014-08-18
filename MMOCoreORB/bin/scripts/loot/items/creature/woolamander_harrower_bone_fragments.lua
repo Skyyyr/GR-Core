@@ -7,7 +7,7 @@ woolamander_harrower_bone_fragments = {
 	directObjectTemplate = "object/tangible/component/armor/bone_fragment_woolamander_harrower.iff",
 	craftingValues = {
 		{"armor_special_type",0,0,0,0},
-		{"armor_special_effectiveness",10,20,30,0},
+		{"armor_special_effectiveness",10,20,30,},
 		{"useCount",100,100,0},
 	},
 	customizationStringNames = {},
