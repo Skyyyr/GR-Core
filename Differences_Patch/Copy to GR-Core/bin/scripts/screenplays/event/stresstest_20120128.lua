@@ -91,8 +91,8 @@ end
 
 function stresstest_20120128:barkShuttleLocation(pBarker)
 	if (pBarker ~= nil) then
-		spatialChat(pBarker, "\\#881100Greetings Players!\n\nTo Obtain jedi, you must recieve 30 badges Easy & Hard ones  and complete 1 themepark. . Character Builder Terminals will be everywhere. Thanks for playing!\n\nThanks for choosing SWGGR <OBI FREDDY LASKO DOGGJR NICK>~")
-		createEvent(15000, "stresstest_20120128", "barkShuttleLocation", pBarker)
+		spatialChat(pBarker, "\\#881100Greetings Players!\n\nTo Obtain jedi, you must recieve 30 badges Easy & Hard ones  and complete 2 themeparks . . Character Builder Terminals will be everywhere. SWGGR city can be found at -1406 -5552 corellia. Thanks for playing!\n\nThanks for choosing SWGGR <OBI FREDDY LASKO DOGGJR NICK>~")
+		createEvent(850000, "stresstest_20120128", "barkShuttleLocation", pBarker)
 	end
 end
 
