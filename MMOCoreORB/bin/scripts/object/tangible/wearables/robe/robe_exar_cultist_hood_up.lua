@@ -96,4 +96,4 @@ object_tangible_wearables_robe_exar_cultist_hood_up = object_tangible_wearables_
 	experimentalCombineType = {0, 0, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_tangible_wearables_robe_robe_exar_cultiest_hood_up, "object/tangible/wearables/robe/robe_exar_cultist_hood_up.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_robe_robe_exar_cultist_hood_up, "object/tangible/wearables/robe/robe_exar_cultist_hood_up.iff")
