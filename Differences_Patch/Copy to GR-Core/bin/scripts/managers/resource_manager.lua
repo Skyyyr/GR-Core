@@ -46,7 +46,7 @@ buildInitialResourcesFromScript = 1 -- Use a script to build resource database w
 --  These indicate zone names where resources spawn
 activeZones = "corellia,tatooine,lok,naboo,rori,endor,talus,yavin4,dathomir,dantooine"
 
-averageShiftTime = 20000 -- In milliseconds
+averageShiftTime = 3000000 -- In milliseconds
   --  This is the time between each time the Resource Manager schedules
   --  itself to run again.
   --  *** Default is 2 hours (7200000) ***
