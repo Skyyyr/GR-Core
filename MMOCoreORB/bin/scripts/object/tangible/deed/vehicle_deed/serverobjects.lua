@@ -47,9 +47,7 @@
 -- Server Objects
 includeFile("tangible/deed/vehicle_deed/barc_speeder_deed.lua")
 includeFile("tangible/deed/vehicle_deed/jetpack_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_ab1_deed.lua")
 includeFile("tangible/deed/vehicle_deed/landspeeder_av21_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_desert_skiff_deed.lua")
 includeFile("tangible/deed/vehicle_deed/landspeeder_x31_deed.lua")
 includeFile("tangible/deed/vehicle_deed/landspeeder_x34_deed.lua")
 includeFile("tangible/deed/vehicle_deed/speederbike_deed.lua")

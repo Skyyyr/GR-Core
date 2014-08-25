@@ -98,10 +98,10 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen4 = object
 
 
 	-- The values below are the default values.  To be used for blue frog objects primarily
-	healthAttackCost = 0,
-	actionAttackCost = 5,
-	mindAttackCost = 5,
-	forceCost = 30,
+	healthAttackCost = 60,
+	actionAttackCost = 95,
+	mindAttackCost = 45,
+	forceCost = 48,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 20,
@@ -113,10 +113,10 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen4 = object
 	maxRangeAccuracy = 5,
 	
 
-	minDamage = 300,
-	maxDamage = 400,
+	minDamage = 225,
+	maxDamage = 305,
 
-	attackSpeed = 1.1,
+	attackSpeed = 5.1,
 	
 	defenderToughnessModifiers = { "lightsaber_toughness" },
 

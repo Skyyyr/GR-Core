@@ -7,6 +7,7 @@ includeFile("themepark/conversations/goru_conv_handler.lua")
 includeFile("themepark/conversations/mission_giver_conv_handler.lua")
 includeFile("themepark/conversations/mission_target_conv_handler.lua")
 includeFile("themepark/conversations/nym_conv_handler.lua")
+includeFile("themepark/conversations/theater_manager_conv_handler.lua")
 includeFile("themepark/imperial/themeParkImperial.lua")
 includeFile("themepark/imperial/emperors_retreat.lua")
 includeFile("themepark/nym/themeParkNym.lua")
@@ -23,9 +24,19 @@ includeFile("recruiters/rebelrecruiter.lua")
 
 -- Dungeons
 includeFile("dungeon/death_watch_bunker.lua")
-includeFile("dungeon/geonosian_lab/geonosian_lab.lua")
+includeFile("dungeon/geonosian_lab/geo_lab.lua")
 includeFile("dungeon/warren/warren.lua")
 includeFile("dungeon/death_watch_bunker_conv_handles.lua")
+
+-- Village
+includeFile("village/fs_experience_converter_conv_handler.lua")
+
+-- Events
+includeFile("events/conversations/bestine_artist_conv_handler.lua")
+includeFile("events/conversations/museum_curator_conv_handler.lua")
+includeFile("events/bestineMuseum.lua")
+
+
 
 -- Task/Quest
 includeFile("tasks/corellia/chertyl_ruluwoor.lua")
@@ -103,6 +114,7 @@ includeFile("tasks/tatooine/aaph_koden.lua")
 includeFile("tasks/tatooine/blerx_tango.lua")
 includeFile("tasks/tatooine/bren_kingal.lua")
 includeFile("tasks/tatooine/farious_gletch.lua")
+includeFile("tasks/tatooine/fixer.lua")
 includeFile("tasks/tatooine/gramm_rile.lua")
 includeFile("tasks/tatooine/hedon_istee.lua")
 includeFile("tasks/tatooine/ikka_gesul.lua")
@@ -119,10 +131,12 @@ includeFile("tasks/tatooine/phinea_shantee.lua")
 includeFile("tasks/tatooine/prefect_talmont.lua")
 includeFile("tasks/tatooine/rakir_banai.lua")
 includeFile("tasks/tatooine/tekil_barje.lua")
+includeFile("tasks/tatooine/tolan_nokkar.lua")
 includeFile("tasks/tatooine/vardias_tyne.lua")
 includeFile("tasks/yavin4/gins_darone.lua")
 includeFile("tasks/yavin4/lian_byrne.lua")
 includeFile("tasks/yavin4/ruwan_tokai.lua")
+includeFile("tasks/theater_manager.lua")
 
 -- Caves
 includeFile("caves/corellia_afarathu_cave.lua")
@@ -279,6 +293,9 @@ includeFile("static_spawns/tatooine_static_spawns_south.lua")
 --Yavin4
 includeFile("static_spawns/yavin4_static_spawns.lua")
 
+--Treasure Maps
+includeFile("treasure_map/EncodedDiskMenuComponent.lua")
+includeFile("treasure_map/TreasureMapMenuComponent.lua")
 
 --Tests
 --includeFile("tests/options_bitmask_test.lua")

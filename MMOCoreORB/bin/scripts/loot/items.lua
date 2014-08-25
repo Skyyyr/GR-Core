@@ -155,6 +155,16 @@ includeFile("items/armor/ubese_armor_jacket.lua")
 includeFile("items/armor/ubese_armor_pants.lua")
 includeFile("items/armor/ubese_armor_shirt.lua")
 
+--coa sub-folder
+includeFile("items/coa/coa_imp_1.lua")
+includeFile("items/coa/coa_imp_2.lua")
+includeFile("items/coa/coa_imp_3.lua")
+includeFile("items/coa/coa_imp_4.lua")
+includeFile("items/coa/coa_reb_1.lua")
+includeFile("items/coa/coa_reb_2.lua")
+includeFile("items/coa/coa_reb_3.lua")
+includeFile("items/coa/coa_reb_4.lua")
+
 -- creature sub-folder
 includeFile("items/creature/brackaset_plates.lua")
 includeFile("items/creature/brackaset_plating_segment.lua")
@@ -187,7 +197,6 @@ includeFile("items/creature/woolamander_harrower_bone_fragments.lua")
 
 -- death_watch_bunker sub-folder
 includeFile("items/death_watch_bunker/alum_gel_packet.lua")
-includeFile("items/death_watch_bunker/alum_mineral.lua")
 includeFile("items/death_watch_bunker/art_crate.lua")
 includeFile("items/death_watch_bunker/art_lg_s1.lua")
 includeFile("items/death_watch_bunker/art_lg_s2.lua")
@@ -366,7 +375,6 @@ includeFile("items/loot_kit/sculpture_structure_6.lua")
 includeFile("items/loot_kit/sculpture_structure_7.lua")
 
 --loot_schematic sub-folder
-includeFile("items/loot_schematic/av21.lua")
 includeFile("items/loot_schematic/cantina_chair_schematic.lua")
 includeFile("items/loot_schematic/carved_bowl_schematic.lua")
 includeFile("items/loot_schematic/closed_basket_schematic.lua")

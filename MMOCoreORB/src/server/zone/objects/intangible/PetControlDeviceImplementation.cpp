@@ -243,7 +243,7 @@ void PetControlDeviceImplementation::spawnObject(CreatureObject* player) {
 	if (zone == NULL)
 		return;
 
-	ManagedReference<SceneObject*> parent = player->getParent();
+	ManagedReference<SceneObject*> parent = player->getParent().get();
 
 	if (parent != NULL && parent->isCellObject())
 		parent->transferObject(controlledObject, -1, true);
@@ -288,6 +288,9 @@ void PetControlDeviceImplementation::spawnObject(CreatureObject* player) {
 		pet->setFollowObject(player);
 	}
 
+	pet->setHomeLocation(player->getPositionX(), player->getPositionZ(), player->getPositionY(), (parent != NULL && parent->isCellObject()) ? parent : NULL);
+	pet ->setNextStepPosition(player->getPositionX(), player->getPositionZ(), player->getPositionY(), (parent != NULL && parent->isCellObject()) ? parent : NULL);
+	pet->clearPatrolPoints();
 	pet->setCreatureBitmask(CreatureFlag::PET);
 	pet->activateLoad("");
 
