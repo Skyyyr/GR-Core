@@ -109,6 +109,9 @@ includeFile("quest/corellia/windle_meeker.lua")
 includeFile("quest/corellia/zayna.lua")
 includeFile("quest/corellia/zoda_burb.lua")
 
+--Item Vendor
+includeFile("quest/naboo/merch_crazy_larry.lua")
+
 -- Dantooine
 includeFile("quest/dantooine/ackbar.lua")
 includeFile("quest/dantooine/ancient_reptillian.lua")

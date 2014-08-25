@@ -16,6 +16,11 @@ includeFile("themepark/valarian/themeParkValarian.lua")
 includeFile("themepark/marauder/themeParkMarauder.lua")
 includeFile("themepark/tutorial.lua")
 
+
+--Item Vendor
+includeFile("tasks/naboo/merch_crazy_larry.lua")
+	
+
 -- Recruiters
 includeFile("recruiters/recruiters.lua")
 includeFile("recruiters/imperialrecruiter.lua")
