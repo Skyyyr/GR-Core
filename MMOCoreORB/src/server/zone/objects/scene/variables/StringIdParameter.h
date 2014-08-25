@@ -148,7 +148,7 @@ public:
 		return customName;
 	}
 
-	inline String getDisplayedName() const {
+	inline String getDisplayedName() {
 		if (customName.isEmpty()) {
 			return stringID.getFullPath();
 		} else {
@@ -156,11 +156,11 @@ public:
 		}
 	}
 
-	inline String getFileParameter() const {
+	inline String& getFileParameter() {
 		return stringID.getFile();
 	}
 
-	inline String getStringIDParameter() const {
+	inline String& getStringIDParameter() {
 		return stringID.getStringID();
 	}
 

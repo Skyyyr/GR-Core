@@ -170,8 +170,6 @@ public:
 	ResourceSpawn* getFromRandomPool(const String& type);
 
 	void addNodeToListBox(SuiListBox* sui, const String& nodeName);
-	void addPlanetsToListBox(SuiListBox* sui);
-
 	String addParentNodeToListBox(SuiListBox* sui, const String& currentNode);
 
 	inline ResourceMap* getResourceMap() {
@@ -188,7 +186,7 @@ public:
 
 		return "Error Dumping resources";
 	}
-	String getPlanetByIndex(int index);
+
 private:
 
 	void loadResourceSpawns();

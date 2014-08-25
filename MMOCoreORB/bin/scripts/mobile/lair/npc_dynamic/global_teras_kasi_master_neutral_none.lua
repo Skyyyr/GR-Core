@@ -1,12 +1,11 @@
 global_teras_kasi_master_neutral_none = Lair:new {
-	mobiles = {{"teras_kasi_master",1}},
-	spawnLimit = 3,
+	mobiles = {},
+	spawnLimit = 15,
 	buildingsVeryEasy = {},
 	buildingsEasy = {},
 	buildingsMedium = {},
 	buildingsHard = {},
 	buildingsVeryHard = {},
-	buildingType = "none"
 }
 
 addLairTemplate("global_teras_kasi_master_neutral_none", global_teras_kasi_master_neutral_none)

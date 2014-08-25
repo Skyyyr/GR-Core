@@ -38,6 +38,7 @@ public:
 
 		pet->setCreatureLink(NULL);
 
+
 		CreatureTemplate* creoTemp = pet->getCreatureTemplate();
 
 		if (creoTemp != NULL) {

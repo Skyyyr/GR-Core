@@ -15,7 +15,6 @@
 #include "server/zone/objects/region/CityRegion.h"
 #include "server/zone/objects/creature/CreatureObject.h"
 #include "server/zone/objects/tangible/terminal/mission/MissionTerminal.h"
-#include "server/zone/objects/building/BuildingObject.h"
 
 
 uint64 MapLocationEntry::getObjectID() const {
@@ -36,7 +35,7 @@ MapLocationEntry& MapLocationEntry::operator=(const MapLocationEntry& entry) {
 		return *this;
 
 	object = entry.object;
-	icon = entry.icon;
+	active = entry.active;
 
 	return *this;
 }
@@ -44,7 +43,6 @@ MapLocationEntry& MapLocationEntry::operator=(const MapLocationEntry& entry) {
 void MapLocationEntry::setObject(SceneObject *obj) {
 	displayName = "";
 	object = obj;
-	icon = 0;
 
 	if(object == NULL)
 		return;
@@ -58,12 +56,6 @@ void MapLocationEntry::setObject(SceneObject *obj) {
 
 	if(zone == NULL)
 		return;
-
-	if (object->isBuildingObject()) {
-		BuildingObject* building = cast<BuildingObject*>(object.get());
-		if (building->canPlayerRegisterWithin())
-			icon = 1;
-	}
 
 	// Default is the result of getDisplayedName()
 	String newName = object->getDisplayedName();
@@ -107,7 +99,7 @@ void MapLocationEntry::setObject(SceneObject *obj) {
 			newName = "@map_loc_cat_n:terminal";
 		}
 
-	} else if (!object->isGCWBase()) { // Everything else except faction bases are just named by the city it's in
+	} else { // Everything else is just named by the city it's in
 		ManagedReference<PlanetManager*> planetManager = zone->getPlanetManager();
 
 		ManagedReference<CityRegion *> region = planetManager->getRegionAt(object->getWorldPositionX(), object->getWorldPositionY());
@@ -146,8 +138,7 @@ bool MapLocationEntry::insertToMessage(BaseMessage* message, unsigned int factio
 
 	message->insertByte(category->getIndex());
 	message->insertByte((object->getPlanetMapSubCategory() != NULL) ? object->getPlanetMapSubCategory()->getIndex() : 0);
-
-	message->insertByte(icon);
+	message->insertByte(active);
 
 	return true;
 }

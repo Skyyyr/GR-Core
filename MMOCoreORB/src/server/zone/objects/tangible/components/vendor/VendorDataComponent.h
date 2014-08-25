@@ -99,12 +99,7 @@ public:
 	inline void setInitialized(bool val) {
 		initialized = val;
 		updateUID();
-
-		ManagedReference<SceneObject*> strongParent = parent.get();
-		if (strongParent == NULL)
-			return;
-
-		originalDirection = strongParent->getDirectionAngle();
+		originalDirection = parent.get()->getDirectionAngle();
 	}
 
 	void setVendorSearchEnabled(bool enabled);

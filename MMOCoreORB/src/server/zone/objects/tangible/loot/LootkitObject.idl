@@ -81,8 +81,7 @@ class LootkitObject extends TangibleObject {
 		
 		Logger.setLoggingName("LootKitObject");
 	}
-
-	@dirty
+	
 	public native int canAddObject(SceneObject object, int containmentType, string errorDescription); 
 
 	public native int notifyObjectInserted(SceneObject object);
@@ -92,7 +91,6 @@ class LootkitObject extends TangibleObject {
 	protected native void createItem();
 
 	@reference
-	@dirty
 	public native CreatureObject getPlayer();
 	
 	protected native void addToKit(SceneObject object);
@@ -102,6 +100,5 @@ class LootkitObject extends TangibleObject {
 	@local
 	public abstract native void loadTemplateData(SharedObjectTemplate templateData);
 	
-	@dirty
 	public native void fillAttributeList(AttributeListMessage msg, CreatureObject object);
 }

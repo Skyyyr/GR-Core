@@ -321,16 +321,16 @@ int ZoneImplementation::getInRangeActiveAreas(float x, float y, float range, Sor
 	return objects->size();
 }
 
-void ZoneImplementation::updateActiveAreas(TangibleObject* tano) {
+void ZoneImplementation::updateActiveAreas(SceneObject* object) {
 	//Locker locker(_this.get());
 
-	Locker _alocker(tano->getContainerLock());
+	Locker _alocker(object->getContainerLock());
 
-	SortedVector<ManagedReference<ActiveArea* > > areas = *dynamic_cast<SortedVector<ManagedReference<ActiveArea* > >* >(tano->getActiveAreas());
+	SortedVector<ManagedReference<ActiveArea* > > areas = *dynamic_cast<SortedVector<ManagedReference<ActiveArea* > >* >(object->getActiveAreas());
 
 	_alocker.release();
 
-	Vector3 worldPos = tano->getWorldPosition();
+	Vector3 worldPos = object->getWorldPosition();
 
 	SortedVector<ManagedReference<QuadTreeEntry*> > entryObjects;
 
@@ -363,11 +363,11 @@ void ZoneImplementation::updateActiveAreas(TangibleObject* tano) {
 //			Locker locker(area, object);
 
 			if (!area->containsPoint(worldPos.getX(), worldPos.getY())) {
-				tano->dropActiveArea(area);
-				area->enqueueExitEvent(tano);
+				object->dropActiveArea(area);
+				area->enqueueExitEvent(object);
 //				area->notifyExit(object);
 			} else {
-				area->notifyPositionUpdate(tano);
+				area->notifyPositionUpdate(object);
 			}
 		}
 
@@ -376,13 +376,13 @@ void ZoneImplementation::updateActiveAreas(TangibleObject* tano) {
 			//update in new ones
 			ActiveArea* activeArea = dynamic_cast<ActiveArea*>(entryObjects.get(i).get());
 
-			if (!tano->hasActiveArea(activeArea) && activeArea->containsPoint(worldPos.getX(), worldPos.getY())) {
+			if (!object->hasActiveArea(activeArea) && activeArea->containsPoint(worldPos.getX(), worldPos.getY())) {
 				//Locker lockerO(object);
 
 				//Locker locker(activeArea, object);
 
-				tano->addActiveArea(activeArea);
-				activeArea->enqueueEnterEvent(tano);
+				object->addActiveArea(activeArea);
+				activeArea->enqueueEnterEvent(object);
 				//activeArea->notifyEnter(object);
 			}
 		}
@@ -394,16 +394,16 @@ void ZoneImplementation::updateActiveAreas(TangibleObject* tano) {
 			if (worldAreas != NULL) {
 				for (int i = 0; i < worldAreas->size(); ++i) {
 					ActiveArea* activeArea = worldAreas->get(i);
-					Locker lockerO(tano);
+					Locker lockerO(object);
 
 					//			Locker locker(activeArea, object);
 
-					if (!tano->hasActiveArea(activeArea)) {
-						tano->addActiveArea(activeArea);
+					if (!object->hasActiveArea(activeArea)) {
+						object->addActiveArea(activeArea);
 						//activeArea->enqueueEnterEvent(object);
-						activeArea->notifyEnter(tano);
+						activeArea->notifyEnter(object);
 					} else {
-						activeArea->notifyPositionUpdate(tano);
+						activeArea->notifyPositionUpdate(object);
 					}
 				}
 			}
@@ -446,20 +446,6 @@ void ZoneImplementation::unregisterObjectWithPlanetaryMap(SceneObject* object) {
 	mapLocations->dropObject(object);
 }
 
-bool ZoneImplementation::isObjectRegisteredWithPlanetaryMap(SceneObject* object) {
-#ifndef WITH_STM
-	Locker locker(mapLocations);
-#endif
-	return mapLocations->containsObject(object);
-}
-
-void ZoneImplementation::updatePlanetaryMapIcon(SceneObject* object, byte icon) {
-#ifndef WITH_STM
-	Locker locker(mapLocations);
-#endif
-	mapLocations->updateObjectsIcon(object, icon);
-}
-
 void ZoneImplementation::dropSceneObject(SceneObject* object)  {
 	objectMap->remove(object->getObjectID());
 	unregisterObjectWithPlanetaryMap(object);
@@ -470,14 +456,18 @@ void ZoneImplementation::sendMapLocationsTo(SceneObject* player) {
 	player->sendMessage(gmlr);
 }
 
-Reference<SceneObject*> ZoneImplementation::getNearestPlanetaryObject(SceneObject* object, const String& mapObjectLocationType) {
-	Reference<SceneObject*> planetaryObject = NULL;
+SceneObject* ZoneImplementation::getNearestPlanetaryObject(SceneObject* object, const String& mapObjectLocationType) {
+	ManagedReference<SceneObject*> planetaryObject = NULL;
 
 #ifndef WITH_STM
 	mapLocations->rlock();
 #endif
 
 	SortedVector<MapLocationEntry>& sortedVector = mapLocations->getLocation(mapObjectLocationType);
+
+#ifndef WITH_STM
+	mapLocations->runlock();
+#endif
 
 	float distance = 16000.f;
 
@@ -492,11 +482,7 @@ Reference<SceneObject*> ZoneImplementation::getNearestPlanetaryObject(SceneObjec
 		}
 	}
 
-#ifndef WITH_STM
-	mapLocations->runlock();
-#endif
-
-	return planetaryObject;
+	return planetaryObject.get();
 }
 
 SortedVector<ManagedReference<SceneObject*> > ZoneImplementation::getPlanetaryObjectList(const String& mapObjectLocationType) {
@@ -553,7 +539,6 @@ void ZoneImplementation::updateCityRegions() {
 		if (seconds < 0) //If the update occurred in the past, force an immediate update.
 			seconds = 0;
 
-		city->setRadius(city->getRadius());
 		city->setLoaded();
 
 		city->cleanupCitizens();

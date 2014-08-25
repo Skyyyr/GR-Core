@@ -201,8 +201,6 @@ public:
 
 		bool notifyLooted = (objectToTransfer->getParentRecursively(SceneObjectType::CREATURE) != NULL || objectToTransfer->getParentRecursively(SceneObjectType::NPCCREATURE) != NULL);
 
-		bool notifyContainerContentsChanged = (objectToTransfer->getParentRecursively(SceneObjectType::STATICLOOTCONTAINER) != NULL);
-
 		Locker clocker(objectsParent, creature);
 
 		if (!objectController->transferObject(objectToTransfer, destinationObject, transferType, true))
@@ -218,9 +216,6 @@ public:
 		if (notifyLooted) {
 			objectToTransfer->notifyObservers(ObserverEventType::ITEMLOOTED, creature, 0);
 		}
-
-		if (notifyContainerContentsChanged)
-			objectsParent->notifyObservers(ObserverEventType::CONTAINERCONTENTSCHANGED, creature, 0);
 
 		return SUCCESS;
 	}

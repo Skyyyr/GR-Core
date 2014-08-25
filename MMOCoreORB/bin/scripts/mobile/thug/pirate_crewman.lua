@@ -1,7 +1,7 @@
 pirate_crewman = Creature:new {
 	objectName = "",
 	customName = "a Pirate Crewman",
-	socialGroup = "pirate",
+	socialGroup = "Pirate",
 	pvpFaction = "",
 	faction = "",
 	level = 6,

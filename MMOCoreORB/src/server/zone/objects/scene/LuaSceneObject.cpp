@@ -16,7 +16,6 @@ const char LuaSceneObject::className[] = "LuaSceneObject";
 
 Luna<LuaSceneObject>::RegType LuaSceneObject::Register[] = {
 		{ "_setObject", &LuaSceneObject::_setObject },
-		{ "_getObject", &LuaSceneObject::_getObject },
 		{ "getParent", &LuaSceneObject::getParent },
 		{ "getObjectID", &LuaSceneObject::getObjectID },
 		{ "getPositionX", &LuaSceneObject::getPositionX },
@@ -29,7 +28,6 @@ Luna<LuaSceneObject>::RegType LuaSceneObject::Register[] = {
 		{ "isInRangeWithObject", &LuaSceneObject::isInRangeWithObject },
 		{ "setCustomObjectName", &LuaSceneObject::setCustomObjectName},
 		{ "getDistanceTo", &LuaSceneObject::getDistanceTo },
-		{ "getDistanceToPosition", &LuaSceneObject::getDistanceToPosition },
 		{ "updateDirection", &LuaSceneObject::updateDirection },
 		{ "getServerObjectCRC", &LuaSceneObject::getServerObjectCRC },
 		{ "showFlyText", &LuaSceneObject::showFlyText },
@@ -67,6 +65,7 @@ Luna<LuaSceneObject>::RegType LuaSceneObject::Register[] = {
 		{ "setContainerDefaultDenyPermission", &LuaSceneObject::setContainerDefaultDenyPermission},
 		{ "clearContainerDefaultDenyPermission", &LuaSceneObject::clearContainerDefaultDenyPermission},
 		{ "setContainerOwnerID", &LuaSceneObject::setContainerOwnerID},
+		{ "hasActiveArea", &LuaSceneObject::hasActiveArea},
 		{ "setObjectName", &LuaSceneObject::setObjectName},
 		{ "isASubChildOf", &LuaSceneObject::isASubChildOf},
 		{ 0, 0 }
@@ -78,15 +77,6 @@ LuaSceneObject::LuaSceneObject(lua_State *L) {
 }
 
 LuaSceneObject::~LuaSceneObject(){
-}
-
-int LuaSceneObject::_getObject(lua_State* L) {
-	if (realObject == NULL)
-		lua_pushnil(L);
-	else
-		lua_pushlightuserdata(L, realObject.get());
-
-	return 1;
 }
 
 int LuaSceneObject::_setObject(lua_State* L) {
@@ -229,6 +219,16 @@ int LuaSceneObject::isInRange(lua_State* L) {
 	return 1;
 }
 
+int LuaSceneObject::hasActiveArea(lua_State* L) {
+	uint64 objectid = lua_tointeger(L, -1);
+
+	bool res = realObject->hasActiveArea(objectid);
+
+	lua_pushboolean(L, res);
+
+	return 1;
+}
+
 int LuaSceneObject::getGameObjectType(lua_State* L) {
 	uint32 type = realObject->getGameObjectType();
 
@@ -243,21 +243,6 @@ int LuaSceneObject::getDistanceTo(lua_State* L) {
 	float res = realObject->getDistanceTo(obj);
 
 	lua_pushnumber(L, res);
-
-	return 1;
-}
-
-int LuaSceneObject::getDistanceToPosition(lua_State* L) {
-	float y = lua_tonumber(L, -1);
-	float z = lua_tonumber(L, -2);
-	float x = lua_tonumber(L, -3);
-
-	Coordinate position;
-	position.setPosition(x, z, y);
-
-	float dist = realObject->getDistanceTo(&position);
-
-	lua_pushnumber(L, dist);
 
 	return 1;
 }
@@ -284,7 +269,7 @@ int LuaSceneObject::isInRangeWithObject(lua_State* L) {
 
 	bool res = realObject->isInRange(obj, range);
 
-	lua_pushboolean(L, res);
+	lua_pushnumber(L, res);
 
 	return 1;
 }

@@ -45,6 +45,7 @@
 --Children folder includes
 includeFile("weapon/base/serverobjects.lua")
 includeFile("weapon/creature/serverobjects.lua")
+includeFile("weapon/ep3/serverobjects.lua")
 includeFile("weapon/melee/serverobjects.lua")
 includeFile("weapon/mine/serverobjects.lua")
 includeFile("weapon/ranged/serverobjects.lua")

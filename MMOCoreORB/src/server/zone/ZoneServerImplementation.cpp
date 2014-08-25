@@ -297,7 +297,6 @@ void ZoneServerImplementation::startManagers() {
 
 	//Start global screen plays
 	DirectorManager::instance()->loadPersistentEvents();
-	DirectorManager::instance()->loadPersistentStatus();
 	DirectorManager::instance()->startGlobalScreenPlays();
 
 	auctionManager->initialize();

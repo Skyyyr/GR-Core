@@ -46,13 +46,12 @@ which carries forward this exception.
 #define COUNTERATTACKCOMMAND_H_
 
 #include "server/zone/objects/scene/SceneObject.h"
-#include "CombatQueueCommand.h"
 
-class CounterAttackCommand : public CombatQueueCommand {
+class CounterAttackCommand : public QueueCommand {
 public:
 
 	CounterAttackCommand(const String& name, ZoneProcessServer* server)
-		: CombatQueueCommand(name, server) {
+		: QueueCommand(name, server) {
 
 	}
 
@@ -64,7 +63,7 @@ public:
 		if (!checkInvalidLocomotions(creature))
 			return INVALIDLOCOMOTION;
 
-		return doCombatAction(creature, target);
+		return SUCCESS;
 	}
 
 };

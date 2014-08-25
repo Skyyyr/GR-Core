@@ -14,16 +14,11 @@
 #include "server/zone/managers/loot/lootgroup/LootGroupCollectionEntry.h"
 #include "server/conf/ConfigManager.h"
 #include "server/zone/managers/templates/DataArchiveStore.h"
-#include "server/zone/managers/objectcontroller/command/CommandConfigManager.h"
-#include "server/zone/managers/objectcontroller/command/CommandList.h"
-#include "server/zone/managers/creature/SpawnAreaMap.h"
 
 class LuaMobileTest : public ::testing::Test {
 protected:
 	LootGroupMap* lootGroupMap;
 	TemplateManager* templateManager;
-	CommandConfigManager* commandConfigManager;
-	CommandList* list;
 
 public:
 
@@ -33,8 +28,6 @@ public:
 		DataArchiveStore::instance()->loadTres(ConfigManager::instance()->getTrePath(), ConfigManager::instance()->getTreFiles());
 		lootGroupMap = LootGroupMap::instance();
 		templateManager = TemplateManager::instance();
-		commandConfigManager = new CommandConfigManager(NULL);
-		list = new CommandList();
 	}
 
 	~LuaMobileTest() {
@@ -48,9 +41,6 @@ public:
 		if( templateManager->loadedTemplatesCount == 0 ){
 			templateManager->loadLuaTemplates();
 		}
-
-		commandConfigManager->registerSpecialCommands(list);
-		commandConfigManager->loadSlashCommandsFile();
 	}
 
 	void TearDown() {
@@ -323,24 +313,12 @@ TEST_F(LuaMobileTest, LuaMobileTemplatesTest) {
 			EXPECT_TRUE( convoTemp != NULL ) << "Conversation template from " << templateName << " was not found.";
 			EXPECT_TRUE( optionsBitmask & OptionBitmask::CONVERSE ) << templateName << " has a convo template but not the CONVERSE options bit.";
 		}
-		// Verify that mobs with converse option bit have a convo template
-		if (optionsBitmask & OptionBitmask::CONVERSE) {
-			EXPECT_TRUE( convoTemplate != 0 ) << templateName << " has the CONVERSE options bit but not a convo template.";
-		}
 
 		// Verify that outfits exist
 		String outfit = creature->getOutfit();
 		if (!outfit.isEmpty()) {
 			MobileOutfitGroup* outfitGroup = CreatureTemplateManager::instance()->getMobileOutfitGroup(outfit);
 			EXPECT_TRUE( outfitGroup != NULL ) << "Outfit group " << outfit.toCharArray() << " from " << templateName << " was not found.";
-		}
-
-		// Verify attacks are valid commands
-		CreatureAttackMap* cam = creature->getAttacks();
-		for (int i = 0; i < cam->size(); i++) {
-			String commandName = cam->getCommand(i);
-
-			EXPECT_TRUE( commandConfigManager->contains(commandName) ) << "Attack: " << commandName.toCharArray() << " is not a valid command in mobile template: " << templateName;
 		}
 	}
 
@@ -533,7 +511,7 @@ TEST_F(LuaMobileTest, LuaLootGroupsTest) {
 
 }
 
-TEST_F(LuaMobileTest, LuaSpawnManagerTest) {
+TEST_F(LuaMobileTest, LuaStaticSpawnsTest) {
 	Vector<String> zoneNames;
 	zoneNames.add("corellia");
 	zoneNames.add("dantooine");
@@ -552,72 +530,26 @@ TEST_F(LuaMobileTest, LuaSpawnManagerTest) {
 	for (int i = 0; i < zoneNames.size(); i++) {
 		lua->runFile("scripts/managers/spawn_manager/" + zoneNames.get(i) + ".lua");
 
-		// Verify regions
-		LuaObject regions = lua->getGlobalObject(zoneNames.get(i) + "_regions");
+		LuaObject obj = lua->getGlobalObject(zoneNames.get(i) + "_static_spawns");
 
-		ASSERT_TRUE( regions.isValidTable() ) << "Regions table in " << zoneNames.get(i).toCharArray() << " spawn manager is invalid.";
-
-		for (int j = 1; j <= regions.getTableSize(); ++j) {
-			lua_rawgeti(regions.getLuaState(), -1, j);
-			LuaObject region(regions.getLuaState());
-
-			ASSERT_TRUE( region.isValidTable() ) << "Invalid region table #" << String::valueOf(j).toCharArray() << " in " << zoneNames.get(i).toCharArray() << "_regions.";
-
-			String area = region.getStringAt(1);
-			int tier = region.getIntAt(5);
-
-			if (tier & SpawnAreaMap::WORLDSPAWNAREA) {
-				EXPECT_TRUE( tier & SpawnAreaMap::SPAWNAREA ) << "World spawn area " << std::string(area.toCharArray()) << " on planet " << std::string(zoneNames.get(i).toCharArray()) << " is not a spawn area.";
-			}
-
-			if (tier & SpawnAreaMap::SPAWNAREA) {
-				String group = region.getStringAt(7);
-				EXPECT_TRUE( CreatureTemplateManager::instance()->getSpawnGroup(group.hashCode()) != NULL ) << "Spawn group " << std::string(group.toCharArray()) << " for spawn area " << std::string(area.toCharArray()) << " on planet " << std::string(zoneNames.get(i).toCharArray()) << " does not exist.";
-			}
-
-			region.pop();
+		if (!obj.isValidTable()) {
+			obj.pop();
+			continue;
 		}
 
-		regions.pop();
+		for (int j = 1; j <= obj.getTableSize(); ++j) {
+			lua_rawgeti(obj.getLuaState(), -1, j);
+			LuaObject spawn(obj.getLuaState());
 
-		// Verify static spawns
-		LuaObject spawns = lua->getGlobalObject(zoneNames.get(i) + "_static_spawns");
+			if (spawn.isValidTable()) {
+				String name = obj.getStringAt(1);
 
-		ASSERT_TRUE( spawns.isValidTable() ) << "Static spawns table in " << zoneNames.get(i).toCharArray() << " spawn manager is invalid.";
-
-		for (int j = 1; j <= spawns.getTableSize(); ++j) {
-			lua_rawgeti(spawns.getLuaState(), -1, j);
-			LuaObject spawn(spawns.getLuaState());
-
-			ASSERT_TRUE( spawn.isValidTable() ) << "Invalid spawn table #" << String::valueOf(j).toCharArray() << " in " << zoneNames.get(i).toCharArray() << "_static_spawns.";
-
-			String name = spawn.getStringAt(1);
-
-			EXPECT_TRUE( CreatureTemplateManager::instance()->getTemplate(name) != NULL ) << "Static spawn " << std::string(name.toCharArray()) << " on planet " << std::string(zoneNames.get(i).toCharArray()) << " is not valid";
+				EXPECT_TRUE( CreatureTemplateManager::instance()->getTemplate(name) != NULL ) << "Static spawn " << std::string(name.toCharArray()) << " on planet " << std::string(zoneNames.get(i).toCharArray()) << " is not valid";
+			}
 
 			spawn.pop();
 		}
 
-		spawns.pop();
-
-		// Verify badges
-		LuaObject badges = lua->getGlobalObject(zoneNames.get(i) + "_badges");
-
-		ASSERT_TRUE( badges.isValidTable() ) << "Badges table in " << zoneNames.get(i).toCharArray() << " spawn manager is invalid.";
-
-		for (int j = 1; j <= badges.getTableSize(); ++j) {
-			lua_rawgeti(badges.getLuaState(), -1, j);
-			LuaObject badge(badges.getLuaState());
-
-			ASSERT_TRUE( badge.isValidTable() ) << "Invalid badge table #" << String::valueOf(j).toCharArray() << " in " << zoneNames.get(i).toCharArray() << "_badges.";
-
-			uint8 id = badge.getIntAt(5);
-
-			EXPECT_TRUE( Badge::exists(id) ) << "Badge id #" << String::valueOf(id).toCharArray() << " does not exist.";
-
-			badge.pop();
-		}
-
-		badges.pop();
+		obj.pop();
 	}
 }

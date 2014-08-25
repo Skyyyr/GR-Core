@@ -62,7 +62,7 @@ void WearableContainerObjectImplementation::removeSkillModsFrom(CreatureObject* 
 }
 
 bool WearableContainerObjectImplementation::isEquipped() {
-	ManagedReference<SceneObject*> parent = getParent().get();
+	ManagedReference<SceneObject*> parent = getParent();
 	if (parent != NULL && parent->isPlayerCreature())
 		return true;
 

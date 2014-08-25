@@ -1,6 +1,6 @@
 pirate_armsman = Creature:new {
 	objectName = "@mob/creature_names:naboo_pirate_armsman",
-	socialGroup = "pirate",
+	socialGroup = "Pirate",
 	pvpFaction = "",
 	faction = "",
 	level = 13,

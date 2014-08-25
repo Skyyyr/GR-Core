@@ -4,7 +4,7 @@ enhanced_kliknik = Creature:new {
 	pvpFaction = "",
 	faction = "",
 	level = 109,
-	chanceHit = 2.2,
+	chanceHit = 22.0,
 	damageMin = 675,
 	damageMax = 1060,
 	baseXp = 10360,
@@ -39,7 +39,7 @@ enhanced_kliknik = Creature:new {
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {
-		{"creatureareaattack",""},
+		{"creatureareattack",""},
 		{"stunattack","stunChance=50"}
 	}
 }

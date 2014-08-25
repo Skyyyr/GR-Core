@@ -116,9 +116,8 @@ void FindSessionImplementation::findPlanetaryObject(String& maplocationtype) {
 
 	Zone* zone = player->getZone();
 	ManagedReference<SceneObject*> object = zone->getNearestPlanetaryObject(player, maplocationtype);
-	Zone* objectZone = NULL;
 
-	if (object == NULL || ((objectZone = object->getZone()) == NULL)) {
+	if (object == NULL) {
 		player->sendSystemMessage("@find_display:no_registered_locs"); // There currently are not registered map locations on this planet.
 		cancelSession();
 		return;
@@ -139,7 +138,7 @@ void FindSessionImplementation::findPlanetaryObject(String& maplocationtype) {
 	String objClientString = stringManager->getStringId(objFullName.hashCode()).toString();
 
 	if (regClientString.isEmpty()) {
-		regClientString = objectZone->getZoneName();
+		regClientString = object->getZone()->getZoneName();
 		regClientString[0] = toupper(regClientString[0]);
 	}
 

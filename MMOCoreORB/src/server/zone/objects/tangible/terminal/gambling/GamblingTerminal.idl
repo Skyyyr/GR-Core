@@ -168,17 +168,14 @@ class GamblingTerminal extends Terminal {
 		return winnings;
 	}
 	
-	@dirty
 	public int getFirst() {
 		return first;
 	}
 	
-	@dirty
 	public int getSecond() {
 		return second;
 	}
 	
-	@dirty
 	public int getThird() {
 		return third;
 	}
@@ -195,17 +192,14 @@ class GamblingTerminal extends Terminal {
 		third = value;
 	}
 	
-	@dirty
 	public int getMinBet() {
 		return minBet;
 	}
 	
-	@dirty
 	public int getMaxBet() {
 		return maxBet;
 	}
 	
-	@dirty
 	public int getState() {
 		return state;
 	}
@@ -214,7 +208,6 @@ class GamblingTerminal extends Terminal {
 		state = value;
 	}
 	
-	@dirty
 	public int getMachineType() {
 		return machineType;
 	}
@@ -231,19 +224,16 @@ class GamblingTerminal extends Terminal {
 		gameCount = gameCount + 1;
 	}
 	
-	@dirty
 	public int getGameCount() {
 		return gameCount;
 	}
 	
-	@dirty
 	public boolean isGoneEmpty() {
 		if (playersWindows.size() == 0)
 			return true;
 		return false;
 	}
 	
-	@dirty
 	public string getMachineTypeText() {
 		if (machineType == ROULETTEMACHINE)
 			return "@gambling/game_n:roulette";
@@ -285,7 +275,6 @@ class GamblingTerminal extends Terminal {
 	 * @param player CreatureObject for which to check whether joined 
 	 * @return { String of stf }
 	 */
-	@dirty
 	public string getText(CreatureObject player) {
 		if (playersWindows.contains(player))
 			return "@gambling/default_interface:mnu_leave";
@@ -298,7 +287,6 @@ class GamblingTerminal extends Terminal {
 	 * @post { this object is locked, menuResponse is complete}
 	 * @param menuResponse ObjectMenuResponse that will be sent to the client
 	 */
-	@dirty
 	public void fillObjectMenuResponse(ObjectMenuResponse menuResponse, CreatureObject player) {
 		string text = getText(player);
 		menuResponse.addRadialMenuItem(245, 3, text); //Join Station or Leave Station
@@ -316,12 +304,10 @@ class GamblingTerminal extends Terminal {
 		gamblingRegion = region;
 	}
 	
-	@dirty
 	public string getGamblingRegion() {
 		return gamblingRegion;
 	}
 	
-	@dirty
 	public boolean gameRunning() {
 		return state != NOGAMERUNNING;
 	}

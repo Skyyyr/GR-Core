@@ -15,10 +15,10 @@
 #include "server/zone/objects/scene/SceneObject.h"
 
 class ScreenPlayTask : public Task {
-	Reference<SceneObject*> obj;
+	ManagedReference<SceneObject*> obj;
 	String taskKey;
 	String screenPlay;
-	Reference<PersistentEvent*> persistentEvent;
+	ManagedReference<PersistentEvent*> persistentEvent;
 public:
 
 	ScreenPlayTask(SceneObject* scno, const String& key, const String& playName) {
@@ -29,14 +29,6 @@ public:
 	}
 
 	void run() {
-		ZoneServer* zoneServer = ServerCore::getZoneServer();
-
-		if (zoneServer != NULL && zoneServer->isServerLoading()) {
-			schedule(1000);
-
-			return;
-		}
-
 		if (obj != NULL) {
 			Locker locker(obj.get());
 
@@ -46,7 +38,7 @@ public:
 		}
 	}
 
-	inline Reference<SceneObject*> getSceneObject() {
+	inline SceneObject* getSceneObject() {
 		return obj;
 	}
 
@@ -62,7 +54,7 @@ public:
 		this->persistentEvent = persistentEvent;
 	}
 
-	Reference<PersistentEvent*> getPersistentEvent() {
+	PersistentEvent* getPersistentEvent() {
 		return persistentEvent;
 	}
 

@@ -1,7 +1,7 @@
 warder = Creature:new {
 	objectName = "",
 	customName = "a Warder",
-	socialGroup = "wilder",
+	socialGroup = "Wilder",
 	pvpFaction = "",
 	faction = "",
 	level = 25,

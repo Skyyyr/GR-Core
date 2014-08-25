@@ -380,11 +380,6 @@ void MissionManagerImplementation::removeMission(MissionObject* mission, Creatur
 
 	mission->destroyObjectFromDatabase(true);
 	player->updateToDatabaseAllObjects(false);
-
-	if (player->isGrouped() && player->getGroup() != NULL) {
-		GroupObject* group = player->getGroup();
-		group->scheduleUpdateNearestMissionForGroup(player->getPlanetCRC());
-	}
 }
 
 void MissionManagerImplementation::handleMissionAbort(MissionObject* mission, CreatureObject* player) {
@@ -1357,7 +1352,7 @@ void MissionManagerImplementation::randomizeGenericReconMission(CreatureObject* 
 		if (playerZone->getPlanetManager()->isBuildingPermittedAt(position.getX(), position.getY(), NULL)) {
 			Reference<PlanetTravelPoint*> travelPoint = playerZone->getPlanetManager()->getNearestPlanetTravelPoint(position);
 
-			if (travelPoint != NULL && travelPoint->getArrivalPosition().distanceTo(position) > 1000.0f) {
+			if (travelPoint->getArrivalPosition().distanceTo(position) > 1000.0f) {
 				foundPosition = true;
 			}
 		}

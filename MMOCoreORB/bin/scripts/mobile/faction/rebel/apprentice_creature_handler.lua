@@ -1,7 +1,7 @@
 apprentice_creature_handler = Creature:new {
 	objectName = "@mob/creature_names:rebel_creature_handler_apprentice",
-	socialGroup = "rebel",
-	pvpFaction = "rebel",
+	socialGroup = "Rebel",
+	pvpFaction = "Rebel",
 	faction = "rebel",
 	level = 12,
 	chanceHit = 0.29,

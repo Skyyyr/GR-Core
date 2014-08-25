@@ -1,12 +1,12 @@
 require("ai.actions.wait")
 require("ai.interrupts")
 
-Wait10Base = createClass(WaitBase)
+Wait10Base = createClass(Wait)
 
 function Wait10Base:setWait(pAgent)
 	if (pAgent ~= nil) then
-		local agent = AiAgent(pAgent)
-		agent:setWait(getRandomNumber(10) + 5)
+		local agent = LuaAiAgent(pAgent)
+		agent:setWait(math.random(10) + 5)
 	end
 end
 

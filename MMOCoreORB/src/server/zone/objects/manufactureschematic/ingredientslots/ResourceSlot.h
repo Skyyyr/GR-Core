@@ -105,7 +105,7 @@ public:
 			int slotNeeds = requiredQuantity - quantity;
 			int currentQuantity = 0;
 
-			ManagedReference<SceneObject*> parent = incomingResource->getParent().get();
+			ManagedReference<SceneObject*> parent = incomingResource->getParent();
 
 			if(incomingResource->getQuantity() >= slotNeeds) {
 

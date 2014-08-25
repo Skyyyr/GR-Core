@@ -39,10 +39,10 @@ slooni_jong_missions =
 			}
 		},
 		{
-			missionType = "escort",
+			missionType = "assassinate",
 			primarySpawns =
 			{
-				{ npcTemplate = "slooni_slavemaster", planetName = "talus", npcName = "Slavemaster" }
+				{ npcTemplate = "slavemaster", planetName = "talus", npcName = "Slavemaster" }
 			},
 			secondarySpawns =
 			{

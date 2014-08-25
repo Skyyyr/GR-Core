@@ -99,7 +99,7 @@ void ChatManagerImplementation::initiateRooms() {
 	auctionRoom = createRoom("Auction", core3Room);
 	core3Room->addSubRoom(auctionRoom);
 
-	generalRoom = createRoom("General", core3Room);
+	ChatRoom* generalRoom = createRoom("general", core3Room);
 	core3Room->addSubRoom(generalRoom);
 
 
@@ -282,14 +282,14 @@ void ChatManagerImplementation::handleChatRoomMessage(CreatureObject* sender, co
 	else
 		msg = new ChatRoomMessage(fullName, formattedMessage, roomID);
 
-	// Auction Chat, General Chat, and Planet Chat should adhere to player ignore list
-	if( auctionRoom != NULL && auctionRoom->getRoomID() == roomID ) {
+	// Auction Chat and Planet Chat should adhere to player ignore list
+	if( auctionRoom != NULL && auctionRoom->getRoomID() == roomID ){
 		channel->broadcastMessageCheckIgnore(msg, name);
-	} else if (generalRoom != NULL && generalRoom->getRoomID() == roomID) {
+	}
+	else if( planetRoom != NULL && planetRoom->getRoomID() == roomID ){
 		channel->broadcastMessageCheckIgnore(msg, name);
-	} else if( planetRoom != NULL && planetRoom->getRoomID() == roomID ) {
-		channel->broadcastMessageCheckIgnore(msg, name);
-	} else {
+	}
+	else{
 		channel->broadcastMessage(msg);
 	}
 

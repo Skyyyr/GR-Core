@@ -1,6 +1,6 @@
 bek_rabor = Creature:new {
 	objectName = "@npc_spawner_n:bek_rabor",
-	socialGroup = "townsperson",
+	socialGroup = "Townsperson",
 	pvpFaction = "imperial",
 	faction = "imperial",
 	level = 100,

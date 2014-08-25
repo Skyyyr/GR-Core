@@ -581,8 +581,6 @@ bool PlayerCreationManager::createCharacter(MessageCallback* data) {
 
 		ghost->setBiography(bio);
 		ghost->setRaceID(raceID);
-
-		ghost->setLanguageID(playerTemplate->getDefaultLanguage());
 	}
 
 	ClientCreateCharacterSuccess* msg = new ClientCreateCharacterSuccess(

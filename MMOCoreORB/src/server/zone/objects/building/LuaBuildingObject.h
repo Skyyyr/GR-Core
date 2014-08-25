@@ -41,7 +41,7 @@ namespace building {
 
 	private:
 		// The pointer to the 'real object' defined in object.cc
-		BuildingObject* realObject;
+		Reference<BuildingObject*> realObject;
 	};
 
 }

@@ -103,7 +103,6 @@ class CraftingTool extends ToolTangibleObject {
 	public native void loadTemplateData(SharedObjectTemplate templateData);
 	
 	@local
-	@dirty
 	public native void fillObjectMenuResponse(ObjectMenuResponse menuResponse, CreatureObject player);
 	
 	/**
@@ -122,13 +121,11 @@ class CraftingTool extends ToolTangibleObject {
 	 * @param object player creature to which the message is sent
 	 */
 	@local
-	@dirty
 	public native void fillAttributeList(AttributeListMessage msg, CreatureObject object);
 	
 	@local
 	public native void updateCraftingValues(CraftingValues values, boolean firstUpdate);
 	
-	@dirty
 	public boolean isCraftingTool() {
 		return true;
 	}
@@ -136,7 +133,6 @@ class CraftingTool extends ToolTangibleObject {
 	/**
 	 * Crafting tool state is ready
 	 */
-	@dirty
 	public boolean isReady() {
 		return status == "@crafting:tool_status_ready";
 	}
@@ -148,7 +144,6 @@ class CraftingTool extends ToolTangibleObject {
 	/**
 	 * Crafting tool state is busy (crafting something)
 	 */
-	@dirty
 	public boolean isBusy() {
 		return status == "@crafting:tool_status_working";
 	}
@@ -160,7 +155,6 @@ class CraftingTool extends ToolTangibleObject {
 	/**
 	 * Crafting tool state is Finished (Something in hopper)
 	 */
-	@dirty
 	public boolean isFinished() {
 		return status == "@crafting:tool_status_finished";
 	}
@@ -173,20 +167,17 @@ class CraftingTool extends ToolTangibleObject {
 	 * Sends message to player if the tool is unable 
 	 * to start
 	 */
-	@dirty
 	public native void sendToolStartFailure(CreatureObject player, final string message);
 	
-	@dirty
+
 	public int getToolType() {
 		return type;
 	}
 	
-	@dirty
 	public float getEffectiveness() {
 		return effectiveness;
 	}
 	
-	@dirty
 	public float getComplexityLevel() {
 		return complexityLevel;
 	}
@@ -199,6 +190,7 @@ class CraftingTool extends ToolTangibleObject {
 	
 	@local
 	public native Vector<unsigned int> getToolTabs();
+
 	
 	public native void disperseItems();
 }

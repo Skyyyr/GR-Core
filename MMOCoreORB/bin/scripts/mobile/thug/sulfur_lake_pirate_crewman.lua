@@ -1,6 +1,6 @@
 sulfur_lake_pirate_crewman = Creature:new {
 	objectName = "@mob/creature_names:slp_crewman",
-	socialGroup = "pirate",
+	socialGroup = "Pirate",
 	pvpFaction = "",
 	faction = "",
 	level = 12,

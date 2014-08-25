@@ -58,7 +58,6 @@
 #include "server/zone/managers/player/PlayerManager.h"
 #include "server/zone/objects/player/sui/listbox/SuiListBox.h"
 #include "server/zone/objects/player/sessions/survey/SurveySession.h"
-#include "server/zone/managers/stringid/StringIdManager.h"
 
 ResourceSpawner::ResourceSpawner(ManagedReference<ZoneServer*> serv,
 		ZoneProcessServer* impl, ObjectManager* objMan) {
@@ -607,7 +606,7 @@ ResourceSpawn* ResourceSpawner::getRecycledVersion(ResourceSpawn* resource) {
 	ResourceTreeEntry* startingEntry = resourceTree->getEntry(resource->getType());
 	int recycleType = startingEntry->getRecycleToolType();
 
-	ResourceTreeEntry* recycledEntry = NULL;
+	ResourceTreeEntry* recycledEntry;
 	ManagedReference<ResourceSpawn*> recycledVersion;
 
 	switch(recycleType) {
@@ -1131,17 +1130,6 @@ void ResourceSpawner::addNodeToListBox(SuiListBox* sui, const String& nodeName) 
 	node->addToSuiListBox(sui);
 }
 
-void ResourceSpawner::addPlanetsToListBox(SuiListBox* sui) {
-	Reference<StringIdManager* > stringIdManager = StringIdManager::instance();
-	for(int i=0;i<activeResourceZones.size();i++) {
-		String lname = activeResourceZones.get(i);
-		String planetName = stringIdManager->getStringId(String("@planet_n:" + lname).hashCode()).toString();
-		sui->addMenuItem(planetName,i);
-	}
-}
-String ResourceSpawner::getPlanetByIndex(int idx) {
-	return activeResourceZones.get(idx);
-}
 String ResourceSpawner::addParentNodeToListBox(SuiListBox* sui, const String& currentNode) {
 	//currentNode can be the resource name itself, the ResourceTreeEntry (finalClass), or a ResourceTreeNode...
 	ResourceTreeNode* baseNode = resourceTree->getBaseNode();

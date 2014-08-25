@@ -1,6 +1,6 @@
 corellia_times_reporter = Creature:new {
 	objectName = "@mob/creature_names:corellia_times_reporter",
-	socialGroup = "corellia_times",
+	socialGroup = "Corellia Times",
 	pvpFaction = "",
 	faction = "",
 	level = 7,

@@ -62,7 +62,6 @@ class EntertainingObserver extends Observer {
 		;
 	}
 
-	@dirty
 	public int notifyObserverEvent(unsigned int eventType, Observable observable, ManagedObject arg1, long arg2) {
 		if (eventType != ObserverEventType.POSTURECHANGED) {
 			return 1;

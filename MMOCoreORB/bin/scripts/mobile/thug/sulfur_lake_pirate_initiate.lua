@@ -1,6 +1,6 @@
 sulfur_lake_pirate_initiate = Creature:new {
 	objectName = "@mob/creature_names:slp_squab",
-	socialGroup = "pirate",
+	socialGroup = "Pirate",
 	pvpFaction = "",
 	faction = "",
 	level = 12,

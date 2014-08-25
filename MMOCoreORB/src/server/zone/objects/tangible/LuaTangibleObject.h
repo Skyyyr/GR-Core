@@ -26,20 +26,18 @@ namespace tangible {
 		LuaTangibleObject(lua_State *L);
 		~LuaTangibleObject();
 
-		int _setObject(lua_State* L);
+
 		int setOptionsBitmask(lua_State *L);
 		int setPvpStatusBitmask(lua_State *L);
-		int getPvpStatusBitmask(lua_State *L);
 		int setCustomizationVariable(lua_State *L);
 		int setConditionDamage(lua_State *L);
 		int setFaction(lua_State *L);
 		int getFaction(lua_State *L);
 		int isImperial(lua_State *L);
 		int isRebel(lua_State *L);
-		int hasActiveArea(lua_State* L);
 
-	protected:
-		TangibleObject* realObject;
+	private:
+		Reference<TangibleObject*> realObject;
 	};
 
 }

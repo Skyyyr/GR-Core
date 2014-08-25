@@ -82,7 +82,12 @@
 #include "server/zone/objects/tangible/components/ElevatorDownMenuComponent.h"
 #include "server/zone/objects/region/components/CityManagementMenuComponent.h"
 #include "server/zone/objects/region/components/CityVotingMenuComponent.h"
+#include "server/zone/objects/scene/components/AiInterfaceComponent.h"
+#include "server/zone/objects/scene/components/AiDummyComponent.h"
 #include "server/zone/objects/scene/components/DataObjectComponent.h"
+#include "server/zone/objects/creature/components/AiDefaultComponent.h"
+#include "server/zone/objects/creature/components/AiCreatureComponent.h"
+#include "server/zone/objects/creature/components/AiNPCComponent.h"
 #include "server/zone/objects/tangible/components/generic/ShellfishHarvesterMenuComponent.h"
 #include "server/zone/objects/tangible/components/generic/DiceDataComponent.h"
 #include "server/zone/objects/tangible/components/generic/CreatureHabitatMenuComponent.h"
@@ -105,11 +110,6 @@
 #include "server/zone/objects/structure/components/DecorationDataComponent.h"
 #include "server/zone/objects/tangible/components/CityDecorationMenuComponent.h"
 #include "server/zone/objects/tangible/components/DungeonTicketObjectAttributeListComponent.h"
-#include "server/zone/objects/tangible/components/SurveyDroidMenuComponent.h"
-#include "server/zone/objects/tangible/components/generic/CoaMessageFragmentMenuComponent.h"
-#include "server/zone/objects/tangible/components/generic/CoaMessageMenuComponent.h"
-#include "server/zone/objects/tangible/components/generic/CoaMessageDataComponent.h"
-#include "server/zone/objects/creature/components/FactionRecruiterContainerComponent.h"
 
 
 ComponentManager::ComponentManager() {
@@ -195,6 +195,11 @@ ComponentManager::ComponentManager() {
 
 	components.put("LairMenuComponent", new LairMenuComponent());
 
+	components.put("AiInterfaceComponent", new AiInterfaceComponent());
+	components.put("AiDummyComponent", new AiDummyComponent());
+	components.put("AiDefaultComponent", new AiDefaultComponent());
+	components.put("AiCreatureComponent", new AiCreatureComponent());
+	components.put("AiNPCComponent", new AiNPCComponent());
 	components.put("WeaponObjectMenuComponent", new WeaponObjectMenuComponent());
 
 	components.put("ShellfishHarvesterMenuComponent", new ShellfishHarvesterMenuComponent());
@@ -252,13 +257,5 @@ ComponentManager::ComponentManager() {
 	dataObjectFactory.registerObject<DecorationDataComponent>("DecorationDataComponent");
 
 	components.put("DungeonTicketObjectAttributeListComponent", new DungeonTicketObjectAttributeListComponent());
-	// survey droid
-	components.put("SurveyDroidMenuComponent", new SurveyDroidMenuComponent());
-
-	components.put("FactionRecruiterContainerComponent", new FactionRecruiterContainerComponent());
-	components.put("CoaMessageFragmentMenuComponent", new CoaMessageFragmentMenuComponent());
-	components.put("CoaMessageMenuComponent", new CoaMessageMenuComponent());
-	components.put("CoaMessageDataComponent", new CoaMessageDataComponent() );
-	dataObjectFactory.registerObject<CoaMessageDataComponent>("CoaMessageDataComponent");
 
 }

@@ -70,7 +70,7 @@ int ResourceDeedImplementation::useObject(CreatureObject* creature) {
 }
 
 void ResourceDeedImplementation::destroyDeed() {
-	if (parent.get() != NULL) {
+	if (parent != NULL) {
 		/*getParent()->removeObject(_this.get(), true);
 		broadcastDestroy(_this.get(), false);*/
 		destroyObjectFromWorld(true);

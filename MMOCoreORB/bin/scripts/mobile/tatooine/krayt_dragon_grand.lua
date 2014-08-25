@@ -1,6 +1,6 @@
 krayt_dragon_grand = Creature:new {
 	objectName = "@mob/creature_names:krayt_dragon_grand",
-	socialGroup = "krayt",
+	socialGroup = "Krayt",
 	pvpFaction = "",
 	faction = "",
 	level = 306,

@@ -119,12 +119,10 @@ class BountyMissionObjective extends MissionObjective {
 	
 	public native void updateMissionStatus(int informantLevel);
 	
-	@read
 	public int getObjectiveStatus() {
 		return objectiveStatus;
 	}
 	
-	@read
 	public SceneObject getArakydDroid() {
 		return activeDroid;
 	}
@@ -135,7 +133,6 @@ class BountyMissionObjective extends MissionObjective {
 	
 	public native void performDroidAction(int action, SceneObject sceneObject, CreatureObject player);
 
-	@dirty
 	public native boolean hasArakydFindTask();
 
 	public native boolean playerHasMissionOfCorrectLevel(int action);
@@ -144,12 +141,10 @@ class BountyMissionObjective extends MissionObjective {
 	
 	@dereferenced
 	@local
-	@dirty
 	public native Vector3 getTargetPosition();
 	
 	public native void cancelAllTasks();
 	
-	@dirty
 	public native string getTargetZoneName();
 	
 	private native void addToBountyLock();
@@ -163,7 +158,6 @@ class BountyMissionObjective extends MissionObjective {
 	private native boolean addPlayerTargetObservers();
 	private native void startNpcTargetTask();
 	
-	@dirty
 	private native boolean isPlayerTarget();
 	
 	private native void handleNpcTargetKilled(ManagedObject arg1);
@@ -174,7 +168,6 @@ class BountyMissionObjective extends MissionObjective {
 	
 	@dereferenced
 	@local
-	@dirty
 	public Vector3 getEndPosition() {
 		return getTargetPosition();
 	}

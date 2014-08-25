@@ -30,20 +30,21 @@ using namespace server::zone::objects::scene;
 class MapLocationEntry : public Object {
 	ManagedReference<SceneObject*> object;
 	UnicodeString displayName;
-	byte icon; // 0 = None, 1 = Moon, 2 = Star
+	bool active;
 
 public:
 	MapLocationEntry() {
-		icon = 0;
+		active = false;
 	}
 
 	MapLocationEntry(SceneObject* obj) {
 		setObject(obj);
+		active = false;
 	}
 
 	MapLocationEntry(const MapLocationEntry& entry) : Object() {
 		object = entry.object;
-		icon = entry.icon;
+		active = entry.active;
 		displayName = entry.displayName;
 	}
 
@@ -61,16 +62,16 @@ public:
 		return object;
 	}
 
-	inline byte getIcon() {
-		return icon;
+	inline bool isActive() {
+		return active;
 	}
 
 	/**
-	 * Sets the icon used at this location: 0 = None, 1 = Moon, 2 = Star
-	 * @param ico The icon to use
+	 * Sets whether or not this map location entry is currently active.
+	 * @param act This parameter should be true if you wish this location's status be marked as active.
 	 */
-	inline void setIcon(byte ico) {
-		icon = ico;
+	inline void setActive(bool act) {
+		active = act;
 	}
 };
 

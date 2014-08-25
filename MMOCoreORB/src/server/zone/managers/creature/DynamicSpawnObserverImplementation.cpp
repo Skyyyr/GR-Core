@@ -4,7 +4,6 @@
 #include "server/zone/templates/mobile/CreatureTemplate.h"
 #include "server/zone/managers/creature/CreatureManager.h"
 #include "server/zone/managers/creature/CreatureTemplateManager.h"
-#include "server/zone/objects/creature/Creature.h"
 
 int DynamicSpawnObserverImplementation::notifyObserverEvent(unsigned int eventType, Observable* observable, ManagedObject* arg1, int64 arg2) {
 	if (eventType != ObserverEventType::CREATUREDESPAWNED)
@@ -24,7 +23,7 @@ int DynamicSpawnObserverImplementation::notifyObserverEvent(unsigned int eventTy
 		if (spawnedCreatures.isEmpty()) {
 
 			Reference<Task*> task = new DespawnDynamicSpawnTask(spawn);
-			task->schedule(300000);
+			task->schedule(2 * 60 * 1000);
 
 			return 1;
 		}
@@ -37,15 +36,8 @@ int DynamicSpawnObserverImplementation::notifyObserverEvent(unsigned int eventTy
 	if (zone == NULL)
 		return 0;
 
-	int level = ai->getLevel();
-
-	if (ai->isCreature()) {
-		Creature* creature = ai.castTo<Creature*>();
-		level = creature->getAdultLevel();
-	}
-
-	Reference<Task*> task = new RespawnCreatureTask(ai.get(), zone, level);
-	task->schedule((60 + (level * 2)) * 1000);
+	Reference<Task*> task = new RespawnCreatureTask(ai.get(), zone, ai->getLevel());
+	task->schedule(60 * 1000);
 
 	return 0;
 }

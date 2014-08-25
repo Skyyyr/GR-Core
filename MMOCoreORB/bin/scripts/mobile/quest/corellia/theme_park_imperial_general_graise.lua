@@ -21,15 +21,15 @@ theme_park_imperial_general_graise = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = ATTACKABLE,
+	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = 128,
+	optionsBitmask = 264,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_imperial_general_m.iff"},
 	lootGroups = {},
 	weapons = {"imperial_weapons_heavy"},
-	conversationTemplate = "",
+	conversationTemplate = "theme_park_rebel_mission_target_convotemplate",
 	attacks = merge(riflemanmaster,carbineermaster)
 }
 

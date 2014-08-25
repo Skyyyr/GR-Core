@@ -12,18 +12,14 @@
 #include "server/zone/objects/structure/StructureObject.h"
 #include "server/zone/objects/cell/CellObject.h"
 #include "server/zone/objects/tangible/components/vendor/VendorDataComponent.h"
-#include "server/zone/packets/object/PlayClientEffectObjectMessage.h"
-#include "server/zone/packets/scene/PlayClientEffectLocMessage.h"
 
 class DestroyStructureTask : public Task {
 protected:
 	ManagedReference<StructureObject*> structureObject;
-	bool destroyQuestStructure;
 
 public:
-	DestroyStructureTask(StructureObject* structure, bool destroyQuest = false) {
+	DestroyStructureTask(StructureObject* structure) {
 		structureObject = structure;
-		destroyQuestStructure = destroyQuest;
 	}
 
 	void run() {
@@ -45,15 +41,6 @@ public:
 		float x = structureObject->getPositionX();
 		float y = structureObject->getPositionY();
 		float z = zone->getHeight(x, y);
-
-		if (destroyQuestStructure)
-		{
-			PlayClientEffectObjectMessage* explode = new PlayClientEffectObjectMessage(structureObject, "clienteffect/lair_damage_heavy.cef", "");
-			structureObject->broadcastMessage(explode, false);
-
-			PlayClientEffectLoc* explodeLoc = new PlayClientEffectLoc("clienteffect/lair_damage_heavy.cef", structureObject->getZone()->getZoneName(), structureObject->getPositionX(), structureObject->getPositionZ(), structureObject->getPositionY());
-			structureObject->broadcastMessage(explodeLoc, false);
-		}
 
 		if (structureObject->isBuildingObject()) {
 			ManagedReference<BuildingObject*> buildingObject =
@@ -87,12 +74,6 @@ public:
 
 						try {
 							Locker plocker(playerCreature);
-
-							if (destroyQuestStructure) {
-								playerCreature->inflictDamage(structureObject, 0, 9999999, true, true);
-								playerCreature->inflictDamage(structureObject, 3, 9999999, true, true);
-								playerCreature->inflictDamage(structureObject, 6, 9999999, true, true);
-							}
 
 							playerCreature->teleport(x, z, y, 0);
 						} catch (...) {

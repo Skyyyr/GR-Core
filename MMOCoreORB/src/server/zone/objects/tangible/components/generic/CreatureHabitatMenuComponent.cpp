@@ -32,10 +32,10 @@ void CreatureHabitatMenuComponent::fillObjectMenuResponse(SceneObject* sceneObje
 		return;
 
 	// Check permissions if item is in a building
-	ManagedReference<SceneObject*> parent = creatureHabitat->getParent().get();
+	ManagedReference<SceneObject*> parent = creatureHabitat->getParent();
 	if( parent != NULL && parent->isCellObject() ){
 
-		ManagedReference<SceneObject*> obj = parent->getParent().get();
+		ManagedReference<SceneObject*> obj = parent->getParent();
 		if( obj != NULL && obj->isBuildingObject() ){
 
 			ManagedReference<BuildingObject*> buio = cast<BuildingObject*>( obj.get());

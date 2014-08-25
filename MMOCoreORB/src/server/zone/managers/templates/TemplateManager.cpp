@@ -52,7 +52,6 @@
 #include "server/zone/templates/tangible/TrapTemplate.h"
 #include "server/zone/templates/tangible/DiceTemplate.h"
 #include "server/zone/templates/tangible/DnaSampleTemplate.h"
-#include "server/zone/templates/tangible/DroidComponentTemplate.h"
 #include "server/zone/templates/tangible/CamoKitTemplate.h"
 #include "server/zone/templates/universe/SharedGroupObjectTemplate.h"
 #include "server/zone/templates/universe/SharedGuildObjectTemplate.h"
@@ -482,7 +481,7 @@ void TemplateManager::addTemplate(uint32 key, const String& fullName, LuaObject*
 	if (!clientTemplateFile.isEmpty())
 		templateObject->addDerivedFile(clientTemplateFile);
 
-	info("loaded " + fullName);
+	//info("loaded " + fullName);
 
 	if (templateCRCMap->put(key, templateObject) != NULL) {
 		//error("duplicate template for " + fullName);
@@ -569,7 +568,6 @@ void TemplateManager::registerTemplateObjects() {
 	templateFactory.registerObject<DroidCustomKitTemplate>(SharedObjectTemplate::DROIDCUSTOMKIT);
 	templateFactory.registerObject<LightsaberCrystalObjectTemplate>(SharedObjectTemplate::LIGHTSABERCRYSTAL);
 	templateFactory.registerObject<DnaSampleTemplate>(SharedObjectTemplate::DNASAMPLE);
-	templateFactory.registerObject<DroidComponentTemplate>(SharedObjectTemplate::DROIDCOMPONENT);
 }
 
 void TemplateManager::registerFunctions() {
@@ -724,7 +722,6 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("VEHICLECUSTOMKIT", SharedObjectTemplate::VEHICLECUSTOMKIT);
 	luaTemplatesInstance->setGlobalInt("DROIDCUSTOMKIT", SharedObjectTemplate::DROIDCUSTOMKIT);
 	luaTemplatesInstance->setGlobalInt("DNASAMPLE", SharedObjectTemplate::DNASAMPLE);
-	luaTemplatesInstance->setGlobalInt("DROIDCOMPONENT", SharedObjectTemplate::DROIDCOMPONENT);
 
 	luaTemplatesInstance->setGlobalInt("NO_HITLOCATION", CombatManager::NOLOCATION);
 	luaTemplatesInstance->setGlobalInt("CHEST_HITLOCATION", CombatManager::CHEST);

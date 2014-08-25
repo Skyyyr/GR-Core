@@ -6,7 +6,6 @@ dantooine_huurton_matron_pack_neutral_none = Lair:new {
 	buildingsMedium = {},
 	buildingsHard = {},
 	buildingsVeryHard = {},
-	buildingType = "none"
 }
 
 addLairTemplate("dantooine_huurton_matron_pack_neutral_none", dantooine_huurton_matron_pack_neutral_none)

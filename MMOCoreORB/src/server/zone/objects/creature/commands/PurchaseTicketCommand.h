@@ -68,26 +68,6 @@ public:
 		if (!checkInvalidLocomotions(creature))
 			return INVALIDLOCOMOTION;
 
-		SortedVector<ManagedReference<QuadTreeEntry*> > closeObjects;
-		CloseObjectsVector* vec = (CloseObjectsVector*) creature->getCloseObjects();
-		vec->safeCopyTo(closeObjects);
-
-		bool nearTravelTerminal = false;
-
-		for (int i = 0; i < closeObjects.size(); i++) {
-			SceneObject* object = cast<SceneObject*>( closeObjects.get(i).get());
-			if (object != NULL && object->getGameObjectType() == SceneObjectType::TRAVELTERMINAL && creature->getDistanceTo(object) <= 8) {
-				nearTravelTerminal = true;
-				break;
-			}
-
-		}
-
-		if (!nearTravelTerminal) {
-			creature->sendSystemMessage("@travel:too_far"); // You are too far from the terminal to purchase a ticket.
-			return GENERALERROR;
-		}
-
 		ManagedReference<CityRegion*> currentCity = creature->getCityRegion().get();
 
 		int departureTax = 0;
@@ -105,8 +85,8 @@ public:
 		if (inventory == NULL)
 			return GENERALERROR;
 
-		String departurePlanet, departurePoint, arrivalPlanet, arrivalPoint, type;
-		bool roundTrip = true;
+		String departurePlanet, departurePoint, arrivalPlanet, arrivalPoint;
+		bool roundTrip;
 
 
 		try {
@@ -115,11 +95,7 @@ public:
 			tokenizer.getStringToken(departurePoint);
 			tokenizer.getStringToken(arrivalPlanet);
 			tokenizer.getStringToken(arrivalPoint);
-			if(tokenizer.hasMoreTokens()) {
-				tokenizer.getStringToken(type);
-				if (type == "single" || type == "0")
-					roundTrip = false;
-			}
+			roundTrip = (bool) tokenizer.getIntToken();
 
 		} catch(Exception& e) {
 			return INVALIDPARAMETERS;
@@ -133,6 +109,11 @@ public:
 		ManagedReference<Zone*> departureZone = server->getZoneServer()->getZone(departurePlanet);
 		ManagedReference<Zone*> arrivalZone = server->getZoneServer()->getZone(arrivalPlanet);
 
+
+		//Check to see if the departure planet is the same planet the player is on.
+		if (creature->getZone() != departureZone)
+			return INVALIDPARAMETERS;
+
 		if (departureZone == NULL)
 			return GENERALERROR;
 
@@ -144,11 +125,6 @@ public:
 
 		if (!pmArrival->isExistingPlanetTravelPoint(arrivalPoint)) {
 			creature->sendSystemMessage("@travel:no_location_found"); //No location was found for your destination.
-			return INVALIDPARAMETERS;
-		}
-
-		if (!pmDeparture->isExistingPlanetTravelPoint(departurePoint)) {
-			creature->sendSystemMessage("The given departure point was not found.");
 			return INVALIDPARAMETERS;
 		}
 

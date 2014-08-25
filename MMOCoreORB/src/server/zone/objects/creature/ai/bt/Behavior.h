@@ -15,11 +15,6 @@
 namespace server {
 namespace zone {
 namespace objects {
-
-namespace scene {
-class SceneObject;
-}
-
 namespace creature {
 
 class AiAgent;
@@ -35,7 +30,7 @@ protected:
 	uint8 result;
 	Behavior* parent; // the parent must be a composite
 	Reference<LuaBehavior*> interface;
-	uint32 id;
+	String id;
 
 public:
 	/**
@@ -49,7 +44,6 @@ public:
 		result = b.result;
 		parent = b.parent;
 		interface = b.interface;
-		id = b.id;
 	}
 
 	Behavior& operator=(const Behavior& b) {
@@ -60,7 +54,6 @@ public:
 		result = b.result;
 		parent = b.parent;
 		interface = b.interface;
-		id = b.id;
 
 		return *this;
 	}
@@ -68,7 +61,7 @@ public:
 	virtual ~Behavior() {
 	}
 
-	inline void setID(uint32 _id) {
+	inline void setID(String _id) {
 		this->id = _id;
 	}
 
@@ -112,16 +105,6 @@ public:
 
 	virtual int interrupt(SceneObject* source, int64 msg) {
 		return interface->interrupt(agent.get(), source, msg);
-	}
-
-	/**
-	 * Virtual to ensure that we should do an awareness check
-	 */
-	virtual bool doAwarenessCheck(SceneObject* target) {
-		if (interface != NULL)
-			return interface->doAwarenessCheck(agent.get(), target);
-
-		return false;
 	}
 
 	/**

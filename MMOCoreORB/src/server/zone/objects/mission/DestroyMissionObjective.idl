@@ -54,7 +54,7 @@ include server.zone.templates.TemplateReference;
 import server.zone.templates.SharedObjectTemplate;
 import server.zone.objects.area.MissionSpawnActiveArea;
 import server.zone.templates.mobile.LairTemplate;
-import server.zone.objects.tangible.LairObject;
+import server.zone.objects.tangible.TangibleObject;
 import server.zone.Zone;
 
 class DestroyMissionObjective extends MissionObjective {
@@ -63,7 +63,7 @@ class DestroyMissionObjective extends MissionObjective {
 	
 	protected MissionSpawnActiveArea spawnActiveArea;
 	
-	protected LairObject lairObject;
+	protected TangibleObject lairObject;
 
 	int difficultyLevel;
 	int difficulty;
@@ -102,7 +102,6 @@ class DestroyMissionObjective extends MissionObjective {
 	
 	@local
 	@dereferenced
-	@dirty
 	public native Vector3 findValidSpawnPosition(Zone zone);
 	
 	public native int notifyObserverEvent(MissionObserver observer, unsigned int eventType, Observable observable, ManagedObject arg1, long arg2);
@@ -120,6 +119,5 @@ class DestroyMissionObjective extends MissionObjective {
 
 	@dereferenced
 	@local
-	@dirty
 	public native Vector3 getEndPosition();
 }

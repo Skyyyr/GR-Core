@@ -60,10 +60,8 @@ class SignObject extends TangibleObject {
 
 	public native int handleObjectMenuSelect(CreatureObject player, byte selectedID);
 	
-	@dirty
 	public native void sendSignNameTo(CreatureObject player);
 	
-	@dirty
 	public boolean isSignObject() {
 		return true;
 	}

@@ -270,7 +270,6 @@ void SpawnAreaMap::readAreaObject(LuaObject& areaObj) {
 	put(nameID.getStringID().hashCode(), area);
 
 	if (tier & NOSPAWNAREA) {
-		area->setNoSpawnArea(true);
 		noSpawnAreas.add(area);
 	}
 

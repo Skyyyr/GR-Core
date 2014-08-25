@@ -23,13 +23,13 @@ noldan = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = 264,
+	optionsBitmask = 128,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_fs_trainer.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "trainer_fs_convotemplate",
+	conversationTemplate = "",
 	attacks = {
 	}
 }

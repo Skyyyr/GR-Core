@@ -44,14 +44,6 @@ public:
 		return object;
 	}
 
-	Reference<TangibleObject*> createTangibleObject() {
-		Reference<TangibleObject*> object = new TangibleObject();
-		setDefaultComponents(object);
-		object->_setObjectID(nextObjectId.increment());
-
-		return object;
-	}
-
 	Reference<ActiveArea*> createActiveArea() {
 		Reference<ActiveArea*> activeArea = new ActiveArea();
 		setDefaultComponents(activeArea);
@@ -162,24 +154,24 @@ TEST_F(ZoneTest, ActiveAreaTest) {
 
 	alocker.release();
 
-	Reference<TangibleObject*> tano = createTangibleObject();
-	tano->initializePosition(0, 0, 0);
+	Reference<SceneObject*> scene = createSceneObject();
+	scene->initializePosition(0, 0, 0);
 
-	Locker slocker(tano);
+	Locker slocker(scene);
 
-	ASSERT_EQ(tano->getActiveAreasSize(), 0);
+	ASSERT_EQ(scene->getActiveAreasSize(), 0);
 
-	zone->transferObject(tano, -1);
+	zone->transferObject(scene, -1);
 
-	ASSERT_EQ(tano->getActiveAreasSize(), 1);
+	ASSERT_EQ(scene->getActiveAreasSize(), 1);
 
-	tano->teleport(200, 0, 0);
+	scene->teleport(200, 0, 0);
 
-	ASSERT_EQ(tano->getActiveAreasSize(), 0);
+	ASSERT_EQ(scene->getActiveAreasSize(), 0);
 
-	tano->teleport(120, 0, 0);
+	scene->teleport(120, 0, 0);
 
-	ASSERT_EQ(tano->getActiveAreasSize(), 1);
+	ASSERT_EQ(scene->getActiveAreasSize(), 1);
 
 	slocker.release();
 
@@ -189,11 +181,11 @@ TEST_F(ZoneTest, ActiveAreaTest) {
 
 	blocker.release();
 
-	Locker s2locker(tano);
+	Locker s2locker(scene);
 
-	ASSERT_EQ(tano->getActiveAreasSize(), 0);
+	ASSERT_EQ(scene->getActiveAreasSize(), 0);
 
-	tano->destroyObjectFromWorld(false);
+	scene->destroyObjectFromWorld(false);
 }
 
 
