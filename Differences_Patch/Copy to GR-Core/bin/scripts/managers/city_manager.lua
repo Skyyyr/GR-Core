@@ -71,7 +71,7 @@ NewCityGracePeriod = 1440000000000
 OldCityGracePeriod = 30240
 
 --Whether or not to allow the use of the command, /cityWarn to give players a TEF while in the city limits.
-EnableCityWarn = true
+EnableCityWarn = false
 
 --The number of citizens required to achieve each city rank. (Outpost, Village, Township, City, Metropolis)
 CitizensPerRank = {1, 1, 1, 1, 1}
@@ -125,7 +125,7 @@ CitiesAllowed = {
 --]]
 CityTaxes = {
 	{--Property Tax
-		min = , max = 2,
+		min = 0, max = 50,
 		menuText = "@city/city:property_tax_prompt",
 		inputTitle = "@city/city:set_tax_t_property",
 		inputText = "@city/city:set_tax_d_property",
@@ -135,7 +135,7 @@ CityTaxes = {
 		emailBody = "@city/city:tax_property_body"
 	},
 	{--Income Tax
-		min = 0, max = 2,
+		min = 0, max = 2000,
 		menuText = "@city/city:income_tax",
 		inputTitle = "@city/city:set_tax_t_income",
 		inputText = "@city/city:set_tax_d_income",
@@ -145,7 +145,7 @@ CityTaxes = {
 		emailBody = "@city/city:tax_income_body"
 	},
 	{--Sales Tax
-		min = 0, max = 2,
+		min = 0, max = 20,
 		menuText = "@city/city:sales_tax",
 		inputTitle = "@city/city:set_tax_t_sales",
 		inputText = "@city/city:set_tax_d_sales",
@@ -155,7 +155,7 @@ CityTaxes = {
 		emailBody = "@city/city:tax_sales_body"
 	},
 	{--Travel Tax
-		min = 0, max = 2,
+		min = 0, max = 500,
 		menuText = "@city/city:travel_tax",
 		inputTitle = "@city/city:set_tax_t_travel",
 		inputText = "@city/city:set_tax_d_travel",
@@ -165,7 +165,7 @@ CityTaxes = {
 		emailBody = "@city/city:tax_travel_body"
 	},
 	{--Garage Tax
-		min = 0, max = 2,
+		min = 0, max = 30,
 		menuText = "@city/city:garage_tax",
 		inputTitle = "@city/city:set_tax_t_garage",
 		inputText = "@city/city:set_tax_d_garage",
@@ -185,7 +185,7 @@ CityTaxes = {
 CitySpecializations = {
 	{--Sample Rich
 		name = "@city/city:city_spec_sample_rich",
-		cost = 100,
+		cost = 70000,
 		skillMods = {
 			{"private_spec_samplesize", 20},
 			{"private_spec_samplerate", 10}
@@ -193,49 +193,49 @@ CitySpecializations = {
 	},
 	{--Manufacturing Center
 		name = "@city/city:city_spec_industry",
-		cost = 100,
+		cost = 50000,
 		skillMods = {
-			{"private_spec_assembly", 100}
+			{"private_spec_assembly", 10}
 		}
 	},
 	{--Medical Center
 		name = "@city/city:city_spec_doctor",
-		cost = 100,
+		cost = 80000,
 		skillMods = {
 			{"private_medical_rating", 10}
 		}
 	},
 	{--Clone Lab
 		name = "@city/city:city_spec_clone",
-		cost = 100,
+		cost = 80000,
 		skillMods = {
 			{"private_spec_cloning", 20}
 		}
 	},
 	{--Research Center
 		name = "@city/city:city_spec_research",
-		cost = 100,
+		cost = 125000,
 		skillMods = {
-			{"private_spec_experimentation", 100}
+			{"private_spec_experimentation", 15}
 		}
 	},
 	{--Improved Job Market
 		name = "@city/city:city_spec_missions",
-		cost = 100,
+		cost = 80000,
 		skillMods = {
 			{"private_spec_missions", 20}
 		}
 	},
 	{--Entertainment District
 		name = "@city/city:city_spec_entertainer",
-		cost = 100,
+		cost = 80000,
 		skillMods = {
 			{"private_spec_entertainer", 10}
 		}
 	},
 	{--Stronghold
 		name = "@city/city:city_spec_stronghold",
-		cost = 100,
+		cost = 150000,
 		skillMods = {
 			{"private_defense", 50}
 		}
