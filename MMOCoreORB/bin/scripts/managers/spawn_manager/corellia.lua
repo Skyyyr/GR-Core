@@ -545,6 +545,8 @@ corellia_static_spawns = {
 	{"vrak",60,-26.3961,-0.894991,23.1611,112,2625364, "nervous", "", "stationary"},
 	{"willham_burke",60,0.861081,0.999995,2.33215,346.259,3075366, "neutral", "", "stationary"},
 	{"zo_ssa",60,-1.1331,0.999991,1.50214,21.773,3075366, "neutral", "", "stationary"},
+	{"imperial_recruiter",60,-134.1,28.0,-4717.4,-87,0, "calm", ""},
+	{"rebel_recruiter",60,-135.7,28.0,-4728.4,-87,0, "calm", ""},
 }
 
 corellia_badges = {
