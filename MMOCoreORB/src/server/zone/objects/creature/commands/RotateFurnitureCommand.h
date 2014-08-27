@@ -80,7 +80,7 @@ public:
 
 		String dir;
 		int degrees = 0;
-		bool enableAllRotation = true; // Default is false, for SWG 14.1 style rotation. 
+		bool enableAllRotation = false; // Default is false, for SWG 14.1 style rotation. 
 		
 		if (enableAllRotation == false){
 			// SWG version 14.1 rotation style
