@@ -289,3 +289,6 @@ includeFile("racetracks/racetracks.lua")
 
 -- Space
 includeFile("space/space_chassis_dealer_conv_handler.lua")
+
+-- Legend of Hondo - loads all custom screeenplays
+includeFile("legend_of_hondo/screenplays.lua")
