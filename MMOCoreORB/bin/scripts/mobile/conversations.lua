@@ -14,10 +14,6 @@ includeFile("conversations/themepark/tutorial/stormtrooper_filler_conv.lua")
 includeFile("conversations/themepark/tutorial/panic_npc_1_conv.lua")
 includeFile("conversations/themepark/tutorial/protocol_droid_3po_silver_conv.lua")
 
-
---Item Vendor 
-includeFile("conversations/tasks/merch_crazy_larry_conv.lua")
-
 -- Nym Themepark
 includeFile("conversations/themepark/nym/berema_conv.lua")
 includeFile("conversations/themepark/nym/choster_conv.lua")
