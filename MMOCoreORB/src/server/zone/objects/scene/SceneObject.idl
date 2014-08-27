@@ -155,10 +155,7 @@ class SceneObject extends QuadTreeEntry implements Logger {
 
 	@weakReference
 	protected transient CityRegion cityRegion;
-	
-	@dereferenced
-	protected SortedVector<ActiveArea> activeAreas;
-	
+
 	@dereferenced
 	protected SortedVector<SceneObject> childObjects;
 	
@@ -874,64 +871,7 @@ class SceneObject extends QuadTreeEntry implements Logger {
 	public abstract int notifyObjectRemoved(SceneObject object) {
 		return 0;
 	}
-	
-	public native void addActiveArea(ActiveArea area);
-	
-	public void dropActiveArea(ActiveArea area) {
-		synchronized (containerLock) {
-			activeAreas.drop(area);
-		}
-	}
-	
-	@read
-	public boolean hasActiveArea(ActiveArea area) {
-		synchronized (containerLock) {
-			return activeAreas.contains(area);
-		}
-	}
-	
-	@read
-	public boolean hasActiveArea(unsigned long objectid) {
-		synchronized (containerLock) {
-			for (int i = 0; i < activeAreas.size(); ++i) {
-				ActiveArea area = activeAreas.get(i);
 
-				if (area.getObjectID() == objectid) {
-					return true;
-				}
-			}
-		}
-		
-		return false;
-	}
-	
-	@local
-	@read
-	public Vector<ActiveArea> getActiveAreas() {
-		return activeAreas;
-	}
-	
-	@read
-	public int getActiveAreasSize() {
-		return activeAreas.size();
-	}
-	
-	@read
-	@reference
-	public ActiveArea getActiveRegion() {
-		synchronized (containerLock) {
-			for (int i = 0; i < activeAreas.size(); i++) {
-				ActiveArea region = activeAreas.get(i);
-
-				if (region.isRegion()) {
-					return region;
-				}
-			}
-		}
-		
-		return null;
-	}
-	
 	@read
 	@local
 	@weakReference
@@ -1223,6 +1163,12 @@ class SceneObject extends QuadTreeEntry implements Logger {
 	public native void rotate(int degrees);
 	
 	/**
+	* Rotate on the "Roll" X Axis and "Pitch" Y Axis. 
+	*/
+	public native void rotateXaxis(int degrees); 
+	public native void rotateYaxis(int degrees);
+	
+	/**
 	 * Sets this objects direction so that the object is facing the specified object.
 	 * @param obj The object to face.
 	 */
@@ -1389,6 +1335,7 @@ class SceneObject extends QuadTreeEntry implements Logger {
 	}
 	
 	public native boolean isDecoration();
+	public native boolean isCityStreetLamp();
 	
 	@local
 	public native void setObjectMenuComponent(final string name);
@@ -1772,7 +1719,7 @@ class SceneObject extends QuadTreeEntry implements Logger {
 
 	public void setDirection(float fw, float fx, float fy, float fz) {
 		direction.set(fw, fx, fy, fz);
-	}
+	} 
 	
 	public void setDirection(float headingAngleRadians) {
 		direction.setHeadingDirection(headingAngleRadians);
@@ -1968,6 +1915,9 @@ class SceneObject extends QuadTreeEntry implements Logger {
 
 	public abstract boolean isMount() {
 		return false;
+	}
+
+	public abstract boolean isLairObject() {
+		return false;
 	}	
 }
-
