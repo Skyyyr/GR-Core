@@ -378,6 +378,16 @@ function CorelliaCoronetScreenPlay:spawnMobiles()
 	spawnMobile("corellia", "trainer_ranger",0,-505,28,-4633,180,0)
 	spawnMobile("corellia", "trainer_scout",0,-169.45,28,-4712.58,134,0)
 	
+	
 	-- Chassis dealer.
 	spawnMobile("corellia", "chassis_dealer", 0, 0.1, 0.6, 72.9, -4, 1855672)
+	
+	
+	--Custom Jedi Trainer Hotel
+	spawnMobile("corellia", "trainer_defender",0,-196,29,-4866,10,0)
+	spawnMobile("corellia", "trainer_fs",0,-197,29,-4867,10,0)
+	spawnMobile("corellia", "trainer_enhancer",0,-196,29,-4870,10,0)
+	spawnMobile("corellia", "trainer_lightsaber",0,-191,29,-4894,10,0)
+	spawnMobile("corellia", "trainer_powers",0,-199,29,-4882,10,0)
+	spawnMobile("corellia", "trainer_healer",0,-165.45,29,-4893,10,0)
 end
