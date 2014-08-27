@@ -88,7 +88,6 @@ which carries forward this exception.
 #include "server/zone/objects/scene/components/ZoneComponent.h"
 #include "server/zone/objects/scene/components/ObjectMenuComponent.h"
 #include "server/zone/objects/scene/components/ContainerComponent.h"
-#include "server/zone/objects/scene/components/AiDummyComponent.h"
 #include "PositionUpdateTask.h"
 
 #include "server/zone/objects/tangible/sign/SignObject.h"
@@ -122,8 +121,6 @@ void SceneObjectImplementation::initializeTransientMembers() {
 	}
 
 	movementCounter = 0;
-
-	//activeAreas.removeAll();
 
 	setGlobalLogging(true);
 	setLogging(false);
@@ -419,7 +416,7 @@ void SceneObjectImplementation::sendTo(SceneObject* player, bool doClose) {
 	BaseMessage* msg = new SceneObjectCreateMessage(_this.get());
 	player->sendMessage(msg);
 
-	if (parent != NULL)
+	if (parent.get() != NULL)
 		link(player, containmentType);
 
 	try {
@@ -445,7 +442,7 @@ void SceneObjectImplementation::sendWithoutContainerObjectsTo(SceneObject* playe
 	BaseMessage* msg = new SceneObjectCreateMessage(_this.get());
 	player->sendMessage(msg);
 
-	if (parent != NULL)
+	if (parent.get() != NULL)
 		link(player, containmentType);
 
 	sendBaselinesTo(player);
@@ -480,12 +477,6 @@ void SceneObjectImplementation::notifyLoadFromDatabase() {
 		}
 
 	}
-
-	for (int i = 0; i < activeAreas.size(); ++i) {
-		activeAreas.get(i)->notifyExit(_this.get());
-	}
-
-	activeAreas.removeAll();
 
 	if (zone != NULL) {
 		zone->transferObject(_this.get(), -1, true);
@@ -620,7 +611,7 @@ void SceneObjectImplementation::broadcastObjectPrivate(SceneObject* object, Scen
 	if (zoneServer != NULL && zoneServer->isServerLoading())
 		return;
 
-	if (parent != NULL) {
+	if (parent.get() != NULL) {
 		ManagedReference<SceneObject*> grandParent = cast<SceneObject*>(getRootParent().get().get());
 
 		if (grandParent != NULL) {
@@ -696,7 +687,7 @@ void SceneObjectImplementation::broadcastDestroyPrivate(SceneObject* object, Sce
 	if (zoneServer != NULL && zoneServer->isServerLoading())
 		return;
 
-	if (parent != NULL) {
+	if (parent.get() != NULL) {
 		ManagedReference<SceneObject*> grandParent = cast<SceneObject*>(getRootParent().get().get());
 
 		if (grandParent != NULL) {
@@ -723,7 +714,7 @@ void SceneObjectImplementation::broadcastDestroyPrivate(SceneObject* object, Sce
 	try {
 		if (closeobjects == NULL) {
 			info("Null closeobjects vector in SceneObjectImplementation::broadcastDestroyPrivate", true);
-			zone->getInRangeObjects(getPositionX(), getPositionY(), 512, &closeSceneObjects, true);
+			zone->getInRangeObjects(getPositionX(), getPositionY(), 256, &closeSceneObjects, true);
 
 			maxInRangeObjectCount = closeSceneObjects.size();
 		} else {
@@ -771,7 +762,7 @@ void SceneObjectImplementation::broadcastMessagePrivate(BasePacket* message, Sce
 	if (zoneServer != NULL && zoneServer->isServerLoading())
 		return;
 
-	if (parent != NULL) {
+	if (parent.get() != NULL) {
 		ManagedReference<SceneObject*> grandParent = cast<SceneObject*>(getRootParent().get().get());
 
 		if (grandParent != NULL) {
@@ -806,7 +797,7 @@ void SceneObjectImplementation::broadcastMessagePrivate(BasePacket* message, Sce
 		//		zone->rlock(readlock);
 
 		if (closeobjects == NULL) {
-			info("Null closeobjects vector in SceneObjectImplementation::broadcastMessagePrivate", true);
+			info(String::valueOf(getObjectID()) + " Null closeobjects vector in SceneObjectImplementation::broadcastMessagePrivate", true);
 			closeSceneObjects = new SortedVector<ManagedReference<QuadTreeEntry*> >();
 			zone->getInRangeObjects(getPositionX(), getPositionY(), 192, closeSceneObjects, true);
 
@@ -894,7 +885,7 @@ void SceneObjectImplementation::broadcastMessagesPrivate(Vector<BasePacket*>* me
 	if (zoneServer != NULL && zoneServer->isServerLoading())
 		return;
 
-	if (parent != NULL) {
+	if (parent.get() != NULL) {
 		ManagedReference<SceneObject*> grandParent = cast<SceneObject*>(getRootParent().get().get());
 
 		if (grandParent != NULL) {
@@ -932,7 +923,7 @@ void SceneObjectImplementation::broadcastMessagesPrivate(Vector<BasePacket*>* me
 	try {
 
 		if (closeobjects == NULL) {
-			info("Null closeobjects vector in SceneObjectImplementation::broadcastMessagesPrivate", true);
+			info(String::valueOf(getObjectID()) + " Null closeobjects vector in SceneObjectImplementation::broadcastMessagesPrivate", true);
 			zone->getInRangeObjects(getPositionX(), getPositionY(), 192, &closeSceneObjects, true);
 
 			maxInRangeObjectCount = closeSceneObjects.size();
@@ -1036,7 +1027,7 @@ void SceneObjectImplementation::sendMessage(BasePacket* msg) {
 }
 
 void SceneObjectImplementation::updateVehiclePosition(bool sendPackets) {
-	ManagedReference<SceneObject*> parent = getParent();
+	ManagedReference<SceneObject*> parent = getParent().get();
 
 	if (parent == NULL || (!parent->isVehicleObject() && !parent->isMount()))
 		return;
@@ -1115,14 +1106,14 @@ void SceneObjectImplementation::teleport(float newPositionX, float newPositionZ,
 
 void SceneObjectImplementation::switchZone(const String& newTerrainName, float newPostionX, float newPositionZ, float newPositionY, uint64 parentID) {
 	zoneComponent->switchZone(_this.get(), newTerrainName, newPostionX, newPositionZ, newPositionY, parentID);
-}
+} 
 
 void SceneObjectImplementation::updateDirection(float fw, float fx, float fy, float fz) {
 	setDirection(fw, fx, fy, fz);
 
 	++movementCounter;
 
-	if (parent != NULL) {
+	if (parent.get() != NULL) {
 		DataTransformWithParent* pack = new DataTransformWithParent(_this.get());
 		broadcastMessage(pack, true, true);
 	} else {
@@ -1136,7 +1127,7 @@ void SceneObjectImplementation::updateDirection(float angleHeadingRadians) {
 
 	++movementCounter;
 
-	if (parent != NULL) {
+	if (parent.get() != NULL) {
 		DataTransformWithParent* pack = new DataTransformWithParent(_this.get());
 		broadcastMessage(pack, true, true);
 	} else {
@@ -1294,6 +1285,16 @@ void SceneObjectImplementation::rotate(int degrees) {
 	direction.rotate(unity, degrees);
 }
 
+void SceneObjectImplementation::rotateXaxis(int degrees) {
+	Vector3 unity(1, 0, 0);
+	direction.rotate(unity, degrees);
+}
+
+void SceneObjectImplementation::rotateYaxis(int degrees) {
+	Vector3 unity(0, 0, 1);
+	direction.rotate(unity, degrees);
+}
+
 void SceneObjectImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuResponse, CreatureObject* player) {
 	return objectMenuComponent->fillObjectMenuResponse(_this.get(), menuResponse, player);
 }
@@ -1307,7 +1308,7 @@ void SceneObjectImplementation::setObjectName(StringId& stringID) {
 }
 
 Vector3 SceneObjectImplementation::getWorldPosition() {
-	if (parent == NULL)
+	if (parent.get() == NULL)
 		return getPosition();
 
 	ManagedReference<SceneObject*> root = getRootParent().castTo<SceneObject*>();
@@ -1350,7 +1351,7 @@ Vector3 SceneObjectImplementation::getWorldCoordinate(float distance, float angl
 }
 
 float SceneObjectImplementation::getWorldPositionX() {
-	if (parent == NULL)
+	if (parent.get() == NULL)
 		return getPositionX();
 
 	ManagedReference<SceneObject*> root = cast<SceneObject*>(getRootParentUnsafe());
@@ -1365,7 +1366,7 @@ float SceneObjectImplementation::getWorldPositionX() {
 }
 
 float SceneObjectImplementation::getWorldPositionY() {
-	if (parent == NULL)
+	if (parent.get() == NULL)
 		return getPositionY();
 
 	ManagedReference<SceneObject*> root = cast<SceneObject*>(getRootParentUnsafe());
@@ -1380,7 +1381,7 @@ float SceneObjectImplementation::getWorldPositionY() {
 }
 
 float SceneObjectImplementation::getWorldPositionZ() {
-	if (parent == NULL)
+	if (parent.get() == NULL)
 		return getPositionZ();
 
 	ManagedReference<SceneObject*> root = cast<SceneObject*>(getRootParentUnsafe());
@@ -1628,13 +1629,6 @@ bool SceneObjectImplementation::setTransformForCollisionMatrixIfNull(Matrix4* ma
 	return transformForCollisionMatrix.compareAndSet(NULL, mat);
 }
 
-void SceneObjectImplementation::addActiveArea(ActiveArea* area) {
-	if (!area->isDeplyoed())
-		area->deploy();
-
-	activeAreas.put(area);
-}
-
 int SceneObjectImplementation::getCountableObjectsRecursive() {
 	int count = 0;
 
@@ -1691,6 +1685,11 @@ bool SceneObjectImplementation::isDecoration(){
 			(templateObject->getFullTemplateString().contains("object/tangible/furniture/city") ||
 					templateObject->getFullTemplateString().contains("object/building/player/city/garden")));
 }
+
+bool SceneObjectImplementation::isCityStreetLamp(){
+	return (templateObject != NULL && templateObject->getFullTemplateString().contains("object/tangible/furniture/city/streetlamp"));
+}
+
 
 Reference<SceneObject*> SceneObjectImplementation::getContainerObjectRecursive(uint64 oid) {
 	ManagedReference<SceneObject*> obj = containerObjects.get(oid);
