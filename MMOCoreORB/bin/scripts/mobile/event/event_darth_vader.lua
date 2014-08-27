@@ -29,7 +29,21 @@ event_darth_vader = Creature:new {
 
 	templates = {"object/mobile/darth_vader.iff"},
 	scale = 3,
-	lootGroups = {},
+	lootGroups = {
+		{
+			groups = {
+				{group = "crystals_premium", chance = 900000},
+				{group = "pistols", chance = 1000000},
+				{group = "rifles", chance = 1000000},
+				{group = "carbines", chance = 1000000},
+				{group = "melee_weapons", chance = 2000000},
+				{group = "armor_attachments", chance = 500000},
+				{group = "clothing_attachments", chance = 500000},
+				{group = "wearables_scarce", chance = 500000}
+			},
+			lootChance = 7000000
+		},
+	},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
 	attacks = merge(lightsabermaster,forcepowermaster)
