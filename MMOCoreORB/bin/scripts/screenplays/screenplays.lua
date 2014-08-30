@@ -74,7 +74,6 @@ includeFile("tasks/naboo/mullud_bombo.lua")
 includeFile("tasks/naboo/rovim_minnoni.lua")
 includeFile("tasks/naboo/tamvar_senzen.lua")
 includeFile("tasks/naboo/vana_sage.lua")
-includeFile("tasks/naboo/merch_crazy_larry.lua")
 includeFile("tasks/rori/ajuva_vanasterin.lua")
 includeFile("tasks/rori/biribas_tarun.lua")
 includeFile("tasks/rori/booto_lubble.lua")
@@ -290,3 +289,4 @@ includeFile("racetracks/racetracks.lua")
 
 -- Space
 includeFile("space/space_chassis_dealer_conv_handler.lua")
+includeFile("tasks/naboo/merch_crazy_larry.lua")
