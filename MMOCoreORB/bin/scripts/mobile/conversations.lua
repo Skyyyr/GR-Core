@@ -90,5 +90,3 @@ includeFile("conversations/racetracks/nashalconversation.lua")
 
 -- Space
 includeFile("conversations/space/chassis_dealer_conv.lua")
-includeFile("conversations/tasks/merch_crazy_larry_conv.lua")
-
