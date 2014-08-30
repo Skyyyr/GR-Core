@@ -722,221 +722,6 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 						"Markings IV", "social_imagedesigner_markings_04"
 					},
 					"Master", "social_imagedesigner_master"
-				},
-				--"Jedi",
-				--{
-				--	"Rank",
-				--	{
-				--	"Jedi Dark Rank",
-				--	{
-				--		"Rank Member", "force_rank_dark_novice",
-				--		"Enforcer",
-				--		{
-				--			"Enforcer I", "force_rank_dark_rank_01",
-				--			"Enforcer II", "force_rank_dark_rank_02",
-				--			"Enforcer III", "force_rank_dark_rank_03",
-				--			"Enforcer IV", "force_rank_dark_rank_04"
-				--		},
-				--		"Templar",
-				--		{
-				--			"Templar I", "force_rank_dark_rank_05",
-				--			"Templar II", "force_rank_dark_rank_06",
-				--			"Templar III", "force_rank_dark_rank_07"
-				--		},
-				--		"Oppressor",
-				--		{
-				--			"Oppressor I", "force_rank_dark_rank_08",
-				--			"Oppressor II", "force_rank_dark_rank_09"
-				--		},
-				--	},
-				--	
-				--	"Jedi Light Rank",
-				--	{
-				--		"Rank Member", "force_rank_dark_novice",
-				--		"Sentinel",
-				--		{
-				--			"Sentinel I", "force_rank_light_rank_01",
-				--			"Sentinel II", "force_rank_light_rank_02",
-				--			"Sentinel III", "force_rank_light_rank_03",
-				--			"Sentinel IV", "force_rank_light_rank_04"
-				--		},
-				--		"Consular",
-				--		{
-				--			"Consular I", "force_rank_light_rank_05",
-				--			"Consular II", "force_rank_light_rank_06",
-				--			"Consular III", "force_rank_light_rank_07"
-				--		},
-				--		"Arbiter",
-				--		{
-				--			"Arbiter I", "force_rank_light_rank_08",
-				--			"Arbiter II", "force_rank_light_rank_09"
-				--		},
-				--	},
-				--	},
-					"Light Saber",
-				{
-					"Novice", "force_discipline_light_saber_novice",
-					"One Handed Light Saber",
-					{
-						"One Handed Light Saber I", "force_discipline_light_saber_one_hand_01",
-						"One Handed Light Saber II", "force_discipline_light_saber_one_hand_02",
-						"One Handed Light Saber III", "force_discipline_light_saber_one_hand_03",
-						"One Handed Light Saber IV", "force_discipline_light_saber_one_hand_04"
-					},
-					"Two Handed Light Saber",
-					{
-						"Two Handed Light Saber I", "force_discipline_light_saber_two_hand_01",
-						"Two Handed Light Saber II", "force_discipline_light_saber_two_hand_02",
-						"Two Handed Light Saber III", "force_discipline_light_saber_two_hand_03",
-						"Two Handed Light Saber IV", "force_discipline_light_saber_two_hand_04"
-					},
-					"Double Bladed Light Saber",
-					{
-						"Double Bladed Light Saber I", "force_discipline_light_saber_polearm_01",
-						"Double Bladed Light Saber II", "force_discipline_light_saber_polearm_02",
-						"Double Bladed Light Saber III", "force_discipline_light_saber_polearm_03",
-						"Double Bladed Light Saber IV", "force_discipline_light_saber_polearm_04"
-					},
-					"Light Saber Technique",
-					{
-						"Light Saber Technique I", "force_discipline_light_saber_technique_01",
-						"Light Saber Technique II", "force_discipline_light_saber_technique_02",
-						"Light Saber Technique III", "force_discipline_light_saber_technique_03",
-						"Light Saber Technique IV", "force_discipline_light_saber_technique_04"
-					},
-					"Master", "force_discipline_light_saber_master"
-				},
-					"Force Powers",
-				{
-					"Novice", "force_discipline_powers_novice",
-					"Force Lightning",
-					{
-						"Force Lightning I", "force_discipline_powers_lightning_01",
-						"Force Lightning II", "force_discipline_powers_lightning_02",
-						"Force Lightning III", "force_discipline_powers_lightning_03",
-						"Force Lightning IV", "force_discipline_powers_lightning_04"
-					},
-					"Force Subjugate",
-					{
-						"Force Subjugate I", "force_discipline_powers_mental_01",
-						"Force Subjugate II", "force_discipline_powers_mental_02",
-						"Force Subjugate III", "force_discipline_powers_mental_03",
-						"Force Subjugate IV", "force_discipline_powers_mental_04"
-					},
-					"Force Diminish",
-					{
-						"Force Diminish I", "force_discipline_powers_debuff_01",
-						"Force Diminish II", "force_discipline_powers_debuff_02",
-						"Force Diminish III", "force_discipline_powers_debuff_03",
-						"Force Diminish IV", "force_discipline_powers_debuff_04"
-					},
-					"Psychokineses",
-					{
-						"Psychokineses I", "force_discipline_powers_push_01",
-						"Psychokineses II", "force_discipline_powers_push_02",
-						"Psychokineses III", "force_discipline_powers_push_03",
-						"Psychokineses IV", "force_discipline_powers_push_04"
-					},
-					"Master", "force_discipline_powers_master"
-				},
-					"Force Healing",
-				{
-					"Novice", "force_discipline_healing_novice",
-					"Force Rejuvenation",
-					{
-						"Force Rejuvenation I", "force_discipline_healing_damage_01",
-						"Force Rejuvenation II", "force_discipline_healing_damage_02",
-						"Force Rejuvenation III", "force_discipline_healing_damage_03",
-						"Force Rejuvenation IV", "force_discipline_healing_damage_04"
-					},
-					"Force Restoration",
-					{
-						"Force Restoration I", "force_discipline_healing_wound_01",
-						"Force Restoration II", "force_discipline_healing_wound_02",
-						"Force Restoration III", "force_discipline_healing_wound_03",
-						"Force Restoration IV", "force_discipline_healing_wound_04"
-					},
-					"Force Assist",
-					{
-						"Force Assist I", "force_discipline_healing_other_01",
-						"Force Assist II", "force_discipline_healing_other_02",
-						"Force Assist III", "force_discipline_healing_other_03",
-						"Force Assist IV", "force_discipline_healing_other_04"
-					},
-					"Force Purification",
-					{
-						"Force Purification I", "force_discipline_healing_states_01",
-						"Force Purification II", "force_discipline_healing_states_02",
-						"Force Purification III", "force_discipline_healing_states_03",
-						"Force Purification IV", "force_discipline_healing_states_04"
-					},
-					"Master", "force_discipline_healing_master"
-				},
-					"Force Enhancement",
-				{
-					"Novice", "force_discipline_enhancements_novice",
-					"Force Celerity",
-					{
-						"Force Celerity I", "force_discipline_enhancements_movement_01",
-						"Force Celerity II", "force_discipline_enhancements_movement_02",
-						"Force Celerity III", "force_discipline_enhancements_movement_03",
-						"Force Celerity IV", "force_discipline_enhancements_movement_04"
-					},
-					"Force Protection",
-					{
-						"Force Protection I", "force_discipline_enhancements_protection_01",
-						"Force Protection II", "force_discipline_enhancements_protection_02",
-						"Force Protection III", "force_discipline_enhancements_protection_03",
-						"Force Protection IV", "force_discipline_enhancements_protection_04"
-					},
-					"Force Resistance",
-					{
-						"Force Resistance I", "force_discipline_enhancements_resistance_01",
-						"Force Resistance II", "force_discipline_enhancements_resistance_02",
-						"Force Resistance III", "force_discipline_enhancements_resistance_03",
-						"Force Resistance IV", "force_discipline_enhancements_resistance_04"
-					},
-					"Force Synergy",
-					{
-						"Force Synergy I", "force_discipline_enhancements_synergy_01",
-						"Force Synergy II", "force_discipline_enhancements_synergy_02",
-						"Force Synergy III", "force_discipline_enhancements_synergy_03",
-						"Force Synergy IV", "force_discipline_enhancements_synergy_04"
-					},
-					"Master", "force_discipline_enhancements_master"
-				},
-				        "Force Defense",
-				{
-					"Novice", "force_discipline_defender_novice",
-					"Force Melee Defense",
-					{
-						"Force Melee Defense I", "force_discipline_defender_melee_defense_01",
-						"Force Melee Defense II", "force_discipline_defender_melee_defense_02",
-						"Force Melee Defense III", "force_discipline_defender_melee_defense_03",
-						"Force Melee Defense IV", "force_discipline_defender_melee_defense_04"
-					},
-					"Force Ranged Defense",
-					{
-						"Force Ranged Defense I", "force_discipline_defender_ranged_defense_01",
-						"Force Ranged Defense II", "force_discipline_defender_ranged_defense_02",
-						"Force Ranged Defense III", "force_discipline_defender_ranged_defense_03",
-						"Force Ranged Defense IV", "force_discipline_defender_ranged_defense_04"
-					},
-					"Force Defense",
-					{
-						"Force Defense I", "force_discipline_defender_force_defense_01",
-						"Force Defense II", "force_discipline_defender_force_defense_02",
-						"Force Defense III", "force_discipline_defender_force_defense_03",
-						"Force Defense IV", "force_discipline_defender_force_defense_04"
-					},
-					"Preternatural Defense",
-					{
-						"Preternatural Defense I", "force_discipline_defender_preternatural_defense_01",
-						"Preternatural Defense II", "force_discipline_defender_preternatural_defense_02",
-						"Preternatural Defense III", "force_discipline_defender_preternatural_defense_03",
-						"Preternatural Defense IV", "force_discipline_defender_preternatural_defense_04"
-					},
-					"Master", "force_discipline_defender_master"
 				},				
 				"Marksman",
 				{
@@ -1503,15 +1288,15 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					"Master", "crafting_weaponsmith_master"
 				}
 			},
-			--"Unlearn All Skills", "unlearn_all_skills",
-			--"Cleanse Character", "cleanse_character",
-			"Enhance Character", "enhance_character",
+			"Respec", "unlearn_all_skills",
+			--"Cleanse", "cleanse_character",
+			--"Buff", "enhance_character",
 			--"Learn Languages", "language",
-			--"Credits", "credits",
-			--"Apply DOTs", "apply_dots",
+			--"Galactic Credits", "credits",
+			--"DOTs", "apply_dots",
 			--"Clear DOTs", "clear_dots",
-			--"Max XP", "max_xp",
-			"Faction Points",
+			--"Experience", "max_xp",
+			"Faction",
 			{
 				"Imperial", "faction_imperial",
 				"Rebel", "faction_rebel"
@@ -1538,7 +1323,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 			--		"Bone Helmet", "object/tangible/wearables/armor/bone/armor_bone_s01_helmet.iff",
 			--		"Bone Leggings", "object/tangible/wearables/armor/bone/armor_bone_s01_leggings.iff"
 			--	},
-			"Shock Trooper",
+				"Shock Trooper",
 				{
 					"Assault Trooper Left Bicep", "object/tangible/wearables/armor/assault_trooper/armor_assault_trooper_bicep_l.iff",
 					"Assault Trooper Right Bicep", "object/tangible/wearables/armor/assault_trooper/armor_assault_trooper_bicep_r.iff",
@@ -1589,7 +1374,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					"Clone Trooper Gloves", "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_gloves.iff",
 					"Clone Trooper Helmet", "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_helmet.iff",
 					"Clone Trooper Leggings", "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_leggings.iff"
-				},			
+				},				
 				"Ithorian Armor",
 				{
 					"Ithorian Sentinel",
@@ -1834,16 +1619,14 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 			{
 				"Vehicle Deeds",
 				{
-					--"BARC Speeder", "object/tangible/deed/vehicle_deed/barc_speeder_deed.iff",
+					"BARC Speeder", "object/tangible/deed/vehicle_deed/barc_speeder_deed.iff",
 					"Swoop", "object/tangible/deed/vehicle_deed/speederbike_swoop_deed.iff",
-					--"Jetpack", "object/tangible/deed/vehicle_deed/jetpack_deed.iff",
+					"Jetpack", "object/tangible/deed/vehicle_deed/jetpack_deed.iff",
 					"Speederbike", "object/tangible/deed/vehicle_deed/speederbike_deed.iff",
-					--"Flash Speeder", "object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff",
-					--"Landspeeder AV-21", "object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff",
+					"Flash Speeder", "object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff",
+					"Landspeeder AV-21", "object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff",
 					"Landspeeder X-31", "object/tangible/deed/vehicle_deed/landspeeder_x31_deed.iff",
-					"Landspeeder X-34", "object/tangible/deed/vehicle_deed/landspeeder_x34_deed.iff",
-					"Landspeeder AB-1", "object/tangible/deed/vehicle_deed/landspeeder_ab1_deed.iff",
-					"Desert Skiff", "object/tangible/deed/vehicle_deed/landspeeder_desert_skiff_deed.iff"
+					"Landspeeder X-34", "object/tangible/deed/vehicle_deed/landspeeder_x34_deed.iff"
 				},
 				"Structure Deeds",
 				{
@@ -1936,9 +1719,8 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 							"Small Generic House Deed (Style 2)", "object/tangible/deed/player_house_deed/generic_house_small_style_02_deed.iff",
 							"Small Generic House Deed Floorplan 2 (Style 2)", "object/tangible/deed/player_house_deed/generic_house_small_style_02_floor_02_deed.iff",
 							"AT-AT House", "object/tangible/deed/player_house_deed/atat_house_deed.iff",
-							"Mustafar Bunker", "object/tangible/deed/player_house_deed/musty_house_deed.iff",
-							"Jedi Meditation House", "object/tangible/deed/player_house_deed/jedi_house_deed.iff",
-							"Bespin House", "object/tangible/deed/player_house_deed/bespin_house_deed.iff"
+							"Musty House", "object/tangible/deed/player_house_deed/musty_house_deed.iff",
+							"Jedi House", "object/tangible/deed/player_house_deed/jedi_house_deed.iff"
 						},
 						"City Deeds",
 						{
@@ -2189,18 +1971,18 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					"Veteran Reward (Imperial TIE Oppressor)", "object/tangible/veteran_reward/one_year_anniversary/painting_08.iff",
 					"Veteran Reward (Emperor's Eyes TIE Sentinel)", "object/tangible/veteran_reward/one_year_anniversary/painting_09.iff"
 				},
-				--"Veteran Rewards (INCOMPLETE)",
-				--{
-					--"YT-1300 Couch Corner", "object/tangible/veteran_reward/frn_couch_falcon_corner_s01.iff",
-					--"YT-1300 Couch Section", "object/tangible/veteran_reward/frn_couch_falcon_section_s01.iff",
-					--"Darth Vader Toy", "object/tangible/veteran_reward/frn_vet_darth_vader_toy.iff",
-					--"Jabba the Hutt Toy", "object/tangible/veteran_reward/frn_vet_jabba_toy.iff",
-					--"Protocol Droid Toy", "object/tangible/veteran_reward/frn_vet_protocol_droid_toy.iff",
-					--"R2 Droid Toy", "object/tangible/veteran_reward/frn_vet_r2_toy.iff",
-					--"Stormtrooper Toy", "object/tangible/veteran_reward/frn_vet_stormtrooper_toy.iff",
-					--"TIE Fighter Toy", "object/tangible/veteran_reward/frn_vet_tie_fighter_toy.iff",
-					--"X-Wing Toy", "object/tangible/veteran_reward/frn_vet_x_wing_toy.iff"				
-				--},
+				"Veteran Rewards (INCOMPLETE)",
+				{
+					"YT-1300 Couch Corner", "object/tangible/veteran_reward/frn_couch_falcon_corner_s01.iff",
+					"YT-1300 Couch Section", "object/tangible/veteran_reward/frn_couch_falcon_section_s01.iff",
+					"Darth Vader Toy", "object/tangible/veteran_reward/frn_vet_darth_vader_toy.iff",
+					"Jabba the Hutt Toy", "object/tangible/veteran_reward/frn_vet_jabba_toy.iff",
+					"Protocol Droid Toy", "object/tangible/veteran_reward/frn_vet_protocol_droid_toy.iff",
+					"R2 Droid Toy", "object/tangible/veteran_reward/frn_vet_r2_toy.iff",
+					"Stormtrooper Toy", "object/tangible/veteran_reward/frn_vet_stormtrooper_toy.iff",
+					"TIE Fighter Toy", "object/tangible/veteran_reward/frn_vet_tie_fighter_toy.iff",
+					"X-Wing Toy", "object/tangible/veteran_reward/frn_vet_x_wing_toy.iff"				
+				},
 				"Lighting",
 				{
 					"Candle (Style 1)", "object/tangible/furniture/all/frn_all_lamp_candlestick_free_s01_lit.iff",
@@ -2335,44 +2117,44 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 				"Slitherhorn", "object/tangible/instrument/slitherhorn.iff",
 				"Traz", "object/tangible/instrument/traz.iff"
 			},
-			--"Pharmaceutical",
-			--{
-				--"Small StimPack", "object/tangible/medicine/stimpack_sm_s1.iff",
-				--"StimPack A", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_a.iff",
-				--"StimPack B", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_b.iff",
-				--"StimPack C", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_c.iff",
-				--"StimPack D", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_d.iff",
-				--"StimPack E", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_e.iff",
-				--"Medpack Grenade Damage A", "object/tangible/medicine/crafted/medpack_grenade_damage_a.iff",
-				--"Medpack Grenade Damage B", "object/tangible/medicine/crafted/medpack_grenade_damage_b.iff",
-				--"Medpack Grenade Damage C", "object/tangible/medicine/crafted/medpack_grenade_damage_c.iff",
-				--"Medpack Grenade Damage D", "object/tangible/medicine/crafted/medpack_grenade_damage_d.iff",
-				--"Medpack Grenade Damage E", "object/tangible/medicine/crafted/medpack_grenade_damage_e.iff",
-				--"Medpack Grenade Area A", "object/tangible/medicine/crafted/medpack_grenade_area_a.iff",
-				--"Medpack Grenade Area B", "object/tangible/medicine/crafted/medpack_grenade_area_b.iff",
-				--"Medpack Grenade Area C", "object/tangible/medicine/crafted/medpack_grenade_area_c.iff",
-				--"Medpack Enhance Action A", "object/tangible/medicine/crafted/medpack_enhance_action_a.iff",
-				--"Medpack Enhance Constitution A", "object/tangible/medicine/crafted/medpack_enhance_constitution_a.iff",
+			"Pharmaceutical",
+			{
+				"Small StimPack", "object/tangible/medicine/stimpack_sm_s1.iff",
+				"StimPack A", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_a.iff",
+				"StimPack B", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_b.iff",
+				"StimPack C", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_c.iff",
+				"StimPack D", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_d.iff",
+				"StimPack E", "object/tangible/medicine/crafted/crafted_stimpack_sm_s1_e.iff",
+				"Medpack Grenade Damage A", "object/tangible/medicine/crafted/medpack_grenade_damage_a.iff",
+				"Medpack Grenade Damage B", "object/tangible/medicine/crafted/medpack_grenade_damage_b.iff",
+				"Medpack Grenade Damage C", "object/tangible/medicine/crafted/medpack_grenade_damage_c.iff",
+				"Medpack Grenade Damage D", "object/tangible/medicine/crafted/medpack_grenade_damage_d.iff",
+				"Medpack Grenade Damage E", "object/tangible/medicine/crafted/medpack_grenade_damage_e.iff",
+				"Medpack Grenade Area A", "object/tangible/medicine/crafted/medpack_grenade_area_a.iff",
+				"Medpack Grenade Area B", "object/tangible/medicine/crafted/medpack_grenade_area_b.iff",
+				"Medpack Grenade Area C", "object/tangible/medicine/crafted/medpack_grenade_area_c.iff",
+				"Medpack Enhance Action A", "object/tangible/medicine/crafted/medpack_enhance_action_a.iff",
+				"Medpack Enhance Constitution A", "object/tangible/medicine/crafted/medpack_enhance_constitution_a.iff",
 				--"Medpack Enhance Disease A", "object/tangible/medicine/crafted/medpack_enhance_disease_a.iff",
-				--"Medpack Enhance Health A", "object/tangible/medicine/crafted/medpack_enhance_health_a.iff",
+				"Medpack Enhance Health A", "object/tangible/medicine/crafted/medpack_enhance_health_a.iff",
 				--"Medpack Enhance Poison A", "object/tangible/medicine/crafted/medpack_enhance_poison_a.iff",
-				--"Medpack Enhance Quickness A", "object/tangible/medicine/crafted/medpack_enhance_quickness_a.iff",
-				--"Medpack Enhance Stamina A", "object/tangible/medicine/crafted/medpack_enhance_stamina_a.iff",
-				--"Medpack Enhance Strength A", "object/tangible/medicine/crafted/medpack_enhance_strength_a.iff",
-				--"Fire blanket", "object/tangible/medicine/crafted/medic_fire_blanket.iff",
-				--"Medpack Cure Disease A", "object/tangible/medicine/crafted/medpack_cure_disease_a.iff",
-				--"Medpack Cure Disease Area A", "object/tangible/medicine/crafted/medpack_cure_disease_area_a.iff",
-				--"Medpack Cure Poison A", "object/tangible/medicine/crafted/medpack_cure_poison_a.iff",
-				--"Medpack Cure Poison Area A", "object/tangible/medicine/crafted/medpack_cure_poison_area_a.iff",
-				--"Disease Health Area A", "object/tangible/medicine/crafted/medpack_disease_area_health_a.iff",
-				--"Poison Health Area A", "object/tangible/medicine/crafted/medpack_poison_area_health_a.iff",
-				--"Medpack Health Wound", "object/tangible/medicine/medpack_wound_health.iff",
-				--"Medpack Blinded", "object/tangible/medicine/crafted/medpack_blinded_a.iff",
-				--"Medpack Dizzy", "object/tangible/medicine/crafted/medpack_dizzy_a.iff",
-				--"Medpack Intimidated", "object/tangible/medicine/crafted/medpack_intimidated_a.iff",
-				--"Medpack Stunned", "object/tangible/medicine/crafted/medpack_stunned_a.iff",
-				--"Revive Pack", "object/tangible/medicine/medpack_revive.iff"
-			--},
+				"Medpack Enhance Quickness A", "object/tangible/medicine/crafted/medpack_enhance_quickness_a.iff",
+				"Medpack Enhance Stamina A", "object/tangible/medicine/crafted/medpack_enhance_stamina_a.iff",
+				"Medpack Enhance Strength A", "object/tangible/medicine/crafted/medpack_enhance_strength_a.iff",
+				"Fire blanket", "object/tangible/medicine/crafted/medic_fire_blanket.iff",
+				"Medpack Cure Disease A", "object/tangible/medicine/crafted/medpack_cure_disease_a.iff",
+				"Medpack Cure Disease Area A", "object/tangible/medicine/crafted/medpack_cure_disease_area_a.iff",
+				"Medpack Cure Poison A", "object/tangible/medicine/crafted/medpack_cure_poison_a.iff",
+				"Medpack Cure Poison Area A", "object/tangible/medicine/crafted/medpack_cure_poison_area_a.iff",
+				"Disease Health Area A", "object/tangible/medicine/crafted/medpack_disease_area_health_a.iff",
+				"Poison Health Area A", "object/tangible/medicine/crafted/medpack_poison_area_health_a.iff",
+				"Medpack Health Wound", "object/tangible/medicine/medpack_wound_health.iff",
+				"Medpack Blinded", "object/tangible/medicine/crafted/medpack_blinded_a.iff",
+				"Medpack Dizzy", "object/tangible/medicine/crafted/medpack_dizzy_a.iff",
+				"Medpack Intimidated", "object/tangible/medicine/crafted/medpack_intimidated_a.iff",
+				"Medpack Stunned", "object/tangible/medicine/crafted/medpack_stunned_a.iff",
+				"Revive Pack", "object/tangible/medicine/medpack_revive.iff"
+			},
 			"Resources",
 			{
 				"Resource Deed", "object/tangible/veteran_reward/resource.iff"
@@ -2419,7 +2201,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 			--}
 			"Tools",
 			{
-				"Crafting and Smuggler Tools",
+				"Crafting Tools",
 				{
 					"Clothing and Armor Crafting Tool", "object/tangible/crafting/station/clothing_tool.iff",
 					"Food and Chemical Crafting Tool", "object/tangible/crafting/station/food_tool.iff",
@@ -2428,10 +2210,10 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					"Starship Crafting Tool", "object/tangible/crafting/station/space_tool.iff",
 					"Structure and Furniture Crafting Tool", "object/tangible/crafting/station/structure_tool.iff",
 					"Weapon, Droid, and General Item Crafting Tool", "object/tangible/crafting/station/weapon_tool.iff",
-                    			"Molecular Clamp", "object/tangible/slicing/slicing_molecular_clamp.iff",
-                    			"Precision Laser Knife", "object/tangible/slicing/slicing_laser_knife.iff",
-                    			"Weapon Upgrade Kit", "object/tangible/slicing/slicing_weapon_upgrade_kit.iff",
-                    			"Armor Upgrade Kit", "object/tangible/slicing/slicing_armor_upgrade_kit.iff"
+                    "Molecular Clamp", "object/tangible/slicing/slicing_molecular_clamp.iff",
+                    "Precision Laser Knife", "object/tangible/slicing/slicing_laser_knife.iff",
+                    "Weapon Upgrade Kit", "object/tangible/slicing/slicing_weapon_upgrade_kit.iff",
+                    "Armor Upgrade Kit", "object/tangible/slicing/slicing_armor_upgrade_kit.iff"
 				},
 				"Crafting Stations",
 				{
@@ -2598,3 +2380,4 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 }
 
 ObjectTemplates:addTemplate(object_tangible_terminal_terminal_character_builder, "object/tangible/terminal/terminal_character_builder.iff")
+
