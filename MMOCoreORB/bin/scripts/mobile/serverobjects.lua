@@ -40,5 +40,8 @@ includeFile("mission/serverobjects.lua")
 -- Lairs
 includeFile("lair/serverobjects.lua")
 
+	-- Legend of Hondo
+includeFile("legend_of_hondo/serverobjects.lua")
+
 -- Outfits
 includeFile("outfits/serverobjects.lua")
