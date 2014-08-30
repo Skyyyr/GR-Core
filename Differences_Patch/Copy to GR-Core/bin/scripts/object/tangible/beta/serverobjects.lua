@@ -40,22 +40,16 @@
 --gives permission to release a modified version without this exception; 
 --this exception also makes it possible to release a modified version 
 
--- Legend of Hondo Customization
--- This terminal is placed in all NPC medical centers as a buff and heal bot.
 
 
-object_tangible_beta_beta_terminal_wound = object_tangible_beta_shared_beta_terminal_wound:new {
+--Children folder includes
 
-	gameObjectType = 16400,
-			
-	maxCondition = 0,
-
-	templateType = CHARACTERBUILDERTERMINAL,
-
-	itemList = {
-		"Heal Yourself", "cleanse_character",
-		"Buff", "enhance_character",
-	}
-}
-
-ObjectTemplates:addTemplate(object_tangible_beta_beta_terminal_wound, "object/tangible/beta/beta_terminal_wound.iff")
+-- Server Objects
+includeFile("tangible/beta/beta_terminal_food.lua")
+includeFile("tangible/beta/beta_terminal_medicine.lua")
+includeFile("tangible/beta/beta_terminal_money.lua")
+includeFile("tangible/beta/beta_terminal_resource.lua")
+includeFile("tangible/beta/beta_terminal_warp.lua")
+includeFile("tangible/beta/beta_terminal_wound.lua")
+includeFile("tangible/beta/beta_terminal_xp.lua")
+includeFile("tangible/beta/donham_terminal.lua")
