@@ -289,4 +289,3 @@ includeFile("racetracks/racetracks.lua")
 
 -- Space
 includeFile("space/space_chassis_dealer_conv_handler.lua")
-includeFile("tasks/naboo/merch_crazy_larry.lua")
