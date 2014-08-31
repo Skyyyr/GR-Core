@@ -1446,17 +1446,17 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 			},
 			"Clothes",
 			{
-				"Crafting Aprons",
-				{
-					"Architect", "crafting_apron_architect",
-					"Armorsmith", "crafting_apron_armorsmith",
-					"Chef", "crafting_apron_chef",
-					"Combat Medic", "crafting_apron_combat_medic",
-					"Doctor", "crafting_apron_doctor",
-					"Droid Engineer", "crafting_apron_droid_engineer",
-					"Tailor", "crafting_apron_tailor",
-					"Weaponsmith", "crafting_apron_weaponsmith",
-				},
+			--	"Crafting Aprons",
+			--	{
+			--		"Architect", "crafting_apron_architect",
+			--		"Armorsmith", "crafting_apron_armorsmith",
+			--		"Chef", "crafting_apron_chef",
+			--		"Combat Medic", "crafting_apron_combat_medic",
+			--		"Doctor", "crafting_apron_doctor",
+			--		"Droid Engineer", "crafting_apron_droid_engineer",
+			--		"Tailor", "crafting_apron_tailor",
+			--		"Weaponsmith", "crafting_apron_weaponsmith",
+			--	},
 				"Backpacks",
 				{
 					"Backpack 01", "object/tangible/wearables/backpack/backpack_s01.iff"
