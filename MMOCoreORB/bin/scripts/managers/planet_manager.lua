@@ -41,16 +41,16 @@
 --which carries forward this exception.
 
 --Time, in seconds, that a shuttle is away for
-shuttleportAwayTime = 60
+shuttleportAwayTime = 300
 starportAwayTime = 60
 
 --Time, in seconds, that a shuttle takes to land
-shuttleportLandingTime = 10
-starportLandingTime = 10
+shuttleportLandingTime = 11
+starportLandingTime = 14
 
 --Time, in seconds, that a shuttle is landed for
-shuttleportLandedTime = 60
-starportLandedTime = 60
+shuttleportLandedTime = 120
+starportLandedTime = 120
 
 
 corellia = {
@@ -74,8 +74,7 @@ corellia = {
 	},
 	
 	planetObjects = {
-		planetObjects = {
-		{templateFile = "object/tangible/terminal/terminal_skill.iff", ox = 0, oy = -0.664289, oz = 0, ow = 0.747476, x = -133.192, z = 28, y = -4711.16, parentid = 0},
+		{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = -0.664289, oz = 0, ow = 0.747476, x = -133.192, z = 28, y = -4711.16, parentid = 0},
 		{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = 0.346712, oz = 0, ow = 0.937972, x = -5049.64, z = 21, y = -2304.52, parentid = 0},
 		{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = 0.290803, oz = 0, ow = 0.956783, x = 3330.38, z = 308, y = 5517.14, parentid = 0},
 		{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = -0.666281, oz = 0, ow = 0.745701, x = -136.437, z = 28, y = -4730.23, parentid = 0}
