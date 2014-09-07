@@ -106,7 +106,7 @@ public:
 			return GENERALERROR;
 		}
 
-		Reference<CreatureObject*> leader = (group->getLeader()).castTo<CreatureObject*>();
+		ManagedReference<CreatureObject*> leader = cast<CreatureObject*>(group->getLeader());
 
 		if (leader == NULL || creature != leader) {
 			creature->sendSystemMessage("You must be the band leader to change the band's song.");
@@ -181,7 +181,7 @@ public:
 			Locker locker(group);
 
 			for (int i = 0; i < group->getGroupSize(); ++i) {
-				Reference<CreatureObject*> groupMember = (group->getGroupMember(i)).castTo<CreatureObject*>();
+				ManagedReference<CreatureObject*> groupMember = cast<CreatureObject*>(group->getGroupMember(i));
 
 				Locker clocker(groupMember, group);
 
@@ -208,8 +208,6 @@ public:
 
 				bandMemberSession->sendEntertainingUpdate(groupMember, /*0x3C4CCCCD*/0.0125, instrumentAnimation, 0x07339FF8, instrid);
 				bandMemberSession->setPerformanceName(args);
-
-				groupMember->notifyObservers(ObserverEventType::CHANGEENTERTAIN, groupMember);
 			}
 
 			group->setBandSong(args);

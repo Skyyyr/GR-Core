@@ -24,7 +24,6 @@ class AiAwarenessEvent : public Task {
 	ManagedWeakReference<CreatureObject*> target;
 	Coordinate coord;
 	uint64 mtime;
-	float avgSpeed;
 
 public:
 	AiAwarenessEvent(AiAgent* pl, CreatureObject* t) : Task(1000) {
@@ -32,7 +31,6 @@ public:
 		target = t;
 		coord.setPosition(t->getPosition());
 		mtime = 0;
-		avgSpeed = 0.f;
 		AiMap::instance()->activeAwarenessEvents.increment();
 	}
 
@@ -41,8 +39,6 @@ public:
 	}
 
 	void run() {
-		AiMap::instance()->scheduledAwarenessEvents.decrement();
-
 		ManagedReference<AiAgent*> strongRef = creature.get();
 		ManagedReference<CreatureObject*> targetRef = target.get();
 
@@ -53,41 +49,22 @@ public:
 
 		Locker clocker(targetRef, strongRef);
 
-		if (mtime != 0)
-			avgSpeed = Vector3(targetRef->getPositionX() - coord.getPositionX(), targetRef->getPositionY() - coord.getPositionY(), 0).squaredLength() / (mtime) * 1000000;
-
-		strongRef->doAwarenessCheck(targetRef);
+		strongRef->doAwarenessCheck(coord, mtime, targetRef);
 	}
 
 	void schedule(uint64 delay = 0) {
-		AiMap::instance()->scheduledAwarenessEvents.increment();
-
 		mtime = delay;
 
 		try {
 			Task::schedule(delay);
 		} catch (...) {
-			AiMap::instance()->scheduledAwarenessEvents.decrement();
+
 		}
-	}
-
-	bool cancel() {
-		bool ret = false;
-
-		if ((ret = Task::cancel())) {
-			AiMap::instance()->scheduledAwarenessEvents.decrement();
-		}
-
-		return ret;
 	}
 
 	void setTarget(CreatureObject *t) {
 		target = t;
 		coord.setPosition(t->getPosition());
-	}
-
-	float getAvgSpeed() {
-		return avgSpeed;
 	}
 };
 

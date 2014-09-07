@@ -45,7 +45,7 @@ crackdown_imperial_medic = Creature:new {
 		}						
 	},
 	weapons = {"imperial_weapons_heavy"},
-	conversationTemplate = "imperialRecruiterConvoTemplate",
+	conversationTemplate = "imperial_recruiter_convotemplate",
 	attacks = merge(riflemanmaster,carbineermaster)
 }
 

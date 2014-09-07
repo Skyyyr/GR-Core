@@ -117,9 +117,7 @@ object_weapon_melee_sword_sword_lightsaber_luke = object_weapon_melee_sword_shar
 	minDamage = 50,
 	maxDamage = 130,
 
-	attackSpeed = 4.8,
-
-	woundsRatio = 15,
+	attackSpeed = 4.8
 
 }
 

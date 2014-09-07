@@ -19,16 +19,11 @@
 #include "server/zone/managers/player/PlayerManager.h"
 
 void VehicleControlDeviceImplementation::generateObject(CreatureObject* player) {
-	if (player->isDead() || player->isIncapacitated())
+	if (player->getParent() != NULL)
 		return;
 
 	if (!isASubChildOf(player))
 		return;
-
-	if (player->getParent() != NULL || player->isInCombat()) {
-		player->sendSystemMessage("@pet/pet_menu:cant_call_vehicle"); // You can only unpack vehicles while Outside and not in Combat.
-		return;
-	}
 
 	ManagedReference<TangibleObject*> controlledObject = this->controlledObject.get();
 
@@ -36,6 +31,9 @@ void VehicleControlDeviceImplementation::generateObject(CreatureObject* player) 
 		return;
 
 	if (controlledObject->isInQuadTree())
+		return;
+
+	if (player->isInCombat() || player->isDead() || player->isIncapacitated())
 		return;
 
 	ManagedReference<TradeSession*> tradeContainer = player->getActiveSession(SessionFacadeType::TRADE).castTo<TradeSession*>();
@@ -114,11 +112,6 @@ void VehicleControlDeviceImplementation::spawnObject(CreatureObject* player) {
 
 	if (!isASubChildOf(player))
 		return;
-
-	if (player->getParent() != NULL || player->isInCombat()) {
-		player->sendSystemMessage("@pet/pet_menu:cant_call_vehicle"); // You can only unpack vehicles while Outside and not in Combat.
-		return;
-	}
 
 	ManagedReference<TradeSession*> tradeContainer = player->getActiveSession(SessionFacadeType::TRADE).castTo<TradeSession*>();
 

@@ -45,7 +45,7 @@ imperial_general = Creature:new {
 		}						
 	},
 	weapons = {"imperial_weapons_medium"},
-	conversationTemplate = "imperialRecruiterConvoTemplate",
+	conversationTemplate = "imperial_recruiter_convotemplate",
 	attacks = merge(riflemanmaster,carbineermaster,brawlermaster)
 }
 

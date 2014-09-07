@@ -191,12 +191,9 @@ public:
 		LuaObject skillModifiersTable = templateData->getObjectField("skillModifiers");
 		for(int i = 1; i <= skillModifiersTable.getTableSize(); i++) {
 			LuaObject skillMod = skillModifiersTable.getObjectAt(i);
-			if (skillMod.isValidTable()) {
-				String skillModName = skillMod.getStringAt(1);
-				int skillModValue = skillMod.getIntAt(2);
-				skillModifiers.put(skillModName, skillModValue);
-			}
-			skillMod.pop();
+			String skillModName = skillMod.getStringAt(1);
+			int skillModValue = skillMod.getIntAt(2);
+			skillModifiers.put(skillModName, skillModValue);
 		}
 		skillModifiersTable.pop();
 

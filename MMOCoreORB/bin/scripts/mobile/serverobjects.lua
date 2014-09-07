@@ -6,6 +6,7 @@ includeFile("corellia/serverobjects.lua")
 includeFile("dantooine/serverobjects.lua")
 includeFile("dathomir/serverobjects.lua")
 includeFile("endor/serverobjects.lua")
+includeFile("ep3/serverobjects.lua")
 includeFile("event/serverobjects.lua")
 includeFile("lok/serverobjects.lua")
 includeFile("misc/serverobjects.lua")
@@ -38,6 +39,9 @@ includeFile("mission/serverobjects.lua")
 
 -- Lairs
 includeFile("lair/serverobjects.lua")
+
+	-- Legend of Hondo
+includeFile("legend_of_hondo/serverobjects.lua")
 
 -- Outfits
 includeFile("outfits/serverobjects.lua")

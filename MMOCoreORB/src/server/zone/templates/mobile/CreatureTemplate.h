@@ -95,7 +95,6 @@ protected:
 	String defaultAttack;
 
 	String controlDeviceTemplate;
-	String containerComponentTemplate;
 
 public:
 	CreatureTemplate();
@@ -342,10 +341,6 @@ public:
 
 	inline String getControlDeviceTemplate() {
 		return controlDeviceTemplate;
-	}
-
-	inline String getContainerComponentTemplate() {
-		return containerComponentTemplate;
 	}
 };
 

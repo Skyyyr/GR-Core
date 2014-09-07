@@ -1,6 +1,6 @@
 krayt_dragon_adolescent = Creature:new {
 	objectName = "@mob/creature_names:krayt_dragon_adolescent",
-	socialGroup = "krayt",
+	socialGroup = "Krayt",
 	pvpFaction = "",
 	faction = "",
 	level = 200,
@@ -50,7 +50,7 @@ krayt_dragon_adolescent = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"creatureareaattack",""},
+		{"creatureareattack",""},
 		{"posturedownattack","postureDownChance=50"},
 		{"stunattack","stunChance=50"}
 	}

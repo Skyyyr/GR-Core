@@ -191,7 +191,7 @@ void EntertainingSessionImplementation::addHealingXpGroup(int xp) {
 	ManagedReference<PlayerManager*> playerManager = entertainer->getZoneServer()->getPlayerManager();
 
 	for(int i = 0; i < groupSize; ++i) {
-		ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i)->isPlayerCreature() ? group->getGroupMember(i).castTo<CreatureObject*>() : NULL;
+		ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i)->isPlayerCreature() ? cast<CreatureObject*>(group->getGroupMember(i)) : NULL;
 
 		if (groupMember != NULL) {
 			Locker clocker(groupMember, entertainer);
@@ -358,8 +358,6 @@ void EntertainingSessionImplementation::stopPlayingMusic() {
 	targetInstrument = false;
 	updateEntertainerMissionStatus(false, MissionObject::MUSICIAN);
 
-	entertainer->notifyObservers(ObserverEventType::STOPENTERTAIN, entertainer);
-
 	entertainer->dropObserver(ObserverEventType::POSTURECHANGED, observer);
 
 	ManagedReference<GroupObject*> group = entertainer->getGroup();
@@ -375,10 +373,6 @@ void EntertainingSessionImplementation::stopPlayingMusic() {
 	}
 
 	if (!dancing && !playingMusic) {
-		ManagedReference<PlayerObject*> entPlayer = entertainer->getPlayerObject();
-		if (entPlayer != NULL && entPlayer->getPerformanceBuffTarget() != 0)
-			entPlayer->setPerformanceBuffTarget(0);
-
 		entertainer->dropActiveSession(SessionFacadeType::ENTERTAINING);
 	}
 }
@@ -395,8 +389,6 @@ void EntertainingSessionImplementation::startDancing(const String& dance, const 
 	entertainer->sendSystemMessage("@performance:dance_start_self");
 
 	updateEntertainerMissionStatus(true, MissionObject::DANCER);
-
-	entertainer->notifyObservers(ObserverEventType::STARTENTERTAIN, entertainer);
 
 	startEntertaining();
 }
@@ -430,8 +422,6 @@ void EntertainingSessionImplementation::startPlayingMusic(const String& song, co
 		externalInstrument->setBeingUsed(true);
 
 	updateEntertainerMissionStatus(true, MissionObject::MUSICIAN);
-
-	entertainer->notifyObservers(ObserverEventType::STARTENTERTAIN, entertainer);
 
 	startEntertaining();
 }
@@ -496,15 +486,9 @@ void EntertainingSessionImplementation::stopDancing() {
 
 	updateEntertainerMissionStatus(false, MissionObject::DANCER);
 
-	entertainer->notifyObservers(ObserverEventType::STOPENTERTAIN, entertainer);
-
 	entertainer->dropObserver(ObserverEventType::POSTURECHANGED, observer);
 
 	if (!dancing && !playingMusic) {
-		ManagedReference<PlayerObject*> entPlayer = entertainer->getPlayerObject();
-		if (entPlayer != NULL && entPlayer->getPerformanceBuffTarget() != 0)
-			entPlayer->setPerformanceBuffTarget(0);
-
 		entertainer->dropActiveSession(SessionFacadeType::ENTERTAINING);
 	}
 }
@@ -617,7 +601,6 @@ void EntertainingSessionImplementation::doFlourish(int flourishNumber) {
 
 			flourishCount++;
 		}
-		entertainer->notifyObservers(ObserverEventType::FLOURISH, entertainer, fid);
 
 		entertainer->sendSystemMessage("@performance:flourish_perform");
 	}
@@ -1002,7 +985,7 @@ void EntertainingSessionImplementation::awardEntertainerExperience() {
 				int groupSize = group->getGroupSize();
 
 				for(int i = 0; i < groupSize; ++i) {
-					ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i)->isPlayerCreature() ? group->getGroupMember(i).castTo<CreatureObject*>() : NULL;
+					ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i)->isPlayerCreature() ? cast<CreatureObject*>(group->getGroupMember(i)) : NULL;
 
 					if (groupMember != NULL) {
 						Locker clocker(groupMember, entertainer);

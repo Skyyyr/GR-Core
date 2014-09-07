@@ -50,7 +50,7 @@ rebel_warrant_officer_i = Creature:new {
 		}	
 	},
 	weapons = {"rebel_weapons_medium"},
-	conversationTemplate = "rebelRecruiterConvoTemplate",
+	conversationTemplate = "rebel_recruiter_convotemplate",
 	attacks = {
 	}
 }

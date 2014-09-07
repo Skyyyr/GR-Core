@@ -30,35 +30,34 @@ public:
 	}
 
 	void initializeTransientMembers() {
-		ManagedReference<SceneObject*> strongParent = parent.get();
-		if(strongParent != NULL && strongParent->getZoneServer() != NULL) {
-			auctionManager = strongParent->getZoneServer()->getAuctionManager();
+
+		if(parent.get() != NULL) {
+			auctionManager = parent.get()->getZoneServer()->getAuctionManager();
 			if(uid.isEmpty())
 				updateUID();
 		}
 	}
 
 	void updateUID() {
-		ManagedReference<SceneObject*> strongParent = parent.get();
 
-		if(auctionManager == NULL || strongParent == NULL || strongParent->getZone() == NULL)
+		if(auctionManager == NULL || parent.get() == NULL || parent.get()->getZone() == NULL)
 			return;
 
 		String olduid = uid;
 
-		uid = strongParent->getZone()->getZoneName() + ".";
+		uid = parent.get()->getZone()->getZoneName() + ".";
 
-		String region = "@planet_n:" + strongParent->getZone()->getZoneName();
-		ManagedReference<CityRegion*> cityRegion = strongParent->getCityRegion();
+		String region = "@planet_n:" + parent.get()->getZone()->getZoneName();
+		ManagedReference<CityRegion*> cityRegion = parent.get()->getCityRegion();
 		if(cityRegion != NULL)
 			region = cityRegion->getRegionName();
 
-		uid += region + "." + strongParent->getDisplayedName() + ".";
-		uid += String::valueOf(strongParent->getObjectID()) + "#";
-		uid += String::valueOf(((int)strongParent->getWorldPositionX())) + "," + String::valueOf(((int)strongParent->getWorldPositionY()));
+		uid += region + "." + parent.get()->getDisplayedName() + ".";
+		uid += String::valueOf(parent.get()->getObjectID()) + "#";
+		uid += String::valueOf(((int)parent.get()->getWorldPositionX())) + "," + String::valueOf(((int)parent.get()->getWorldPositionY()));
 
 		if(olduid != uid)
-			auctionManager->updateVendorUID(strongParent, olduid, uid);
+			auctionManager->updateVendorUID(parent.get(), olduid, uid);
 	}
 
 	String getUID() {

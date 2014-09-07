@@ -117,9 +117,7 @@ object_weapon_ranged_pistol_pistol_scout_blaster_corsec = object_weapon_ranged_p
 	minDamage = 25,
 	maxDamage = 56,
 
-	attackSpeed = 4,
-
-	woundsRatio = 7,
+	attackSpeed = 4
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_pistol_pistol_scout_blaster_corsec, "object/weapon/ranged/pistol/pistol_scout_blaster_corsec.iff")

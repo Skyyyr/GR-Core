@@ -114,7 +114,7 @@ public:
 			Locker locker(group);
 
 			for (int i = 0; i < group->getGroupSize(); i++) {
-				Reference<CreatureObject*> groupMember = (group->getGroupMember(i)).castTo<CreatureObject*>();
+				ManagedReference<CreatureObject*> groupMember = cast<CreatureObject*>(group->getGroupMember(i));
 
 				Locker clocker(groupMember, group);
 

@@ -1,6 +1,6 @@
 sharpshooter = Creature:new {
 	objectName = "@mob/creature_names:sharpshooter",
-	socialGroup = "mercenary",
+	socialGroup = "Mercenary",
 	pvpFaction = "",
 	faction = "",
 	level = 16,

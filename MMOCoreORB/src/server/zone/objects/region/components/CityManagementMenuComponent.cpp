@@ -139,24 +139,16 @@ int CityManagementMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 
 #ifdef CITY_DEBUG
 	case 228:
-		if(player->getPlayerObject()->isPrivileged()){
-			cityManager->expandCity(city);
-		}
+		cityManager->expandCity(city);
 		break;
 	case 229:
-		if(player->getPlayerObject()->isPrivileged()){
-			cityManager->contractCity(city);
-		}
+		cityManager->contractCity(city);
 		break;
 	case 230:
-		if(player->getPlayerObject()->isPrivileged()){
-			cityManager->processCityUpdate(city);
-		}
+		cityManager->processCityUpdate(city);
 		break;
 	case 231:
-		if(player->getPlayerObject()->isPrivileged()){
-			cityManager->updateCityVoting(city,true);
-		}
+		cityManager->updateCityVoting(city,true);
 		break;
 #endif
 

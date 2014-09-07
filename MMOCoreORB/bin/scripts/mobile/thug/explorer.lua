@@ -1,8 +1,8 @@
 explorer = Creature:new {
 	objectName = "@mob/creature_names:explorer",
-	socialGroup = "wilder",
+	socialGroup = "Mercenary",
 	pvpFaction = "",
-	faction = "",
+	faction = "townsperson",
 	level = 7,
 	chanceHit = 0.26,
 	damageMin = 55,
@@ -22,7 +22,7 @@ explorer = Creature:new {
 	tamingChance = 0,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
-	creatureBitmask = PACK + STALKER,
+	creatureBitmask = NONE,
 	optionsBitmask = 128,
 	diet = HERBIVORE,
 
@@ -47,9 +47,10 @@ explorer = Creature:new {
 			lootChance = 3000000
 		}
 	},
-	weapons = {"rebel_weapons_medium"},
+	weapons = {},
 	conversationTemplate = "",
-	attacks = merge(riflemanmaster,pistoleermaster,carbineermaster,brawlermaster)
+	attacks = {
+	}
 }
 
 CreatureTemplates:addCreatureTemplate(explorer, "explorer")

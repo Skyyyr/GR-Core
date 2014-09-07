@@ -49,7 +49,7 @@ rebel_specforce_general = Creature:new {
 		}	
 	},
 	weapons = {"rebel_weapons_heavy"},
-	conversationTemplate = "rebelRecruiterConvoTemplate",
+	conversationTemplate = "rebel_recruiter_convotemplate",
 	attacks = merge(riflemanmaster,pistoleermaster,carbineermaster,brawlermaster)
 }
 

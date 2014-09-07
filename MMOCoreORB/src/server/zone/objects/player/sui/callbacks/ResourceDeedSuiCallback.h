@@ -59,9 +59,6 @@ public:
 			if(nodeName == "Resources" || nodeName == "Resource")
 				return;
 
-			listBox->setPromptTitle("@veteran:resource_title");
-			listBox->setPromptText("@veteran:choose_class");
-
 			listBox->removeAllMenuItems();
 
 			nodeName = resourceManager->addParentNodeToListBox(listBox, nodeName);

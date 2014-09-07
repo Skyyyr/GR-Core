@@ -1,6 +1,6 @@
 bandit_tutorial_1 = Creature:new {
 	objectName = "@mob/creature_names:bandit",
-	socialGroup = "imperial",
+	socialGroup = "Imperial",
 	pvpFaction = "",
 	faction = "",--dont change this
 	level = 1,

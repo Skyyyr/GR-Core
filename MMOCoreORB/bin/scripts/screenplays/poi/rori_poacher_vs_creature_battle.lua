@@ -63,7 +63,7 @@ end
 	--hunter
 
 function RoriPoacherVsCreatureBattleScreenPlay:notifyHunterDead(pHunter, pKiller)
-	local val = getRandomNumber(100)
+	local val = math.random(100)
 	if (val > 66) then
 		if (readData("RoriPoacherVsCreatureBattle:savage_pugoriss") == 0) then
 			local pSavage = spawnMobile("rori", "savage_pugoriss", 0, 698.8, 95.4, -2071.2, 100, 0)

@@ -42,9 +42,6 @@
 
 
 object_tangible_deed_event_perk_party_stage_theater_deed = object_tangible_deed_event_perk_shared_party_stage_theater_deed:new {
-	templateType = EVENTPERKDEED,
-	gameObjectType = 8388615,
-	noTrade = 1,
 
 }
 

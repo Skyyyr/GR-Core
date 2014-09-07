@@ -23,13 +23,13 @@ paemos = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = NONE,
-	optionsBitmask = 264,
+	optionsBitmask = 128,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_fs_converter.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "paemos_convotemplate",
+	conversationTemplate = "",
 	attacks = {
 	}
 }

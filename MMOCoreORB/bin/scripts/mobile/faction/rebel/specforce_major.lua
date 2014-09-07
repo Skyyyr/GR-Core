@@ -51,7 +51,7 @@ lootGroups = {
 		}	
 	},
 	weapons = {"imperial_weapons_medium"},
-	conversationTemplate = "rebelRecruiterConvoTemplate",
+	conversationTemplate = "rebel_recruiter_convotemplate",
 	attacks = merge(riflemanmaster,carbineermaster,brawlermaster)
 }
 

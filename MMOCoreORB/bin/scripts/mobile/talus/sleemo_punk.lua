@@ -1,6 +1,6 @@
 sleemo_punk = Creature:new {
 	objectName = "@mob/creature_names:sleemo_punk",
-	socialGroup = "sleemo_gang",
+	socialGroup = "Sleemo Gang",
 	pvpFaction = "",
 	faction = "",
 	level = 6,

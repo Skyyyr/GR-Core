@@ -27,7 +27,6 @@ namespace scene {
 		~LuaSceneObject();
 
 		int _setObject(lua_State* L);
-		int _getObject(lua_State* L);
 		// Methods we will need to use
 		int getParent(lua_State* L);
 		int getPositionX(lua_State* L);
@@ -45,7 +44,6 @@ namespace scene {
 		int getServerObjectCRC(lua_State* L);
 		int showFlyText(lua_State* L);
 		int getDistanceTo(lua_State* L);
-		int getDistanceToPosition(lua_State* L);
 		int getContainerObject(lua_State* L);
 		int getContainerObjectsSize(lua_State* L);
 		int getContainerVolumeLimit(lua_State* L);
@@ -82,6 +80,7 @@ namespace scene {
 		int setContainerDefaultDenyPermission(lua_State* L);
 		int clearContainerDefaultDenyPermission(lua_State* L);
 		int setContainerOwnerID(lua_State* L);
+		int hasActiveArea(lua_State* L);
 		int setObjectName(lua_State* L);
 		int isASubChildOf(lua_State* L);
 

@@ -21,8 +21,8 @@ mokk_herbalist = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
-	creatureBitmask = PACK + HERD + HEALER,
+	pvpBitmask = ATTACKABLE,
+	creatureBitmask = PACK + HERD,
 	optionsBitmask = 128,
 	diet = HERBIVORE,
 

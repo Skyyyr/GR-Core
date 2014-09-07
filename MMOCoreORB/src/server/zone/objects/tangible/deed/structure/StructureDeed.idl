@@ -70,7 +70,6 @@ class StructureDeed extends Deed {
 	}
 	
 	@local
-	@dirty
 	public native void fillAttributeList(AttributeListMessage alm, CreatureObject object);
 	
 	public native int handleObjectMenuSelect(CreatureObject player, byte selectedID);
@@ -112,27 +111,22 @@ class StructureDeed extends Deed {
 		hopperSizeMax = size;
 	}
 	
-	@read
 	public unsigned int getSurplusMaintenance() {
 		return surplusMaintenance;
 	}
 	
-	@read
 	public unsigned int getSurplusPower() {
 		return surplusPower;
 	}
 	
-	@read
 	public float getExtractionRate() {
 		return extractionRate;
 	}
 	
-	@read
 	public float getHopperSize() {
 		return hopperSizeMax;
 	}
 	
-	@dirty
 	public boolean isStructureDeed() {
 		return true;
 	}

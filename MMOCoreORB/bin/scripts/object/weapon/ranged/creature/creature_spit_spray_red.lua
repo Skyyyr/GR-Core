@@ -116,9 +116,7 @@ object_weapon_ranged_creature_creature_spit_spray_red = object_weapon_ranged_cre
 	minDamage = 50,
 	maxDamage = 150,
 
-	attackSpeed = 7.6,
-
-	woundsRatio = 5,
+	attackSpeed = 7.6
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_creature_creature_spit_spray_red, "object/weapon/ranged/creature/creature_spit_spray_red.iff")

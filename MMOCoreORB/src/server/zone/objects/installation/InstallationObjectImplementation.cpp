@@ -419,7 +419,7 @@ void InstallationObjectImplementation::updateHopper(Time& workingTime, bool shut
 	float currentQuantity = container->getQuantity();
 
 
-	if(harvestAmount > 0 || !isOperating()) {
+	if(harvestAmount > 0) {
 		currentSpawn->extractResource(getZone()->getZoneName(), harvestAmount);
 
 		updateResourceContainerQuantity(container, (currentQuantity + harvestAmount), true);
@@ -680,33 +680,26 @@ void InstallationObjectImplementation::updateStructureStatus() {
 	}
 }
 
-bool InstallationObjectImplementation::isAttackableBy(CreatureObject* object) {
-	if( !(getPvpStatusBitmask() & CreatureFlag::ATTACKABLE) ) {
+bool InstallationObjectImplementation::isAttackableBy(CreatureObject* object){
+	if( !(getPvpStatusBitmask() & CreatureFlag::ATTACKABLE) )
 		return false;
-	}
 
-	if(object->isPlayerCreature()) {
+	if(object->isPlayerCreature()){
 		ManagedReference<PlayerObject*> ghost = object->getPlayerObject();
-		if(ghost == NULL) {
+		if(ghost == NULL)
 			return false;
-		}
 
-		if(getFaction() == 0) {
+		if(getFaction() == 0)
 			return true;
-		}
 
-		if(getFaction() == object->getFaction()) {
-			return false;
-		}
-
-		if((getPvpStatusBitmask() & CreatureFlag::OVERT) && ghost->getFactionStatus() != FactionStatus::OVERT) {
-			return false;
-		} else if(!(ghost->getFactionStatus() >= FactionStatus::COVERT)) {
-			return false;
-		}
+		if(getPvpStatusBitmask() & CreatureFlag::OVERT){
+			if ( object->getFaction() != getFaction() && ghost->getFactionStatus() == FactionStatus::OVERT)
+					return true;
+		} else if(object->getFaction() != getFaction() && ghost->getFactionStatus() >= FactionStatus::COVERT)
+				return true;
 	}
 
-	return true;
+	return getPvpStatusBitmask() & CreatureFlag::ATTACKABLE;
 }
 
 void InstallationObjectImplementation::createChildObjects(){

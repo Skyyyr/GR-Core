@@ -67,6 +67,5 @@ class StaticObject extends SceneObject {
 		super.loadTemplateData(templateData);
 	}
 	
-	@dirty
 	public native void sendBaselinesTo(SceneObject player);
 }

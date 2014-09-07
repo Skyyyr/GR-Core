@@ -46,10 +46,6 @@ void CampTerminalMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject,
 		return;
 	}
 
-	if (!player->isInRange(terminal, 7)) {
-		return;
-	}
-
 	menuResponse->addRadialMenuItem(68, 3, "@camp:mnu_status");
 
 	/// Make sure player doesn't already have a camp setup somewhere else
@@ -64,7 +60,7 @@ void CampTerminalMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject,
 		}
 	}
 
-	Vector < ManagedReference<ActiveArea*> > *areas = camp->getActiveAreas();
+	Vector < ManagedReference<ActiveArea*> > *areas = sceneObject->getActiveAreas();
 	ManagedReference<ActiveArea*> area = NULL;
 	for (int i = 0; i < areas->size(); ++i) {
 		area = areas->get(i);
@@ -116,10 +112,6 @@ void CampTerminalMenuComponent::disbandCamp(SceneObject* sceneObject,
 		return;
 	}
 
-	if (!player->isInRange(terminal, 7)) {
-		return;
-	}
-
 	StructureObject* camp = cast<StructureObject*>(terminal->getControlledObject());
 	if(camp == NULL) {
 		error("Camp is null in disbandCamp");
@@ -128,16 +120,6 @@ void CampTerminalMenuComponent::disbandCamp(SceneObject* sceneObject,
 
 	if (camp->getZone() == NULL)
 		return;
-
-	PlayerObject* ghost = player->getPlayerObject();
-
-	if (ghost == NULL) {
-		return;
-	}
-
-	if (!ghost->isOwnedStructure(camp)) {
-		return;
-	}
 
 	if(player->isSitting()) {
 		player->setPosture(CreaturePosture::UPRIGHT, true);
@@ -172,10 +154,6 @@ void CampTerminalMenuComponent::assumeCampOwnership(SceneObject* sceneObject,
 	Terminal* terminal = cast<Terminal*>(sceneObject);
 	if(terminal == NULL) {
 		error("Terminal is null in assumeCampOwnership");
-		return;
-	}
-
-	if (!player->isInRange(terminal, 7)) {
 		return;
 	}
 
@@ -214,10 +192,6 @@ void CampTerminalMenuComponent::showCampStatus(SceneObject* sceneObject,
 	Terminal* terminal = cast<Terminal*>(sceneObject);
 	if(terminal == NULL) {
 		error("Terminal is null in CampTerminalMenuComponent::showCampStatus");
-		return;
-	}
-
-	if (!player->isInRange(terminal, 7)) {
 		return;
 	}
 

@@ -117,9 +117,7 @@ object_weapon_ranged_pistol_pistol_scout_blaster_ammo_test_2 = object_weapon_ran
 	minDamage = 25,
 	maxDamage = 56,
 
-	attackSpeed = 4,
-
-	woundsRatio = 7,
+	attackSpeed = 4
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_pistol_pistol_scout_blaster_ammo_test_2, "object/weapon/ranged/pistol/pistol_scout_blaster_ammo_test_2.iff")

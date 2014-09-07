@@ -141,7 +141,7 @@ bool FactoryCrateImplementation::extractObjectToParent() {
 
 	Reference<TangibleObject*> prototype = getPrototype();
 
-	if (prototype == NULL || !prototype->isTangibleObject() || parent.get() == NULL) {
+	if (prototype == NULL || !prototype->isTangibleObject() || parent == NULL) {
 		error("FactoryCrateImplementation::extractObject has a NULL or non-tangible item");
 		return false;
 	}
@@ -168,10 +168,9 @@ bool FactoryCrateImplementation::extractObjectToParent() {
 			return false;
 		}
 
-		ManagedReference<SceneObject*> strongParent = getParent().get();
-		if (strongParent != NULL) {
-			strongParent->transferObject(protoclone, -1, true);
-			strongParent->broadcastObject(protoclone, true);
+		if (parent != NULL) {
+			getParent().get()->transferObject(protoclone, -1, true);
+			getParent().get()->broadcastObject(protoclone, true);
 		}
 
 		setUseCount(getUseCount() - 1);
@@ -204,10 +203,9 @@ TangibleObject* FactoryCrateImplementation::extractObject(int count) {
 		protoclone->setParent(NULL);
 		protoclone->setUseCount(count, false);
 
-		ManagedReference<SceneObject*> strongParent = getParent().get();
-		if (strongParent != NULL) {
-			strongParent->broadcastObject(protoclone, true);
-			strongParent->transferObject(protoclone, -1, true);
+		if (parent != NULL) {
+			getParent().get()->broadcastObject(protoclone, true);
+			getParent().get()->transferObject(protoclone, -1, true);
 		}
 
 		setUseCount(getUseCount() - count, true);
@@ -239,7 +237,7 @@ void FactoryCrateImplementation::split(int newStackSize) {
 	ManagedReference<FactoryCrate*> newCrate =
 			(server->getZoneServer()->createObject(getServerObjectCRC(), 2)).castTo<FactoryCrate*>();
 
-	if(parent.get() == NULL || newCrate == NULL || protoclone == NULL)
+	if(parent == NULL || newCrate == NULL || protoclone == NULL)
 		return;
 
 	protoclone->setParent(NULL);
@@ -249,10 +247,9 @@ void FactoryCrateImplementation::split(int newStackSize) {
 	newCrate->setUseCount(newStackSize, false);
 	newCrate->setCustomObjectName(getCustomObjectName(), false);
 
-	ManagedReference<SceneObject*> strongParent = getParent().get();
-	if (strongParent != NULL) {
-		if(	strongParent->transferObject(newCrate, -1, false)) {
-			strongParent->broadcastObject(newCrate, true);
+	if (parent != NULL) {
+		if(	getParent().get()->transferObject(newCrate, -1, false)) {
+			getParent().get()->broadcastObject(newCrate, true);
 			setUseCount(getUseCount() - newStackSize, true);
 		}
 	}

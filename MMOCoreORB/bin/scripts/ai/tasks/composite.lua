@@ -4,7 +4,7 @@ CompositeBase = createClass(Ai)
 
 function CompositeBase:doAction(pAgent)
 	if (pAgent ~= nil) then
-		local agent = AiAgent(pAgent)
+		local agent = LuaAiAgent(pAgent)
 		local res = agent:getBehaviorStatus()
 		return res
 	else

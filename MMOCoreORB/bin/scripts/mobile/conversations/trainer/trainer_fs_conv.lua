@@ -168,8 +168,3 @@ addConversationTemplate("trainer_fs_convotemplate", trainer_fs_convotemplate);
 -- -- stuff for the message box popping up when talking to a trainer you are not qualified for:
 -- @skill_teacher:no_qualify_prompt	-> You must have, at least, the following skills to learn from this skill trainer.
 -- @skill_teacher:no_qualify_title	-> Trainer Skill Requirements
-
-
-
-
-

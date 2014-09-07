@@ -42,9 +42,6 @@
 
 
 object_tangible_deed_event_perk_tie_fighter_static_deed = object_tangible_deed_event_perk_shared_tie_fighter_static_deed:new {
-	templateType = EVENTPERKDEED,
-	gameObjectType = 8388615,
-	noTrade = 1,
 
 }
 

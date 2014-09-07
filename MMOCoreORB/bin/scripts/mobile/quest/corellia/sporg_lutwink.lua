@@ -1,7 +1,7 @@
 sporg_lutwink = Creature:new {
 	objectName = "",
-	socialGroup = "thug",
-	pvpFaction = "thug",
+	socialGroup = "Thug",
+	pvpFaction = "Thug",
 	faction = "",
 	level = 14,
 	chanceHit = 0.300000,

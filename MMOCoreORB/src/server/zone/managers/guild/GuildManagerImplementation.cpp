@@ -101,10 +101,6 @@ void GuildManagerImplementation::loadGuilds() {
 
 			//Recreate the guild chat rooms on load
 			createGuildChannels(guild);
-
-			if (guild->isRenamePending()) {
-				guild->rescheduleRename();
-			}
 		}
 
 	} catch (DatabaseException& e) {
@@ -135,9 +131,6 @@ void GuildManagerImplementation::sendGuildCreateNameTo(CreatureObject* player, G
 }
 
 void GuildManagerImplementation::sendGuildChangeNameTo(CreatureObject* player, GuildObject* guild, GuildTerminal* terminal) {
-	if (guild == NULL)
-		return;
-
 	if (!guild->hasNamePermission(player->getObjectID()) && !player->getPlayerObject()->isPrivileged()) {
 		player->sendSystemMessage("@guild:generic_fail_no_permission"); // You do not have permission to perform that operation.
 		return;
@@ -172,7 +165,7 @@ bool GuildManagerImplementation::validateGuildName(CreatureObject* player, const
 
 	NameManager* nameManager = processor->getNameManager();
 
-	if (nameManager->validateName(guildName) != NameManagerResult::ACCEPTED) {
+	if (!nameManager->validateName(guildName)) {
 		player->sendSystemMessage("@guild:create_fail_name_not_allowed"); //That guild name is not allowed.
 		return false;
 	}
@@ -254,7 +247,7 @@ bool GuildManagerImplementation::validateGuildAbbrev(CreatureObject* player, con
 	}
 	NameManager* nameManager = processor->getNameManager();
 
-	if (nameManager->validateName(guildAbbrev) != NameManagerResult::ACCEPTED) {
+	if (!nameManager->validateName(guildAbbrev)) {
 		player->sendSystemMessage("@guild:create_fail_abbrev_not_allowed"); //That guild abbreviation is not allowed.
 		return false;
 	}
@@ -285,9 +278,8 @@ void GuildManagerImplementation::scheduleGuildRename(CreatureObject* player, Gui
 	params.setTT(guild->getPendingNewAbbrev());
 	player->sendSystemMessage(params); // You have set your guild's name and abbreviation to bechanged to '%TU' and '%TT' respectively. The change will take place in approximately 7 days, if there are no conflicts at that time.
 
-	task->schedule(604800000); // 1 week
-	guild->updateRenameTime(604800000);
-	guild->setRenamerID(player->getObjectID());
+	task->schedule(3600000); // 1 hour for testing
+	//task->schedule(604800000); // 1 week
 }
 
 void GuildManagerImplementation::renameGuild(GuildObject* guild, CreatureObject* player, const String& newName, const String& newAbbrev) {
@@ -1172,7 +1164,7 @@ void GuildManagerImplementation::setMemberTitle(CreatureObject* player, Creature
 
 	NameManager* nameManager = processor->getNameManager();
 
-	if (nameManager->validateName(title) != NameManagerResult::ACCEPTED) {
+	if (!nameManager->validateName(title)) {
 		player->sendSystemMessage("@guild:title_fail_not_allowed"); //That title is not allowed.
 		return;
 	}
@@ -1399,9 +1391,6 @@ void GuildManagerImplementation::sendGuildMail(const String& subject, StringIdCh
 }
 
 void GuildManagerImplementation::sendGuildWarStatusTo(CreatureObject* player, GuildObject* guild, GuildTerminal* terminal) {
-	if (guild == NULL)
-		return;
-
 	ManagedReference<SuiListBox*> listbox = new SuiListBox(player, SuiWindowType::GUILD_WAR_LIST);
 	listbox->setPromptTitle("@guild:enemies_title"); //Guild Enemies
 	listbox->setPromptText("@guild:enemies_prompt");

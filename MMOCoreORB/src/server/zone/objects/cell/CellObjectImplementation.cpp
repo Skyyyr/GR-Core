@@ -86,12 +86,10 @@ void CellObjectImplementation::sendBaselinesTo(SceneObject* player) {
 
 	bool allowEntry = true;
 
-	ManagedReference<SceneObject*> strongParent = getParent().get();
-
-	if (player->isCreatureObject() && strongParent != NULL && strongParent->isBuildingObject()) {
+	if (player->isCreatureObject() && parent != NULL && getParent().get()->isBuildingObject()) {
 		ManagedReference<CreatureObject*> creature = cast<CreatureObject*>( player);
 
-		allowEntry = (cast<BuildingObject*>(strongParent.get()))->isAllowedEntry(creature);
+		allowEntry = (cast<BuildingObject*>(parent.get().get()))->isAllowedEntry(creature);
 	}
 
 	BaseMessage* perm = new UpdateCellPermissionsMessage(getObjectID(), allowEntry);
@@ -99,10 +97,8 @@ void CellObjectImplementation::sendBaselinesTo(SceneObject* player) {
 }
 
 int CellObjectImplementation::canAddObject(SceneObject* object, int containmentType, String& errorDescription) {
-	ManagedReference<SceneObject*> strongParent = getParent().get();
-
-	if (strongParent != NULL && strongParent->isBuildingObject()) {
-		ManagedReference<BuildingObject*> building = cast<BuildingObject*>( strongParent.get());
+	if (parent != NULL && getParent().get()->isBuildingObject()) {
+		ManagedReference<BuildingObject*> building = cast<BuildingObject*>( parent.get().get());
 
 		int count = 1;
 
@@ -137,10 +133,8 @@ bool CellObjectImplementation::transferObject(SceneObject* object, int containme
 	try {
 		ret = SceneObjectImplementation::transferObject(object, containmentType, notifyClient, allowOverflow);
 
-		if (zone != NULL && object->isTangibleObject()) {
-			TangibleObject* tano = cast<TangibleObject*>(object);
-			zone->updateActiveAreas(tano);
-		}
+		if (zone != NULL)
+			zone->updateActiveAreas(object);
 	} catch (...) {
 
 	}
@@ -162,15 +156,13 @@ bool CellObjectImplementation::transferObject(SceneObject* object, int containme
 int CellObjectImplementation::getCurrentNumberOfPlayerItems() {
 	int count = 0;
 
-	ManagedReference<SceneObject*> strongParent = getParent().get();
-
-	if (strongParent != NULL) {
+	if (parent != NULL) {
 		for (int j = 0; j < getContainerObjectsSize(); ++j) {
 			ReadLocker rlocker(getContainerLock());
 			ManagedReference<SceneObject*> containerObject = getContainerObject(j);
 			rlocker.release();
 
-			if (!strongParent->containsChildObject(containerObject) && !containerObject->isCreatureObject() && !containerObject->isVendor()) {
+			if (!getParent().get()->containsChildObject(containerObject) && !containerObject->isCreatureObject() && !containerObject->isVendor()) {
 
 				if (containerObject->isContainerObject())
 					count += containerObject->getCountableObjectsRecursive();
@@ -184,9 +176,7 @@ int CellObjectImplementation::getCurrentNumberOfPlayerItems() {
 }
 
 void CellObjectImplementation::destroyAllPlayerItems() {
-	ManagedReference<SceneObject*> strongParent = getParent().get();
-
-	if (strongParent == NULL)
+	if (parent == NULL)
 		return;
 
 	int containerSize = getContainerObjectsSize();
@@ -196,7 +186,7 @@ void CellObjectImplementation::destroyAllPlayerItems() {
 		ManagedReference<SceneObject*> containerObject = getContainerObject(j);
 		rlocker.release();
 
-		if (strongParent->containsChildObject(containerObject))
+		if (getParent().get()->containsChildObject(containerObject))
 			continue;
 
 		if (containerObject->isCreatureObject())

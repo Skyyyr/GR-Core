@@ -42,9 +42,6 @@
 
 
 object_tangible_deed_event_perk_gravestone = object_tangible_deed_event_perk_shared_gravestone:new {
-	templateType = EVENTPERKDEED,
-	gameObjectType = 8388615,
-	noTrade = 1,
 
 }
 

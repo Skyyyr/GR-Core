@@ -46,8 +46,4 @@
 
 -- Server Objects
 includeFile("tangible/treasure_map/treasure_map_base.lua")
-includeFile("tangible/treasure_map/treasure_map_bh.lua")
-includeFile("tangible/treasure_map/treasure_map_encoded_disk.lua")
-includeFile("tangible/treasure_map/treasure_map_pirate1.lua")
-includeFile("tangible/treasure_map/treasure_map_pirate2.lua")
 includeFile("tangible/treasure_map/treasure_map_quest.lua")

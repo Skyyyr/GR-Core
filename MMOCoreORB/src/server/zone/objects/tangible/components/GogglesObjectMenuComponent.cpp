@@ -25,12 +25,11 @@ void GogglesObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject
 
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 
-	if (sceneObject->isASubChildOf(player)) {
-		menuResponse->addRadialMenuItem(81, 3, "@sui:color_lens");
+	// Coloring the goggles...
 
-		if (sceneObject->getObjectTemplate()->getFullTemplateString() == "object/tangible/wearables/goggles/goggles_s01.iff")
-			menuResponse->addRadialMenuItem(82, 3, "@sui:color_frame");
-	}
+	String text = "Color Change";
+	menuResponse->addRadialMenuItem(81, 3, text);
+
 }
 
 int GogglesObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) {
@@ -40,9 +39,9 @@ int GogglesObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject,
 	if (!sceneObject->isASubChildOf(player))
 		return 0;
 		
-	if (selectedID == 81 || selectedID == 82) {
+	if (selectedID == 81) {		
 
-		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
+		ManagedReference<SceneObject*> parent = sceneObject->getParent();
 		if (parent != NULL && parent->isPlayerCreature()) {
 			player->sendSystemMessage("@error_message:equipped_goggles");
 			return 0;
@@ -62,10 +61,7 @@ int GogglesObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject,
 			// The Sui Box.
 			ManagedReference<SuiColorBox*> cbox = new SuiColorBox(player, SuiWindowType::COLOR_GOGGLES);
 			cbox->setCallback(new ColorGogglesSuiCallback(server));
-			if (selectedID == 81)
-				cbox->setColorPalette(variables.elementAt(1).getKey());
-			else
-				cbox->setColorPalette(variables.elementAt(0).getKey());
+			cbox->setColorPalette(variables.elementAt(1).getKey()); // First one seems to be the frame of it? Skip to 2nd.
 			cbox->setUsingObject(sceneObject);
 
 			// Add to player.

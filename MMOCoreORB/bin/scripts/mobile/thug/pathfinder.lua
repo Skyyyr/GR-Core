@@ -1,7 +1,7 @@
 pathfinder = Creature:new {
 	objectName = "",
 	costumName = "Pathfinder",
-	socialGroup = "wilder",
+	socialGroup = "Wilder",
 	pvpFaction = "",
 	faction = "",
 	level = 21,

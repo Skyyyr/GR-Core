@@ -1,6 +1,6 @@
 protocol_droid_3po_silver = Creature:new {
 	objectName = "@newbie_tutorial/system_messages:droid_name",
-	socialGroup = "imperial",
+	socialGroup = "Imperial",
 	pvpFaction = "",
 	faction = "",
 	level = 30,

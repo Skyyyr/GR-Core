@@ -92,7 +92,6 @@ class RangedStimPack extends StimPack {
 	 * @param object player creature to which the message is sent
 	 */
 	@local
-	@dirty
 	public void fillAttributeList(AttributeListMessage msg, CreatureObject object) {
 		super.fillAttributeList(msg, object);
 	
@@ -159,7 +158,6 @@ class RangedStimPack extends StimPack {
 		rangeMod = stimPackTemplate.getRangeMod();
 	}
 	
-	@dirty
 	public unsigned int calculatePower(CreatureObject healer, CreatureObject patient, boolean applyBattleFatigue = true) {
 		float power = getEffectiveness();
 
@@ -172,7 +170,6 @@ class RangedStimPack extends StimPack {
 		return (100 + modSkill) / 100 * power;
 	}
 	
-	@dirty
 	public float getRange(CreatureObject creature = null) {
 		float modSkill = 0;
 		
@@ -185,27 +182,22 @@ class RangedStimPack extends StimPack {
 		return value;
 	}
 	
-	@dirty
 	public float getEffectiveness() {
 		return super.effectiveness;
 	}
 	
-	@dirty
 	public float getArea() {
 		return area;
 	}
 	
-	@dirty
 	public boolean isArea() {
 		return area != 0;
 	}
 	
-	@dirty
 	public float getRangeMod() {
 		return rangeMod;
 	}
-
-	@dirty
+	
 	public boolean isRangedStimPack() {
 		return true;
 	}

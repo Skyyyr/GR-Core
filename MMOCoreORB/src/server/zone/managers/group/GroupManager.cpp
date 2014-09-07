@@ -62,14 +62,6 @@ which carries forward this exception.
 GroupManager::GroupManager() {
 }
 
-bool GroupManager::playerIsInvitingOwnPet(CreatureObject* inviter, CreatureObject* target) {
-	return inviter != NULL
-			&& target != NULL
-			&& target->isPet()
-			&& target->getCreatureLinkID() != 0
-			&& target->getCreatureLinkID() == inviter->getObjectID();
-}
-
 void GroupManager::inviteToGroup(CreatureObject* leader, CreatureObject* target) {
 	// Pre: leader locked
 	// Post: player invited to leader's group, leader locked
@@ -84,12 +76,7 @@ void GroupManager::inviteToGroup(CreatureObject* leader, CreatureObject* target)
 	if (leader->isGrouped()) {
 		ManagedReference<GroupObject*> group = leader->getGroup();
 
-		if (playerIsInvitingOwnPet(leader, target)) {
-			if (!target->isInRange(leader, 120)) {
-				return;
-			}
-		}
-		else if (group->getLeader() != leader) {
+		if (group->getLeader() != leader) {
 			leader->sendSystemMessage("@group:must_be_leader");
 			return;
 		}
@@ -193,7 +180,7 @@ void GroupManager::joinGroup(CreatureObject* player) {
 	}
 
 	// if inviter IS in the group but is not the leader
-	if (group->getLeader() != inviter && !playerIsInvitingOwnPet(inviter, player)) {
+	if ( group->getLeader() != inviter ){
 		player->updateGroupInviterID(0);
 		StringIdChatParameter param("group", "prose_leader_changed"); // "%TU has abdicated group leadership to %TT."
 		param.setTU( inviter->getDisplayedName() );
@@ -285,7 +272,7 @@ GroupObject* GroupManager::createGroup(CreatureObject* leader) {
 			group->setBandSong(session->getPerformanceName());
 
 			for (int i = 0; i < group->getGroupSize(); ++i) {
-				Reference<CreatureObject*> groupMember = (group->getGroupMember(i)).castTo<CreatureObject*>();
+				ManagedReference<CreatureObject*> groupMember = cast<CreatureObject*>(group->getGroupMember(i));
 				if (groupMember == leader) {
 					continue;
 				} else {
@@ -305,7 +292,7 @@ GroupObject* GroupManager::createGroup(CreatureObject* leader) {
 		}
 	} else {
 		for (int i = 0; i < group->getGroupSize(); ++i) {
-			Reference<CreatureObject*> groupMember = (group->getGroupMember(i)).castTo<CreatureObject*>();
+			ManagedReference<CreatureObject*> groupMember = cast<CreatureObject*>(group->getGroupMember(i));
 			if (groupMember->isPlayingMusic()) {
 				ManagedReference<Facade*> facade = groupMember->getActiveSession(SessionFacadeType::ENTERTAINING);
 				ManagedReference<EntertainingSession*> session = dynamic_cast<EntertainingSession*> (facade.get());
@@ -403,7 +390,7 @@ void GroupManager::disbandGroup(ManagedReference<GroupObject*> group, CreatureOb
 		}
 
 		for (int i = 0; i < group->getGroupSize(); i++) {
-			Reference<CreatureObject*> play = ( group->getGroupMember(i)).castTo<CreatureObject*>();
+			CreatureObject* play = cast<CreatureObject*>( group->getGroupMember(i));
 
 			if (play->isPlayerCreature())
 				play->sendSystemMessage("@group:disbanded");
@@ -440,7 +427,7 @@ void GroupManager::kickFromGroup(ManagedReference<GroupObject*> group, CreatureO
 			return;
 		}
 
-		Reference<CreatureObject*> leader = ( group->getLeader()).castTo<CreatureObject*>();
+		CreatureObject* leader = cast<CreatureObject*>( group->getLeader());
 
 		if (player != leader) {
 			player->sendSystemMessage("@group:must_be_leader");
@@ -453,7 +440,7 @@ void GroupManager::kickFromGroup(ManagedReference<GroupObject*> group, CreatureO
 
 		if (group->getGroupSize() - 1 < 2) {
 			for (int i = 0; i < group->getGroupSize(); i++) {
-				Reference<CreatureObject*> play = ( group->getGroupMember(i)).castTo<CreatureObject*>();
+				CreatureObject* play = cast<CreatureObject*>( group->getGroupMember(i));
 
 				play->sendSystemMessage("@group:disbanded");
 			}
@@ -547,7 +534,7 @@ void GroupManager::makeLeader(GroupObject* group, CreatureObject* player, Creatu
 		message << firstNameLeader << " is now the group leader.\n";
 
 		for (int i = 0; i < group->getGroupSize(); i++) {
-			Reference<CreatureObject*> play = ( group->getGroupMember(i)).castTo<CreatureObject*>();
+			CreatureObject* play = cast<CreatureObject*>( group->getGroupMember(i));
 
 			if (play->isPlayerCreature())
 				play->sendSystemMessage(message.toString());

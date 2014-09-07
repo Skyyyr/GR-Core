@@ -3,15 +3,15 @@ hermit = Creature:new {
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
-	level = 4,
-	chanceHit = 0.24,
-	damageMin = 40,
-	damageMax = 45,
-	baseXp = 62,
-	baseHAM = 113,
-	baseHAMmax = 138,
+	level = 100,
+	chanceHit = 1,
+	damageMin = 645,
+	damageMax = 1000,
+	baseXp = 9429,
+	baseHAM = 24000,
+	baseHAMmax = 30000,
 	armor = 0,
-	resists = {0,0,0,0,0,0,0,-1,-1},
+	resists = {0,0,0,0,0,0,0,0,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -21,27 +21,17 @@ hermit = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = ATTACKABLE,
+	pvpBitmask = NONE,
 	creatureBitmask = NONE,
 	optionsBitmask = 128,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_tatooine_hermit.iff"},
-	lootGroups = {
-	    {
-			groups = {
-				{group = "junk", chance = 4000000},
-				{group = "wearables_common", chance = 2000000},				
-				{group = "tailor_components", chance = 1500000},
-				{group = "loot_kit_parts", chance = 1500000},
-				{group = "printer_parts", chance = 1000000},
-			},
-			lootChance = 2000000
-		}			
-	},
-	weapons = {"rebel_weapons_light"},
+	templates = {"object/mobile/dressed_hermit_of_tatooine.iff"},
+	lootGroups = {},
+	weapons = {},
 	conversationTemplate = "",
-	attacks = merge(brawlernovice,marksmannovice)
+	attacks = {
+	}
 }
 
 CreatureTemplates:addCreatureTemplate(hermit, "hermit")

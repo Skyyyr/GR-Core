@@ -498,17 +498,6 @@ void CreatureObjectImplementation::setWeapon(WeaponObject* weao,
 
 	weapon = weao;
 
-	if (isPlayerCreature()) {
-		PlayerObject* ghost = getSlottedObject("ghost").castTo<PlayerObject*>();
-		if (ghost != NULL) {
-			if (!ghost->hasAbility("counterAttack") && (weapon->isCarbineWeapon() || (weapon->isTwoHandMeleeWeapon() && !weapon->isJediWeapon()))) {
-				SkillManager::instance()->addAbility(ghost, "counterAttack", false);
-			} else if (ghost->hasAbility("counterAttack") && !(weapon->isCarbineWeapon() || (weapon->isTwoHandMeleeWeapon() && !weapon->isJediWeapon()))) {
-				SkillManager::instance()->removeAbility(ghost, "counterAttack", false);
-			}
-		}
-	}
-
 	if (notifyClient) {
 		CreatureObjectDeltaMessage6* msg = new CreatureObjectDeltaMessage6(
 				_this.get());
@@ -1354,12 +1343,6 @@ int CreatureObjectImplementation::getSkillMod(const String& skillmod) {
 	Locker locker(&skillModMutex);
 
 	return skillModList.getSkillMod(skillmod);
-}
-
-int CreatureObjectImplementation::getSkillModOfType(const String& skillmod, const unsigned int modType) {
-	Locker locker(&skillModMutex);
-
-	return skillModList.getSkillModOfType(skillmod, modType);
 }
 
 void CreatureObjectImplementation::addSkill(const String& skill,
@@ -2570,9 +2553,6 @@ bool CreatureObjectImplementation::isAttackableBy(TangibleObject* object){
 		return false;
 
 	if (isDead() || isIncapacitated() || isInvisible())
-		return false;
-
-	if (getPvpStatusBitmask() == CreatureFlag::NONE)
 		return false;
 
 	if(object->getFaction() == 0 )

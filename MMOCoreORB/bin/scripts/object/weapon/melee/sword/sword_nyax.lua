@@ -117,9 +117,7 @@ object_weapon_melee_sword_sword_nyax = object_weapon_melee_sword_shared_sword_ny
 	minDamage = 25,
 	maxDamage = 70,
 
-	attackSpeed = 4.5,
-
-	woundsRatio = 15,
+	attackSpeed = 4.5
 }
 
 ObjectTemplates:addTemplate(object_weapon_melee_sword_sword_nyax, "object/weapon/melee/sword/sword_nyax.iff")

@@ -8,7 +8,7 @@ registerScreenPlay("TatooineVillageRuinsScreenPlay", true)
 function TatooineVillageRuinsScreenPlay:start()
 	if (isZoneEnabled("tatooine")) then
 
-		local random = getRandomNumber(100)
+		local random = math.random(100)
 
 		if random >= 30 then
 			self:spawnTuskens()

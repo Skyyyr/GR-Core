@@ -431,6 +431,18 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 	if (sliced == 1)
 		alm->insertAttribute("wpn_attr", "@obj_attr_n:hacked1");
 
+	if (isJediWeapon()){
+	StringBuffer saberColor;
+
+	int color = getBladeColor();
+
+
+	saberColor << "@jedi_spam:saber_color_" << color;
+
+
+	alm->insertAttribute("color", saberColor);
+	}
+
 }
 
 int WeaponObjectImplementation::getPointBlankAccuracy(bool withPup) {
@@ -719,7 +731,7 @@ void WeaponObjectImplementation::decay(CreatureObject* user, float damage) {
 }
 
 bool WeaponObjectImplementation::isEquipped() {
-	ManagedReference<SceneObject*> parent = getParent().get();
+	ManagedReference<SceneObject*> parent = getParent();
 	if (parent != NULL && parent->isPlayerCreature())
 		return true;
 

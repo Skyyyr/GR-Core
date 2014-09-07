@@ -21,7 +21,6 @@
 #include "server/zone/packets/player/PlayMusicMessage.h"
 #include "server/zone/objects/mission/events/FailMissionAfterCertainTimeTask.h"
 #include "events/CompleteMissionObjectiveTask.h"
-#include "server/zone/objects/group/GroupObject.h"
 
 void MissionObjectiveImplementation::destroyObjectFromDatabase() {
 	for (int i = 0; i < observers.size(); ++i) {
@@ -69,12 +68,6 @@ void MissionObjectiveImplementation::complete() {
 
 	Reference<CompleteMissionObjectiveTask*> task = new CompleteMissionObjectiveTask(_this.get());
 	task->execute();
-
-	if (player->isGrouped() && player->getGroup() != NULL) {
-		GroupObject* group = player->getGroup();
-		group->scheduleUpdateNearestMissionForGroup(player->getPlanetCRC());
-	}
-
 	/*awardReward();
 
 	awardFactionPoints();
@@ -171,7 +164,7 @@ void MissionObjectiveImplementation::awardReward() {
 		Locker lockerGroup(group, _this.get());
 
 		for(int i = 0; i < group->getGroupSize(); i++) {
-			Reference<CreatureObject*> groupMember = group->getGroupMember(i)->isPlayerCreature() ? (group->getGroupMember(i)).castTo<CreatureObject*>() : NULL;
+			ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i)->isPlayerCreature() ? cast<CreatureObject*>(group->getGroupMember(i)) : NULL;
 
 			if (groupMember != NULL) {
 				//Play mission complete sound.

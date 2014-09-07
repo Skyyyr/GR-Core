@@ -33,8 +33,7 @@ rebel_recruiter = Creature:new {
 	lootGroups = {},
 	weapons = {},
 	attacks = merge(riflemanmaster,pistoleermaster,carbineermaster,brawlermaster),
-	conversationTemplate = "rebelRecruiterConvoTemplate",
-	containerComponentTemplate = "FactionRecruiterContainerComponent",
+	conversationTemplate = "rebel_recruiter_convotemplate",
 	optionsBitmask = 264
 
 }

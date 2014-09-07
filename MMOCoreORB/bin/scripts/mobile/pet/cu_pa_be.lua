@@ -3,7 +3,7 @@ cu_pa_be = Creature:new {
 	socialGroup = "cu_pa",
 	pvpFaction = "",
 	faction = "",
-	level = 5,
+	level = 1,
 	chanceHit = 0.2,
 	damageMin = 30,
 	damageMax = 40,
@@ -28,7 +28,7 @@ cu_pa_be = Creature:new {
 
 	templates = {"object/mobile/cu_pa_hue.iff"},
 	lootGroups = {},
-	weapons = {"creature_spit_small_yellow"},
+	weapons = {},
 	conversationTemplate = "",
 	attacks = {
 	}

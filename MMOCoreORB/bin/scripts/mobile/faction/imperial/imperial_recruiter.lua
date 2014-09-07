@@ -36,8 +36,7 @@ imperial_recruiter = Creature:new {
 	lootGroups = {},
 	weapons = {},
 	attacks = {},
-	conversationTemplate = "imperialRecruiterConvoTemplate",
-	containerComponentTemplate = "FactionRecruiterContainerComponent",
+	conversationTemplate = "imperial_recruiter_convotemplate",
 	optionsBitmask = 264
 }
 

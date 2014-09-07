@@ -18,12 +18,12 @@ void ObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, Objec
 	if (sceneObject == NULL)
 		return;
 
-	ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
+	ManagedReference<SceneObject*> parent = sceneObject->getParent();
 
 	if (parent == NULL || !parent->isCellObject())
 		return;
 
-	ManagedReference<SceneObject*> obj = parent->getParent().get();
+	ManagedReference<SceneObject*> obj = parent->getParent();
 
 	if (obj == NULL || !obj->isBuildingObject())
 		return;

@@ -1,6 +1,6 @@
 wookiee_brawler = Creature:new {
 	objectName = "@mob/creature_names:wookiee_brawler",
-	socialGroup = "mercenary",
+	socialGroup = "Mercenary",
 	pvpFaction = "",
 	faction = "",
 	level = 7,

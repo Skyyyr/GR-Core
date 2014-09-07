@@ -116,9 +116,7 @@ object_weapon_ranged_creature_creature_spit_heavy_flame = object_weapon_ranged_c
 	minDamage = 50,
 	maxDamage = 150,
 
-	attackSpeed = 6.6,
-
-	woundsRatio = 5,
+	attackSpeed = 6.6
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_creature_creature_spit_heavy_flame, "object/weapon/ranged/creature/creature_spit_heavy_flame.iff")

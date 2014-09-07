@@ -15,7 +15,6 @@ const char LuaBuildingObject::className[] = "LuaBuildingObject";
 
 Luna<LuaBuildingObject>::RegType LuaBuildingObject::Register[] = {
 		{ "_setObject", &LuaBuildingObject::_setObject },
-		{ "_getObject", &LuaSceneObject::_getObject },
 		{ "getCell", &LuaBuildingObject::getCell },
 		{ "getOwnerID", &LuaBuildingObject::getOwnerID },
 		{ "getParent", &LuaSceneObject::getParent },
@@ -44,8 +43,6 @@ LuaBuildingObject::~LuaBuildingObject(){
 
 int LuaBuildingObject::_setObject(lua_State* L) {
 	realObject = (BuildingObject*)lua_touserdata(L, -1);
-
-	LuaTangibleObject::_setObject(L);
 
 	return 0;
 }

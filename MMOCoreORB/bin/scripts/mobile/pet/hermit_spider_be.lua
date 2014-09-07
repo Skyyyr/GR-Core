@@ -3,7 +3,7 @@ hermit_spider_be = Creature:new {
 	socialGroup = "spider",
 	pvpFaction = "",
 	faction = "",
-	level = 2,
+	level = 1,
 	chanceHit = 0.2,
 	damageMin = 30,
 	damageMax = 40,
@@ -28,7 +28,7 @@ hermit_spider_be = Creature:new {
 
 	templates = {"object/mobile/hermit_spider_hue.iff"},
 	lootGroups = {},
-	weapons = {"creature_spit_small_toxicgreen"},
+	weapons = {},
 	conversationTemplate = "",
 	attacks = {
 	}

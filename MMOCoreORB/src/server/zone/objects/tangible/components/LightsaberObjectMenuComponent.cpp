@@ -50,7 +50,7 @@ int LightsaberObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObje
 	// Handle opening sabers
 	if (selectedID == 89) {
 
-		ManagedReference<SceneObject*> parent = weapon->getParent().get();
+		ManagedReference<SceneObject*> parent = weapon->getParent();
 		if (parent != NULL && parent->isPlayerCreature()){
 			player->sendSystemMessage("@jedi_spam:saber_not_while_equpped");
 			return 0;

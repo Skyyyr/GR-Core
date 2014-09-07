@@ -27,6 +27,7 @@ namespace area {
 		~LuaActiveArea();
 
 		int _setObject(lua_State* L);
+		int _getObject(lua_State* L);
 
 		int setRadius(lua_State *L);
 		int getRadius(lua_State *L);
@@ -37,7 +38,7 @@ namespace area {
 		int setCellObjectID(lua_State* L);
 		int getCellObjectID(lua_State* L);
 	private:
-		ActiveArea* realObject;
+		Reference<ActiveArea*> realObject;
 	};
 
 }

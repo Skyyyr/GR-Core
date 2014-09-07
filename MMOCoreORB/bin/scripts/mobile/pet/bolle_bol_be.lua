@@ -3,7 +3,7 @@ bolle_bol_be = Creature:new {
 	socialGroup = "bol",
 	pvpFaction = "",
 	faction = "",
-	level = 5,
+	level = 1,
 	chanceHit = 0.2,
 	damageMin = 30,
 	damageMax = 40,
@@ -28,7 +28,7 @@ bolle_bol_be = Creature:new {
 
 	templates = {"object/mobile/bolle_bol_hue.iff"},
 	lootGroups = {},
-	weapons = {"creature_spit_small_toxicgreen"},
+	weapons = {},
 	conversationTemplate = "",
 	attacks = {
 	}

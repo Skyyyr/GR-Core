@@ -12,7 +12,6 @@
 #include "server/zone/packets/mission/MissionObjectDeltaMessage3.h"
 #include "server/zone/ZoneServer.h"
 #include "server/zone/managers/object/ObjectManager.h"
-#include "server/zone/objects/group/GroupObject.h"
 
 void MissionObjectImplementation::initializeTransientMembers() {
 	SceneObjectImplementation::initializeTransientMembers();
@@ -194,24 +193,16 @@ WaypointObject* MissionObjectImplementation::createWaypoint() {
 }
 
 void MissionObjectImplementation::updateMissionLocation() {
-	if (getMissionObjective() == NULL || getMissionObjective()->getPlayerOwner() == NULL) {
-		return;
-	}
-	CreatureObject* playerCreature = getMissionObjective()->getPlayerOwner().castTo<CreatureObject*>();
+	ManagedReference<SceneObject*> player = getParentRecursively(SceneObjectType::PLAYERCREATURE);
 	
 	ManagedReference<WaypointObject* > waypointToMission = this->waypointToMission;
 
-	if (playerCreature != NULL && waypointToMission != NULL) {
+	if (player != NULL && waypointToMission != NULL) {
 		MissionObjectDeltaMessage3* dmiso3 = new MissionObjectDeltaMessage3(_this.get());
 		dmiso3->updateWaypoint(waypointToMission);
 		dmiso3->close();
 
-		playerCreature->sendMessage(dmiso3);
-
-		if (playerCreature->isGrouped() && playerCreature->getGroup() != NULL) {
-			GroupObject* group = playerCreature->getGroup();
-			group->scheduleUpdateNearestMissionForGroup(playerCreature->getPlanetCRC());
-		}
+		player->sendMessage(dmiso3);
 	}
 }
 

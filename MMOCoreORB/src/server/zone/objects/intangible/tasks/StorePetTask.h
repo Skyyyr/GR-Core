@@ -32,11 +32,12 @@ public:
 
 		pet->setPosture(CreaturePosture::UPRIGHT, true);
 		pet->clearCombatState(true);
-		pet->setOblivious();
-		pet->storeFollowObject();
+		pet->setTargetObject(NULL);
+		pet->setFollowObject(NULL);
 		pet->destroyObjectFromWorld(true);
 
 		pet->setCreatureLink(NULL);
+
 
 		CreatureTemplate* creoTemp = pet->getCreatureTemplate();
 

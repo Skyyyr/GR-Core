@@ -1,5 +1,3 @@
-local ObjectManager = require("managers.object.object_manager")
-
 TalusDetainmentCenterScreenPlay = ScreenPlay:new {
 	numberOfActs = 1,
 
@@ -22,7 +20,7 @@ function TalusDetainmentCenterScreenPlay:start()
 		local pBuilding = getSceneObject(self.buildingID)
 		createObserver(FACTIONBASEFLIPPED, "TalusDetainmentCenterScreenPlay", "flipBase", pBuilding)
 
-		if getRandomNumber(100) >= 50 then
+		if math.random(100) >= 50 then
 			self:spawnRebels(pBuilding)
 		else
 			self:spawnImperials(pBuilding)
@@ -31,7 +29,9 @@ function TalusDetainmentCenterScreenPlay:start()
 end
 
 function TalusDetainmentCenterScreenPlay:flipBase(pBuilding)
-	ObjectManager.withBuildingObject(pBuilding, function(building)
+
+	if pBuilding ~= nil then
+		local building = LuaBuildingObject(pBuilding)
 		building:destroyChildObjects()
 
 		if building:getFaction() == FACTIONIMPERIAL then
@@ -39,14 +39,15 @@ function TalusDetainmentCenterScreenPlay:flipBase(pBuilding)
 		elseif building:getFaction() == FACTIONREBEL then
 			self:spawnImperials(pBuilding)
 		end
-	end)
+	end
 
 	return 0
 end
 
 function TalusDetainmentCenterScreenPlay:spawnImperials(pBuilding)
 
-	ObjectManager.withBuildingObject(pBuilding, function(building)
+	if pBuilding ~= nil then
+		local building = LuaBuildingObject(pBuilding)
 		building:initializeStaticGCWBase(FACTIONIMPERIAL)
 
 		building:spawnChildSceneObject("object/tangible/gcw/flip_banner_onpole_imperial.iff", 3.5, -9.0, 35.1, 9686212, 1, 0, 0, 0)
@@ -80,12 +81,14 @@ function TalusDetainmentCenterScreenPlay:spawnImperials(pBuilding)
 		building:spawnChildCreature("stormtrooper", 300, -5.0, -23.0, 196.3, 90, 9686217)
 		building:spawnChildCreature("stormtrooper", 300, -8.0, -23.0, 196.3, 90, 9686217)
 		building:spawnChildCreature("imperial_first_lieutenant", 300, 7.1, -23.0, 198.5, -135, 9686217)
-	end)
+
+	end
 end
 
 function TalusDetainmentCenterScreenPlay:spawnRebels(pBuilding)
 
-	ObjectManager.withBuildingObject(pBuilding, function(building)
+	if pBuilding ~= nil then
+		local building = LuaBuildingObject(pBuilding)
 		building:initializeStaticGCWBase(FACTIONREBEL)
 
 		building:spawnChildSceneObject("object/tangible/gcw/flip_banner_onpole_rebel.iff", 3.5, -9.0, 35.1, 9686212, 1, 0, 0, 0)
@@ -119,5 +122,6 @@ function TalusDetainmentCenterScreenPlay:spawnRebels(pBuilding)
 		building:spawnChildCreature("rebel_trooper", 300, 10.0, -23.0, 186.3, 0, 9686217)
 		building:spawnChildCreature("rebel_trooper", 300, 10.0, -23.0, 183.3, 0, 9686217)
 		building:spawnChildCreature("rebel_first_lieutenant", 300, 6.8, -23.0, 203.1, -9, 9686217)
-	end)
+
+	end
 end

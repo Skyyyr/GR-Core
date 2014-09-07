@@ -47,7 +47,7 @@ crackdown_stormtrooper_captain = Creature:new {
 		}						
 	},
 	weapons = {"stormtrooper_weapons"},
-	conversationTemplate = "imperialRecruiterConvoTemplate",
+	conversationTemplate = "imperial_recruiter_convotemplate",
 	attacks = merge(riflemanmaster,carbineermaster)
 }
 

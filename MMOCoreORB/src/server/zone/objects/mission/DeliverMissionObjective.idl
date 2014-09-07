@@ -88,12 +88,10 @@ class DeliverMissionObjective extends MissionObjective {
 		Logger.setLoggingName("DeliverMissionObjective");
 	}
 	
-	@dirty
 	public native TangibleObject getItem() {
 		return item;
 	}
 	
-	@read
 	public int getObjectiveStatus() {
 		return objectiveStatus;
 	}
@@ -109,13 +107,11 @@ class DeliverMissionObjective extends MissionObjective {
 	public abstract native void updateMissionStatus(CreatureObject player);
 	
 	public abstract native boolean updateMissionTarget(CreatureObject player);
-
-	@dirty
+	
 	public NpcSpawnPoint getTargetSpawnPoint() {
 		return targetSpawnPoint;
 	}
 	
-	@dirty
 	public NpcSpawnPoint getDestinationSpawnPoint() {
 		return destinationSpawnPoint;
 	}

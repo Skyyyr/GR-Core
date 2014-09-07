@@ -4,11 +4,11 @@ nomad = Creature:new {
 	pvpFaction = "townsperson",
 	faction = "townsperson",
 	level = 5,
-	chanceHit = 0.25,
+	chanceHit = 0.250000,
 	damageMin = 45,
 	damageMax = 50,
 	baseXp = 113,
-	baseHAM = 133,
+	baseHAM = 135,
 	baseHAMmax = 165,
 	armor = 0,
 	resists = {0,0,0,0,0,0,0,-1,-1},
@@ -19,29 +19,19 @@ nomad = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.000000,
 	ferocity = 0,
-	pvpBitmask = ATTACKABLE,
+	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = 128,
+	optionsBitmask = 264,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_tatooine_nomad.iff"},
-	lootGroups = {
-	    {
-			groups = {
-				{group = "junk", chance = 4000000},
-				{group = "wearables_common", chance = 2000000},
-				{group = "tailor_components", chance = 1500000},
-				{group = "loot_kit_parts", chance = 1500000},
-				{group = "printer_parts", chance = 1000000},
-			},
-			lootChance = 2000000
-		}
-	},
-	weapons = {"rebel_weapons_light"},
-	conversationTemplate = "",
-	attacks = merge(brawlernovice,marksmannovice)
+	lootGroups = {},
+	weapons = {},
+	conversationTemplate = "theme_park_jabba_mission_target_convotemplate",
+	attacks = {
+	}
 }
 
 CreatureTemplates:addCreatureTemplate(nomad, "nomad")

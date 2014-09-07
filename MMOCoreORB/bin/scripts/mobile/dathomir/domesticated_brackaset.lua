@@ -27,7 +27,7 @@ domesticated_brackaset = Creature:new {
 	optionsBitmask = 128,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/brackaset_hue.iff"},
+	templates = {"object/mobile/brackaset.iff"},
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",

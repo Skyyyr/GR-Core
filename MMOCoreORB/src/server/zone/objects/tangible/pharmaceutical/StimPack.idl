@@ -101,7 +101,6 @@ class StimPack extends PharmaceuticalObject {
 		super.medicineUseRequired = stimPackTemplate.getMedicineUse();
 	}
 	
-	@dirty
 	public abstract unsigned int calculatePower(CreatureObject healer, CreatureObject patient, boolean applyBattleFatigue = true) {
 		float power = getEffectiveness();
 
@@ -165,7 +164,6 @@ class StimPack extends PharmaceuticalObject {
 	 * @param object player creature to which the message is sent
 	 */
 	@local
-	@dirty
 	public void fillAttributeList(AttributeListMessage msg, CreatureObject object) {
 		super.fillAttributeList(msg, object);
 
@@ -183,19 +181,15 @@ class StimPack extends PharmaceuticalObject {
 		}
 	}
 	
-	@dirty
 	public float getEffectiveness() {
 		return effectiveness;
 	}
 	
-	@dirty
 	public boolean isStimPack() {
 		return true;
 	}
 
-	@dirty
 	public native boolean isPetStimPack();
 
-	@dirty
 	public native boolean isDroidRepairKit();
 }

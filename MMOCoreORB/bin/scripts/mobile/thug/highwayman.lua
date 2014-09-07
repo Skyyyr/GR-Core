@@ -1,7 +1,7 @@
 highwayman = Creature:new {
 	objectName = "",
 	customName = "Highwayman",
-	socialGroup = "brigand",
+	socialGroup = "Brigand",
 	pvpFaction = "",
 	faction = "",
 	level = 10,

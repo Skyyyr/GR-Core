@@ -52,7 +52,6 @@
 #include "server/zone/templates/tangible/TrapTemplate.h"
 #include "server/zone/templates/tangible/DiceTemplate.h"
 #include "server/zone/templates/tangible/DnaSampleTemplate.h"
-#include "server/zone/templates/tangible/DroidComponentTemplate.h"
 #include "server/zone/templates/tangible/CamoKitTemplate.h"
 #include "server/zone/templates/universe/SharedGroupObjectTemplate.h"
 #include "server/zone/templates/universe/SharedGuildObjectTemplate.h"
@@ -76,7 +75,6 @@
 #include "server/zone/templates/tangible/VehicleDeedTemplate.h"
 #include "server/zone/templates/tangible/PetDeedTemplate.h"
 #include "server/zone/templates/tangible/DroidDeedTemplate.h"
-#include "server/zone/templates/tangible/EventPerkDeedTemplate.h"
 #include "server/zone/templates/tangible/MissionTerminalTemplate.h"
 #include "server/zone/templates/tangible/RobeObjectTemplate.h"
 #include "server/zone/templates/tangible/PlayerCreatureTemplate.h"
@@ -93,7 +91,6 @@
 #include "server/conf/ConfigManager.h"
 #include "server/zone/templates/installation/FactoryObjectTemplate.h"
 
-#include "server/zone/objects/tangible/deed/eventperk/EventPerkDeed.h"
 #include "server/zone/objects/tangible/wearables/ArmorObject.h"
 #include "server/zone/objects/tangible/weapon/WeaponObject.h"
 #include "server/zone/objects/creature/CreatureState.h"
@@ -484,7 +481,7 @@ void TemplateManager::addTemplate(uint32 key, const String& fullName, LuaObject*
 	if (!clientTemplateFile.isEmpty())
 		templateObject->addDerivedFile(clientTemplateFile);
 
-	info("loaded " + fullName);
+	//info("loaded " + fullName);
 
 	if (templateCRCMap->put(key, templateObject) != NULL) {
 		//error("duplicate template for " + fullName);
@@ -535,7 +532,6 @@ void TemplateManager::registerTemplateObjects() {
 	templateFactory.registerObject<PetDeedTemplate>(SharedObjectTemplate::PETDEED);
 	templateFactory.registerObject<VehicleDeedTemplate>(SharedObjectTemplate::VEHICLEDEED);
 	templateFactory.registerObject<DroidDeedTemplate>(SharedObjectTemplate::DROIDDEED);
-	templateFactory.registerObject<EventPerkDeedTemplate>(SharedObjectTemplate::EVENTPERKDEED);
 	templateFactory.registerObject<MissionTerminalTemplate>(SharedObjectTemplate::MISSIONTERMINAL);
 	templateFactory.registerObject<RobeObjectTemplate>(SharedObjectTemplate::ROBEOBJECT);
 	templateFactory.registerObject<CloningBuildingObjectTemplate>(SharedObjectTemplate::CLONINGBUILDING);
@@ -572,7 +568,6 @@ void TemplateManager::registerTemplateObjects() {
 	templateFactory.registerObject<DroidCustomKitTemplate>(SharedObjectTemplate::DROIDCUSTOMKIT);
 	templateFactory.registerObject<LightsaberCrystalObjectTemplate>(SharedObjectTemplate::LIGHTSABERCRYSTAL);
 	templateFactory.registerObject<DnaSampleTemplate>(SharedObjectTemplate::DNASAMPLE);
-	templateFactory.registerObject<DroidComponentTemplate>(SharedObjectTemplate::DROIDCOMPONENT);
 }
 
 void TemplateManager::registerFunctions() {
@@ -692,7 +687,6 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("VEHICLEDEED", SharedObjectTemplate::VEHICLEDEED);
 	luaTemplatesInstance->setGlobalInt("PETDEED", SharedObjectTemplate::PETDEED);
 	luaTemplatesInstance->setGlobalInt("DROIDDEED", SharedObjectTemplate::DROIDDEED);
-	luaTemplatesInstance->setGlobalInt("EVENTPERKDEED", SharedObjectTemplate::EVENTPERKDEED);
 	luaTemplatesInstance->setGlobalInt("MISSIONTERMINAL", SharedObjectTemplate::MISSIONTERMINAL);
 	luaTemplatesInstance->setGlobalInt("CLONINGBUILDING", SharedObjectTemplate::CLONINGBUILDING);
 	luaTemplatesInstance->setGlobalInt("DRAFTSCHEMATIC", SharedObjectTemplate::DRAFTSCHEMATIC);
@@ -728,7 +722,6 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("VEHICLECUSTOMKIT", SharedObjectTemplate::VEHICLECUSTOMKIT);
 	luaTemplatesInstance->setGlobalInt("DROIDCUSTOMKIT", SharedObjectTemplate::DROIDCUSTOMKIT);
 	luaTemplatesInstance->setGlobalInt("DNASAMPLE", SharedObjectTemplate::DNASAMPLE);
-	luaTemplatesInstance->setGlobalInt("DROIDCOMPONENT", SharedObjectTemplate::DROIDCOMPONENT);
 
 	luaTemplatesInstance->setGlobalInt("NO_HITLOCATION", CombatManager::NOLOCATION);
 	luaTemplatesInstance->setGlobalInt("CHEST_HITLOCATION", CombatManager::CHEST);
@@ -738,11 +731,6 @@ void TemplateManager::registerGlobals() {
 
 	luaTemplatesInstance->setGlobalInt("GENETIC_LAB", CraftingManager::GENETIC_LAB);
 	luaTemplatesInstance->setGlobalInt("RESOURCE_LAB", CraftingManager::RESOURCE_LAB);
-
-	luaTemplatesInstance->setGlobalInt("STATIC", EventPerkDeedTemplate::STATIC);
-	luaTemplatesInstance->setGlobalInt("THEATER", EventPerkDeedTemplate::THEATER);
-	luaTemplatesInstance->setGlobalInt("PERSONNEL", EventPerkDeedTemplate::PERSONNEL);
-	luaTemplatesInstance->setGlobalInt("GAME", EventPerkDeedTemplate::GAME);
 }
 
 String TemplateManager::getTemplateFile(uint32 key) {

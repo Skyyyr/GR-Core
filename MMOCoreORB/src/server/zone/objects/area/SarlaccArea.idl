@@ -54,6 +54,5 @@ class SarlaccArea extends ActiveArea {
 		super();
 	}
 	
-	@dirty
 	public native void notifyEnter(SceneObject player);
 }

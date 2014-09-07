@@ -1,6 +1,6 @@
 nurla_assassin = Creature:new {
 	objectName = "@mob/creature_names:assassin",
-	socialGroup = "mercenary",
+	socialGroup = "Mercenary",
 	pvpFaction = "",
 	faction = "",
 	level = 23,

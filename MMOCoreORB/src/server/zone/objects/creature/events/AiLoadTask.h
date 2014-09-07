@@ -10,7 +10,6 @@
 
 #include "server/zone/managers/creature/AiMap.h"
 #include "server/zone/objects/creature/AiAgent.h"
-#include "server/zone/objects/creature/CreatureFlag.h"
 
 namespace server {
 namespace zone {
@@ -46,11 +45,9 @@ public:
 
 		strongRef->clearBehaviorList();
 
-		if (aiTemp.isEmpty()) {
-			if (strongRef->getParentID() != 0)
-				strongRef->setCreatureBitmask(strongRef->getCreatureBitmask() | CreatureFlag::STATIC);
+		if (aiTemp.isEmpty())
 			strongRef->setupBehaviorTree();
-		} else
+		else
 			strongRef->setupBehaviorTree(AiMap::instance()->getTemplate(aiTemp));
 
 		strongRef->activateMovementEvent();

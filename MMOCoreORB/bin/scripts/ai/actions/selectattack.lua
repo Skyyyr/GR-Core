@@ -5,10 +5,10 @@ SelectAttackBase = createClass(Ai)
 
 function SelectAttackBase:checkConditions(pAgent)
 	if (pAgent ~= nil) then
-		local creature = CreatureObject(pAgent)
+		local creature = LuaCreatureObject(pAgent)
 		
 		if (creature:isDead()) then
-			local agent = AiAgent(pAgent)
+			local agent = LuaAiAgent(pAgent)
 			agent:removeDefenders()
 			agent:setFollowObject(nil)
 			return false
@@ -21,16 +21,15 @@ end
 
 function SelectAttackBase:doAction(pAgent)
 	if (pAgent ~= nil) then
-		local creature = CreatureObject(pAgent)
+		local agent = LuaAiAgent(pAgent)
+		local creature = LuaCreatureObject(pAgent)
 		
 		if (creature:getQueueSize() > 3) then
 			return BEHAVIOR_SUCCESS
 		end
 		
-    local agent = AiAgent(pAgent)
-		
 		agent:selectSpecialAttack(-1)
-		if (not agent:validateStateAttack() or getRandomNumber(5) == 1) then
+		if (not agent:validateStateAttack() or math.random(5) == 1) then
 			agent:selectDefaultAttack()
 		end
 		
@@ -43,11 +42,3 @@ end
 
 SelectAttack = createClass(SelectAttackBase, Interrupt)
 SelectAttackPet = createClass(SelectAttackBase, PetInterrupt)
-
-function SelectAttackPet:terminate(pAgent)
-	if pAgent ~= nil then
-		local agent = AiAgent(pAgent)
-		if agent:getBehaviorStatus() == BEHAVIOR_FAILURE then agent:restoreFollowObject() end
-	end
-	return 0
-end

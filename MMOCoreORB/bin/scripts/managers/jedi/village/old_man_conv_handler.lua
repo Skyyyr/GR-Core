@@ -5,7 +5,8 @@ old_man_conv_handler = Object:new {
 }
 
 function old_man_conv_handler:getNextConversationScreen(pConversationTemplate, pConversingPlayer, selectedOption)
-	local convosession = CreatureObject(pConversingPlayer):getConversationSession()
+	local creature = LuaCreatureObject(pConversingPlayer)
+	local convosession = creature:getConversationSession()
 
 	local lastConversationScreen = nil
 

@@ -51,7 +51,7 @@ imperial_warrant_officer_i = Creature:new {
 		}						
 	},
 	weapons = {"imperial_weapons_medium"},
-	conversationTemplate = "imperialRecruiterConvoTemplate",
+	conversationTemplate = "imperial_recruiter_convotemplate",
 	attacks = merge(riflemanmaster,carbineermaster)
 }
 

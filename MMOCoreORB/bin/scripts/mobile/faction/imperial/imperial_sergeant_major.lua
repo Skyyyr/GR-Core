@@ -51,7 +51,7 @@ imperial_sergeant_major = Creature:new {
 		}						
 	},
 	weapons = {"imperial_weapons_medium"},
-	conversationTemplate = "imperialRecruiterConvoTemplate",
+	conversationTemplate = "imperial_recruiter_convotemplate",
 	attacks = merge(riflemanmaster,carbineermaster)
 }
 

@@ -93,41 +93,17 @@ public:
 			ManagedReference<SceneObject*> object = zone->getZoneServer()->getObject(objid);
 
 			if (object != NULL) {
-				ManagedReference<SceneObject*> parent = object->getParent();
-
-				if (parent != NULL && parent->isCreatureObject() &&
-					!object->isASubChildOf(creature)) {
-
-					sendEmptyAttributes(creature, objid);
-				} else {
-					int count = (incr == 0 && !ids.hasMoreTokens()) ? 0 : incr;
-
-					sendAttributes(creature, object, count);
-				}
+				object->sendAttributeListTo(cast<CreatureObject*>(creature));
+				creature->notifyObservers(ObserverEventType::GETATTRIBUTESBATCHCOMMAND, object, (incr == 0 && !ids.hasMoreTokens())?0:incr);
 
 			} else {
-				sendEmptyAttributes(creature, objid);
+				AttributeListMessage* msg = new AttributeListMessage(objid);
+				creature->sendMessage(msg);
 			}
-
-			if ((incr++) > 80) {
-				creature->error("Objects attribute limit exceeded!");
-
-				return GENERALERROR;
-			}
+			incr++;
 		}
 
 		return SUCCESS;
-	}
-
-	void sendEmptyAttributes(CreatureObject* creature, uint64 objid) {
-		AttributeListMessage* msg = new AttributeListMessage(objid);
-		creature->sendMessage(msg);
-	}
-
-	void sendAttributes(CreatureObject* creature, SceneObject* object, int incr) {
-		object->sendAttributeListTo(creature);
-
-		creature->notifyObservers(ObserverEventType::GETATTRIBUTESBATCHCOMMAND, object, incr);
 	}
 
 };

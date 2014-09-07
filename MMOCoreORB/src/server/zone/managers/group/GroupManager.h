@@ -82,9 +82,6 @@ using namespace server::zone::objects::creature;
 
 class GroupManager : public Singleton<GroupManager>, public Object {
 
-private:
-	bool playerIsInvitingOwnPet(CreatureObject* inviter, CreatureObject* target);
-
 public:
 	GroupManager();
 

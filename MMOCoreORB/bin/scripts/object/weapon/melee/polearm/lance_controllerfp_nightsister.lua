@@ -117,9 +117,7 @@ object_weapon_melee_polearm_lance_controllerfp_nightsister = object_weapon_melee
 	minDamage = 10,
 	maxDamage = 190,
 
-	attackSpeed = 5.15,
-
-	woundsRatio = 14,
+	attackSpeed = 5.15
 
 }
 

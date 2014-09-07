@@ -42,8 +42,7 @@
 
 
 object_installation_faction_perk_turret_dish_lg = object_installation_faction_perk_turret_shared_dish_lg:new {
-	lotSize = 1,
-	pvpStatusBitmask = ATTACKABLE,
+	pvpStatusBitmask = 1,
 	optionsBitmask = 0,
 	maxCondition = 300000,
 	zoneComponent = "TurretZoneComponent",
@@ -63,7 +62,7 @@ object_installation_faction_perk_turret_dish_lg = object_installation_faction_pe
 	cold = 75,
 	acid = 75,
 	lightSaber =100,
-	chanceHit = 4,
+	chanceHit = 400,
 	weapon = "object/weapon/ranged/turret/turret_block_large.iff",
 	
 }

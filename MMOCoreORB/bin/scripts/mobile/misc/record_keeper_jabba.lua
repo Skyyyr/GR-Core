@@ -1,6 +1,6 @@
 record_keeper_jabba = Creature:new {
-	objectName = "@theme_park_name:lom",
-	customName = "8-LOM",
+	objectName = "",
+	customName = "Jabba Record Keeper",
 	socialGroup = "jabba",
 	pvpFaction = "jabba",
 	faction = "jabba",
@@ -24,13 +24,13 @@ record_keeper_jabba = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = 264,
+	optionsBitmask = 128,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/theme_park_record_keeper_jabba.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "rk_record_keeper_jabbaConversationTemplate",
+	conversationTemplate = "",
 	attacks = {
 	}
 }

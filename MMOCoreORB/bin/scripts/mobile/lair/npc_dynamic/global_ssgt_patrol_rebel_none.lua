@@ -1,15 +1,11 @@
 global_ssgt_patrol_rebel_none = Lair:new {
-	mobiles = {
-		{"rebel_staff_sergeant",1},
-		{"rebel_corporal",3}
-	},
-	spawnLimit = 9,
+	mobiles = {},
+	spawnLimit = 15,
 	buildingsVeryEasy = {},
 	buildingsEasy = {},
 	buildingsMedium = {},
 	buildingsHard = {},
 	buildingsVeryHard = {},
-	buildingType = "none"
 }
 
 addLairTemplate("global_ssgt_patrol_rebel_none", global_ssgt_patrol_rebel_none)

@@ -89,7 +89,6 @@ class ResourceContainer extends TangibleObject {
 	 * @param object player creature to which the message is sent
 	 */
 	@local
-	@dirty
 	public native void fillAttributeList(AttributeListMessage msg, CreatureObject object);
 
 	/**
@@ -98,22 +97,18 @@ class ResourceContainer extends TangibleObject {
 	 * @post { this object is locked, player received the baseline messages }
 	 * @param player SceneObject that will receive the baselines 
 	 */
-	@dirty
 	public native void sendBaselinesTo(SceneObject player);
 	
 	public native void setQuantity(unsigned int newQuantity, boolean notifyClient = true, boolean ignoreMax = false);
 	
-	@dirty
 	public boolean isResourceContainer() {
 		return true;
 	}
 	
-	@dirty
 	public int getQuantity() {
 		return stackQuantity;
 	}
 	
-	@dirty
 	public int getUseCount() {
 		return getQuantity();
 	}
@@ -124,7 +119,6 @@ class ResourceContainer extends TangibleObject {
 		spawnObject = spawn;
 	}
 	
-	@dirty
 	public string getSpawnName() {
 		string ret;
 		
@@ -135,7 +129,6 @@ class ResourceContainer extends TangibleObject {
 		return ret;
 	}
 	
-	@dirty
 	public string getSpawnType() {
 		string ret;
 		
@@ -146,7 +139,6 @@ class ResourceContainer extends TangibleObject {
 		return ret;
 	}
 	
-	@dirty
 	public unsigned long getSpawnID() {
 		unsigned long id = 0;
 		
@@ -157,7 +149,6 @@ class ResourceContainer extends TangibleObject {
 		return id;
 	}
 	
-	@dirty
 	public ResourceSpawn getSpawnObject() {
 		return spawnObject;
 	}

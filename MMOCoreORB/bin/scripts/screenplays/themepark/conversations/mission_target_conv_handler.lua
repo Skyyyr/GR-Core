@@ -1,5 +1,3 @@
-local ObjectManager = require("managers.object.object_manager")
-
 mission_target_conv_handler = Object:new {
 	themePark = nil
 }
@@ -9,7 +7,8 @@ function mission_target_conv_handler:setThemePark(themeParkNew)
 end
 
 function mission_target_conv_handler:getNextConversationScreen(pConversationTemplate, pConversingPlayer, selectedOption)
-	local convosession = CreatureObject(pConversingPlayer):getConversationSession()
+	local creature = LuaCreatureObject(pConversingPlayer)
+	local convosession = creature:getConversationSession()
 
 	local lastConversationScreen = nil
 
@@ -94,6 +93,7 @@ function mission_target_conv_handler:handleScreenSmuggle(pConversationTemplate, 
 	if (pConversingNpc == nil) then
 		return nil
 	end
+	local npc = LuaCreatureObject(pConversingNpc)
 
 	local npcNumber = self.themePark:getActiveNpcNumber(pConversingPlayer)
 	local missionNumber = self.themePark:getCurrentMissionNumber(npcNumber, pConversingPlayer)
@@ -112,6 +112,7 @@ function mission_target_conv_handler:handleScreenTakeMe(pConversationTemplate, p
 	if (pConversingNpc == nil) then
 		return nil
 	end
+	local npc = LuaCreatureObject(pConversingNpc)
 
 	local npcNumber = self.themePark:getActiveNpcNumber(pConversingPlayer)
 	local missionNumber = self.themePark:getCurrentMissionNumber(npcNumber, pConversingPlayer)
@@ -130,6 +131,7 @@ function mission_target_conv_handler:handleScreenOtherEscort(pConversationTempla
 	if (pConversingNpc == nil) then
 		return nil
 	end
+	local npc = LuaCreatureObject(pConversingNpc)
 
 	local npcNumber = self.themePark:getActiveNpcNumber(pConversingPlayer)
 	local missionNumber = self.themePark:getCurrentMissionNumber(npcNumber, pConversingPlayer)
@@ -144,12 +146,12 @@ function mission_target_conv_handler:handleScreenMissionType(pConversationTempla
 	if (pConversingNpc == nil) then
 		return nil
 	end
-
-	local creature = CreatureObject(pConversingPlayer)
+	local npc = LuaCreatureObject(pConversingNpc)
+	local creature = LuaCreatureObject(pConversingPlayer)
 	local activeMission = readData(creature:getObjectID() .. ":activeMission")
 	local npcID = readData(creature:getObjectID() .. ":missionSpawn:no1")
 	local correctNpc = true
-	if npcID ~= CreatureObject(pConversingNpc):getObjectID() then
+	if npcID ~= npc:getObjectID() then
 		correctNpc = false
 	end
 
