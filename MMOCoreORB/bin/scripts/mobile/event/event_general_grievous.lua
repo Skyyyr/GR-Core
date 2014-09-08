@@ -6,8 +6,8 @@ event_general_grievous = Creature:new {
 	faction = "",
 	level = 300,
 	chanceHit = 0.26,
-	damageMin = 1355,
-	damageMax = 2650,
+	damageMin = 355,
+	damageMax = 650,
 	baseXp = 3500,
 	baseHAM = 50000,
 	baseHAMmax = 55000,
@@ -29,21 +29,7 @@ event_general_grievous = Creature:new {
 
 	templates = {"object/mobile/ep3/general_grievous.iff"},
 	scale = 3,
-	lootGroups = {
-		{
-			groups = {
-				{group = "crystals_premium", chance = 900000},
-				{group = "pistols", chance = 1000000},
-				{group = "rifles", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-				{group = "melee_weapons", chance = 2000000},
-				{group = "armor_attachments", chance = 500000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "wearables_scarce", chance = 500000}
-			},
-			lootChance = 7000000
-		},
-	},
+	lootGroups = {},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
 	attacks = merge(lightsabermaster,forcepowermaster)

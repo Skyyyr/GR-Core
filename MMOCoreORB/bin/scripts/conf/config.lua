@@ -94,7 +94,7 @@ ZonesEnabled = {
 	--"creature_test",
 	"dantooine",
 	"dathomir",
-	"dungeon1",
+	--"dungeon1",
 	"endor",
 	--"endor_asommers",
 	--"floratest",
@@ -190,7 +190,8 @@ TreFiles = {
 	"bottom.tre",
 	"gr_publish_01_01.tre",
 	"gr_publish_01_02.tre",
-	"gr_publish_01_03.tre"
+	"gr_publish_01_03.tre",
+	"gr_publish_02_01.tre"
 }
 
 --Status Server Config

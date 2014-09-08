@@ -44,7 +44,7 @@
 object_building_player_emperors_house = object_building_player_shared_emperors_house:new {
 	lotSize = 2,
 	baseMaintenanceRate = 10,
-	allowedZones = {"naboo", "taanab", "corellia", "tatooine", "rori", "lok", "talus"},
+	allowedZones = {"naboo", "taanab"},
 	publicStructure = 0,
 	skillMods = {
 		{"private_medical_rating", 300},
