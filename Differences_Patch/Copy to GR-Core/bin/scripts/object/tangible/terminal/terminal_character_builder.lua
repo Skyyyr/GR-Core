@@ -1459,7 +1459,7 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 			--	},
 				"Backpacks",
 				{
-					"Backpack 01", "object/tangible/wearables/backpack/backpack_s01.iff"
+					"Travel Pack", "object/tangible/wearables/backpack/backpack_s01.iff"
 				}
 			},
 			"Consumables",
