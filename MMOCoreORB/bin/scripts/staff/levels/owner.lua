@@ -1,5 +1,5 @@
-owner = {
-	level = 10,
+admin = {
+	level = 15,
 	name = "owner",
 	tag = "GR-Owner",
 	skills = {
