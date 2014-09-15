@@ -376,8 +376,8 @@ bool PlayerCreationManager::createCharacter(MessageCallback* data) {
 			ClientCreateCharacterCallback*>(data);
 	ZoneClientSession* client = data->getClient();
 
-	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= 10) {
-		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You can only have 10 characters per galaxy", 0x0);
+	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= 20) {
+		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You can only have 20 characters per galaxy", 0x0);
 		client->sendMessage(errMsg);
 
 		return false;
@@ -531,8 +531,8 @@ bool PlayerCreationManager::createCharacter(MessageCallback* data) {
 
 							Time timeVal(sec);
 
-							if (timeVal.miliDifference() < 86400000) {
-								ErrorMessage* errMsg = new ErrorMessage("Create Error", "You can only create 1 character ever 24 hours", 0x0);
+							if (timeVal.miliDifference() < 3600000) {
+								ErrorMessage* errMsg = new ErrorMessage("Create Error", "You can only create 1 character ever 1 hours", 0x0);
 								client->sendMessage(errMsg);
 
 								return false;
@@ -548,8 +548,8 @@ bool PlayerCreationManager::createCharacter(MessageCallback* data) {
 					if (lastCreatedCharacter.containsKey(accID)) {
 						Time lastCreatedTime = lastCreatedCharacter.get(accID);
 
-						if (lastCreatedTime.miliDifference() < 86400000) {
-							ErrorMessage* errMsg = new ErrorMessage("Create Error", "You can only create 1 character ever 24 hours", 0x0);
+						if (lastCreatedTime.miliDifference() < 3600000) {
+							ErrorMessage* errMsg = new ErrorMessage("Create Error", "You can only create 1 character ever 1 hours", 0x0);
 							client->sendMessage(errMsg);
 
 							return false;
