@@ -51,7 +51,7 @@ performanceDuration = 7200 -- in seconds
 medicalDuration = 7200 -- in seconds
 
 --Sets the experience multiplier while grouped
-groupExpMultiplier = 1.2
+groupExpMultiplier = 3.5
 
 --Sets a global experience multiplier
 globalExpMultiplier = 3.0
