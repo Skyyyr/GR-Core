@@ -39,9 +39,10 @@ int ForceShrineMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 	if (ghost == NULL)
 		return 0;
 
-	//if (ghost->getAdminLevel() < 15)
-		//return 0;
-
+	
+	/*If player has completed the village and not a Jedi Padawan then
+		grant Jedi Padawan
+	*/
 	if (creature->getScreenPlayState("VillageJediProgression") && !creature->hasSkill("force_title_jedi_rank_02")){
 		ManagedReference<SuiMessageBox*> box = new SuiMessageBox(creature, SuiWindowType::NONE);
 		box->setPromptTitle("@jedi_trials:padawan_trials_title"); // Jedi Trials
@@ -58,7 +59,10 @@ int ForceShrineMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		ghost->setJediState(2);
 
-		/* Trainer number. Pick a random trainer, there are at least 600 in the galaxy.
+		/* 
+			Trainers are disabled.
+		
+		Trainer number. Pick a random trainer, there are at least 600 in the galaxy.
 
 		ZoneServer* zoneServer = ghost->getZoneServer();
 		int randomZone = System::random(zoneServer->getZoneCount() - 1);
