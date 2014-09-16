@@ -38,7 +38,21 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 			} else {
 				creature->sendSystemMessage("@jedi_spam:holocron_force_max"); //You are already at your maximum Force power.
 			}
-		} else {
+		} 
+		if (playerObject != NULL @@ playerObject->getJediState() < 2) {
+			int randRoll = system::Random(15);
+			if (randRoll == 1) {
+				creature->sendSystemMessage("You have unlocked the secrets of the Holocron, go visit a Force Shrine.");
+				sceneObject->destroyObjectFromWorld(true);
+				creature->setScreenPlayState("unlockedHolocron", 1);
+			} else {
+				creature->sendSystemMessage("You break the holocron while trying to unlock its secrets.");
+				sceneObject->destroyObjectFromWorld(true);
+				creature->addCooldown("used_holocron", 600);
+			}
+			
+		}
+		else {
 			creature->sendSystemMessage("@jedi_spam:holocron_no_effect"); //The holocron hums briefly, but otherwise does nothing.
 		}
 
