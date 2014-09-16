@@ -4,10 +4,11 @@ local VillageJediManagerCommon = require("managers.jedi.village.village_jedi_man
 
 Glowing = Object:new {}
 
-TOTALNUMBEROFBADGESREQUIRED = 39 --39
-NUMBEROFJEDIBADGESREQUIRED = 30 --30
-NUMBEROFDIFFICULTBADGESREQUIRED = 7 --7
-NUMBEROFEASYBADGESREQUIRED = 2 --2
+TOTALNUMBEROFBADGESREQUIRED = 44 
+NUMBEROFJEDIBADGESREQUIRED = 30 
+NUMBEROFDIFFICULTBADGESREQUIRED = 7 
+NUMBEROFEASYBADGESREQUIRED = 2
+NUMBEROFPROFBADGESREQUIRED = 5
 
 JEDIBADGES = { 
        EXP_TAT_TUSKEN_POOL, 
@@ -34,10 +35,6 @@ JEDIBADGES = {
        BDG_EXP_DAT_IMP_PRISON, 
        BDG_EXP_DAN_DANTARI_VILLAGE1, 
        BDG_EXP_DAN_DANTARI_VILLAGE2, 
-
-
-
-
        BDG_EXP_END_EWOK_TREE_VILLAGE, 
        BDG_EXP_END_EWOK_LAKE_VILLAGE, 
        BDG_EXP_END_DULOK_VILLAGE, 
@@ -62,10 +59,6 @@ DIFFICULTBADGES = {
        EXP_TAT_KRAYT_GRAVEYARD, 
        EXP_TAT_KRAYT_SKELETON, 
        EXP_TAT_BENS_HUT, 
-
-
-
-
        EXP_DAT_MISTY_FALLS_1, 
        EXP_DAT_MISTY_FALLS_2, 
        EXP_DAN_JEDI_TEMPLE, 
@@ -75,6 +68,16 @@ EASYBADGES = {
        BDG_THM_PARK_JABBA_BADGE, 
        BDG_THM_PARK_IMPERIAL_BADGE, 
        BDG_THM_PARK_REBEL_BADGE 
+}
+PROFBADGES = {
+	COMBAT_2HSWORD_MASTER,
+	COMBAT_RIFLE_MASTER,
+	CRAFTING_ARCHITECT_MASTER,
+	SOCIAL_IMAGEDESIGNER_MASTER,
+	COMBAT_COMMANDO_MASTER,
+	SCIENCE_DOCTOR_MASTER,
+	CRAFTING_WEAPONSMITH_MASTER
+	
 }
 -- Count the number of badges that the player got in the list.
 -- @param pCreatureObject pointer to the creature object of the player.
@@ -103,7 +106,8 @@ function Glowing:countBadges(pCreatureObject)
 	local jediBadges = self:countBadgesInListToUpperLimit(pCreatureObject, JEDIBADGES, NUMBEROFJEDIBADGESREQUIRED)
 	local difficultBadges = self:countBadgesInListToUpperLimit(pCreatureObject, DIFFICULTBADGES, NUMBEROFDIFFICULTBADGESREQUIRED)
 	local easyBadges = self:countBadgesInListToUpperLimit(pCreatureObject, EASYBADGES, NUMBEROFEASYBADGESREQUIRED)
-	return jediBadges + difficultBadges + easyBadges
+	local profBadges = self:countBadgesInListToUpperLimit(pCreatureObject, PROFBADGES, NUMBEROFPROFBADGESREQUIRED)
+	return jediBadges + difficultBadges + easyBadges + profBadges
 end
 
 -- Check if the player is glowing or not.
