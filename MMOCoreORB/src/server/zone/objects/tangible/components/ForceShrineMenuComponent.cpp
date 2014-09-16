@@ -58,7 +58,7 @@ int ForceShrineMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		ghost->setJediState(2);
 
-		/* Trainer number. Pick a random trainer, there are at least 600 in the galaxy.
+		//Trainer number. Pick a random trainer, there are at least 600 in the galaxy.
 
 		ZoneServer* zoneServer = ghost->getZoneServer();
 		int randomZone = System::random(zoneServer->getZoneCount() - 1);
@@ -76,7 +76,7 @@ int ForceShrineMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		String zoneName = zone->getZoneName();
 
 		ghost->setTrainerCoordinates(trainerPositionFinal);
-		ghost->setTrainerZoneName(zoneName); // For the Waypoint. */
+		ghost->setTrainerZoneName(zoneName); // For the Waypoint. 
 
 
 		ManagedReference<SceneObject*> inventory = creature->getSlottedObject("inventory");
