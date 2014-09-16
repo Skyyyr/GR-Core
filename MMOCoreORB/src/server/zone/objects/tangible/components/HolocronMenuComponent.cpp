@@ -39,7 +39,7 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 				creature->sendSystemMessage("@jedi_spam:holocron_force_max"); //You are already at your maximum Force power.
 			}
 		} 
-		if (playerObject != NULL @@ playerObject->getJediState() < 2) {
+		if (playerObject != NULL && playerObject->getJediState() < 2) {
 			int randRoll = system::Random(15);
 			if (randRoll == 1) {
 				creature->sendSystemMessage("You have unlocked the secrets of the Holocron, go visit a Force Shrine.");
